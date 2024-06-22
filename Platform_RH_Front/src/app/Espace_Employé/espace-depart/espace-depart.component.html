@@ -1,0 +1,70 @@
+<app-sidebar></app-sidebar>
+
+<div class="main p-4 p-lg-5">
+    <ol class="breadcrumb fs-sm mb-2">
+      <li class="breadcrumb-item"><a href="#">Pages</a></li>
+      <li class="breadcrumb-item"><a href="#">User Pages</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Settings</li>
+    </ol>
+    <br> <br>
+    <nav class="nav nav-line mb-4">
+      <a  class="nav-link active"> Votre Departure</a>
+     
+    
+    </nav>
+
+    <div  *ngIf="responseMessage === ''" class="card card-settings">
+        <div class="card-header">
+            <h5 class="card-title">Departure Information</h5>
+            <p class="card-text">Ajouter votre departure details.</p>
+        </div><!-- card-header -->
+        <div class="card-body p-0">
+            <div class="setting-item">
+                <div class="row g-2 align-items-center">
+                    <div class="col-md-5">
+                        <h5>CIN</h5>
+                        <p>Employee's CIN number.</p>
+                    </div><!-- col -->
+                    <div class="col-md">
+                        <input type="text" class="form-control" placeholder="Enter CIN"  [(ngModel)]="userData.cin" disabled>
+                    </div><!-- col -->
+                </div><!-- row -->
+            </div><!-- setting-item -->
+            <div class="setting-item">
+                <div class="row g-2">
+                    <div class="col-md-5">
+                        <h5>Departure Date</h5>
+                        <p>Date of departure.</p>
+                    </div><!-- col -->
+                    <div class="col-md">
+                        <input type="date" class="form-control" placeholder="Select departure date"  [(ngModel)]="userData.departDate" >
+                    </div><!-- col -->
+                </div><!-- row -->
+            </div><!-- setting-item -->
+            <div class="setting-item">
+                <div class="row g-2 align-items-center">
+                    <div class="col-md-5">
+                        <h5>Departure Type</h5>
+                        <p>Type of departure.</p>
+                    </div><!-- col -->
+                    <div class="col-md">
+                        <input type="text" class="form-control" placeholder="Enter departure type"  [(ngModel)]="userData.departType">
+                    </div><!-- col -->
+                </div><!-- row -->
+            </div><!-- setting-item -->
+
+        </div><!-- card-body -->
+        <button type="button" class="btn btn-primary" (click)="demandeDepart()">Ajouter Depart</button>
+
+    </div>
+
+    <div *ngIf="responseMessage !== ''">
+        <p class="link-danger" >{{ responseMessage }}</p>
+      </div>
+
+  
+
+    <div class="main-footer">
+      <span>© 2024. RH Platform.</span>
+    </div><!-- main-footer -->
+  </div>

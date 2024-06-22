@@ -1,0 +1,144 @@
+<app-sidebar></app-sidebar>
+<div  class="flex-fill ht-50 bg-gray-300" class="main main-docs">
+    <div class="container">
+     
+      <hr class="main-separator">
+      <div [style.width.%]="isTabletOrPhoneScreen ? 100 : 120" id="wizard1" class="wizard-demo">
+        <h3>Informations Personnelles</h3>
+        <div>
+            <div class="row g-8">
+                <div class="col-sm-6">
+                    <label class="form-label">Prénom</label>
+                    <h5 class="form-control">{{ userData.userFirstName }}</h5>
+                </div>
+                <div class="col-sm-6">
+                    <label class="form-label">Nom de Famille</label>
+                    <h5 class="form-control">{{ userData.userLastName }}</h5>
+                </div>
+                <div class="col-sm-6">
+                    <label class="form-label">CIN</label>
+                    <h5 class="form-control">{{ userData.cin }}</h5>
+                </div>
+                <div class="col-sm-6">
+                    <label class="form-label">Gender</label>
+                    <h5 class="form-control">{{ userData.gender }}</h5>
+                </div>
+                <div class="col-sm-6">
+                    <label class="form-label">Civilité</label>
+                    <h5 class="form-control">{{ userData.civility }}</h5>
+                </div>
+                <div class="col-sm-6">
+                    <label class="form-label">Date de Naissance</label>
+                    <h5 class="form-control">{{ userData.dateOfBirth }}</h5>
+                </div>
+                <div class="col-sm-6">
+                    <label class="form-label">Lieu de Naissance</label>
+                    <h5 class="form-control">{{ userData.placeOfBirth }}</h5>
+                </div>
+                <div class="col-sm-6">
+                    <label class="form-label">Nationalité</label>
+                    <h5 class="form-control">{{ userData.nationality }}</h5>
+                </div>
+                <div class="col-sm-6">
+                    <label class="form-label">Genre</label>
+                    <h5 class="form-control">{{ userData.gender }}</h5>
+                </div>
+                <div class="col-sm-6">
+                    <label class="form-label">Date de Validité de la CIN</label>
+                    <h5 class="form-control">{{ userData.cinDate }}</h5>
+                </div>
+                <div class="col-sm-6">
+                    <label class="form-label">Numéro de Téléphone</label>
+                    <h5 class="form-control">{{ userData.phoneNumber }}</h5>
+                </div>
+                <div class="col-sm-6">
+                    <label class="form-label">Adresse</label>
+                    <h5 class="form-control">{{ userData.address }}</h5>
+                </div>
+                <div class="col-sm-6">
+                    <label class="form-label">E-mail</label>
+                    <h5 class="form-control">{{ userData.email }}</h5>
+                </div>
+            </div><!-- row -->
+        </div>
+        
+        <h3>Informations sur l'entreprise</h3>
+        <div>
+            <!-- Informations sur l'entreprise -->
+            <div class="row g-3">
+                <div class="col-sm-6">
+                    <label class="form-label">Nom de l'entreprise</label>
+                    <h5 class="form-control">{{ userData.entreprise[0].entrepriseName }}</h5>
+                </div><!-- col -->
+                <div class="col-sm-6">
+                    <label class="form-label">Adresse</label>
+                    <h5 class="form-control">{{ userData.entreprise[0].adresse_Entreprise }}</h5>
+                </div><!-- col -->
+                <div class="col-sm-6">
+                    <label class="form-label">Code postal</label>
+                    <h5 class="form-control">{{ userData.entreprise[0].code_Postal }}</h5>
+                </div><!-- col -->
+                <div class="col-sm-6">
+                    <label class="form-label">Ville</label>
+                    <h5 class="form-control">{{ userData.entreprise[0].ville }}</h5>
+                </div><!-- col -->
+                <div class="col-sm-6">
+                    <label class="form-label">Pays</label>
+                    <h5 class="form-control">{{ userData.entreprise[0].pays }}</h5>
+                </div><!-- col -->
+                <div class="col-sm-6">
+                    <label class="form-label">Email</label>
+                    <h5 class="form-control">{{ userData.entreprise[0].email }}</h5>
+                </div><!-- col -->
+                <div class="col-sm-6">
+                    <label class="form-label">Numéro de taxe</label>
+                    <h5 class="form-control">{{ userData.entreprise[0].numFiscale }}</h5>
+                </div><!-- col -->
+                <div class="col-sm-6">
+                    <label class="form-label">Téléphone</label>
+                    <h5 class="form-control">{{ userData.entreprise[0].tel_Entreprise }}</h5>
+                </div><!-- col -->
+                <div class="col-sm-6">
+                    <label class="form-label">Site Web</label>
+                    <h5 class="form-control">{{ userData.entreprise[0].site_Web }}</h5>
+                </div><!-- col -->
+                <div class="col-sm-6">
+                    <label class="form-label">Domaine d'activité</label>
+                    <h5 class="form-control">{{ userData.entreprise[0].domaine_Activite }}</h5>
+                </div><!-- col -->
+                <div class="col-sm-6">
+                    <label class="form-label">Date de création</label>
+                    <h5 class="form-control">{{ userData.entreprise[0].date_Creation_Entreprise }}</h5>
+                </div><!-- col -->
+                <div class="col-sm-6">
+                    <label class="form-label">Nombre d'employés</label>
+                    <h5 class="form-control">{{ userData.entreprise[0].nb_Employees }}</h5>
+                </div><!-- col -->
+                <div class="col-sm-12">
+                    <label class="form-label">Description</label>
+                    <p>{{ userData.entreprise[0].entrepriseDescription }}</p>
+                </div><!-- col -->
+            </div><!-- row -->
+        </div>
+        
+      
+      
+       
+        <h3>Validation</h3>
+        <div>
+          <!-- Validation form -->
+          <div class="row g-3">
+            <div class="col-sm-6">
+                <p>        Si vous cliquez sur 'Finish', vous serez invité à accepter l'entrepreneur et son entreprise ou à les supprimer. <br>
+                    Prenez votre temps et faites votre choix.  <br>
+                    Profitez du processus ! </p>
+              <h6>Nous sommes impatients de vous aider à réussir dans votre parcours entrepreneurial</h6>
+            </div><!-- col -->
+            
+          </div><!-- form-row -->
+        </div>
+        
+      </div><!-- #wizard1 -->
+      
+</div>
+</div>

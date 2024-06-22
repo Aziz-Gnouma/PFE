@@ -1,0 +1,164 @@
+<app-sidebar></app-sidebar>
+<div class="main p-4 p-lg-5">
+    <ol class="breadcrumb fs-sm mb-2">
+      <li class="breadcrumb-item"><a href="#">Pages</a></li>
+      <li class="breadcrumb-item"><a href="#">User Pages</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Settings</li>
+    </ol>
+    <h2 class="main-title">Settings</h2>
+
+    <nav class="nav nav-line mb-4">
+      <a class="nav-link active">Carrier Information</a>
+
+    
+    </nav>
+
+   
+
+
+      <div class="card card-settings" >
+        <div class="card-header">
+          <h5 class="card-title">Carrier Information</h5>
+          <p class="card-text">Please ensure all carrier details are accurately updated to reflect the employee's current position, salary, qualifications, and relevant experience.</p>
+        </div><!-- card-header -->
+        <div class="card-body p-0">
+          <!-- Form for updating carrier information -->
+          <form [formGroup]="userForm" (ngSubmit)="updateCarrier()">
+           
+            <!-- Salaire -->
+            <div class="setting-item">
+              <div class="row g-2 align-items-center">
+                <div class="col-md-5">
+                  <h5 class="card-text">Salaire</h5>
+                </div>
+                <div class="col-md">
+                  <input type="number" class="form-control" id="salaire" formControlName="salaire" [ngModel]="CarrierData?.salaire">
+                </div>
+              </div>
+            </div>
+            <!-- Catégorie -->
+            <div class="setting-item">
+              <div class="row g-2 align-items-center">
+                <div class="col-md-5">
+                  <h5 class="card-text">Catégorie</h5>
+                </div>
+                <div class="col-md">
+                  <input type="text" class="form-control" id="categorie" formControlName="categorie" [ngModel]="CarrierData?.categorie">
+                </div>
+              </div>
+            </div>
+            <!-- Date d'entrée -->
+            <div class="setting-item">
+              <div class="row g-2 align-items-center">
+                <div class="col-md-5">
+                  <h5 class="card-text">Date d'entrée :({{CarrierData?.dateEntree  | date: 'dd-MM-yyyy'}})</h5>
+                </div>
+                <div class="col-md">
+                  <input type="date" class="form-control" id="dateEntree" formControlName="dateEntree" [ngModel]="CarrierData?.dateEntree">
+                </div>
+              </div>
+            </div>
+            <!-- Fonction -->
+            <div class="setting-item">
+              <div class="row g-2 align-items-center">
+                <div class="col-md-5">
+                  <h5 class="card-text">Fonction</h5>
+                </div>
+                <div class="col-md">
+                  <input type="text" class="form-control" id="fonction" formControlName="fonction" [ngModel]="CarrierData?.fonction">
+                </div>
+              </div>
+            </div>
+            <!-- Grade -->
+            <div class="setting-item">
+              <div class="row g-2 align-items-center">
+                <div class="col-md-5">
+                  <h5 class="card-text">Grade</h5>
+                </div>
+                <div class="col-md">
+                  <input type="text" class="form-control" id="grade" formControlName="grade" [ngModel]="CarrierData?.grade">
+                </div>
+              </div>
+            </div>
+            <!-- Nature du diplôme -->
+            <div class="setting-item">
+              <div class="row g-2 align-items-center">
+                <div class="col-md-5">
+                  <h5 class="card-text">Nature du diplôme</h5>
+                </div>
+                <div class="col-md">
+                  <input type="text" class="form-control" id="natureDiplome" formControlName="natureDiplome" [ngModel]="CarrierData?.natureDiplome">
+                </div>
+              </div>
+            </div>
+            <!-- Niveau d'éducation -->
+            <div class="setting-item">
+              <div class="row g-2 align-items-center">
+                <div class="col-md-5">
+                  <h5 class="card-text">Niveau d'éducation</h5>
+                </div>
+                <div class="col-md">
+                  <input type="text" class="form-control" id="niveauEducation" formControlName="niveauEducation" [ngModel]="CarrierData?.niveauEducation">
+                </div>
+              </div>
+            </div>
+            <!-- Langues maîtrisées -->
+            <div class="setting-item">
+              <div class="row g-2 align-items-center">
+                <div class="col-md-5">
+                  <h5 class="card-text">Langues maîtrisées</h5>
+                </div>
+                <div class="col-md">
+                  <input type="text" class="form-control" id="languesMaitrisees" formControlName="languesMaitrisees" [ngModel]="CarrierData?.languesMaitrisees">
+                </div>
+              </div>
+            </div>
+            <!-- Expérience professionnelle -->
+            <div class="setting-item">
+              <div class="row g-2 align-items-center">
+                <div class="col-md-5">
+                  <h5 class="card-text">Expérience professionnelle</h5>
+                </div>
+                <div class="col-md">
+                  <input type="text" class="form-control" id="experienceProfessionnelle" formControlName="experienceProfessionnelle" [ngModel]="CarrierData?.experienceProfessionnelle">
+                </div>
+              </div>
+            </div>
+            <!-- Compétences spécialisées -->
+            <div class="setting-item">
+              <div class="row g-2 align-items-center">
+                <div class="col-md-5">
+                  <h5 class="card-text">Compétences spécialisées</h5>
+                </div>
+                <div class="col-md">
+                  <input type="text" class="form-control" id="competencesSpecialisees" formControlName="competencesSpecialisees" [ngModel]="CarrierData?.competencesSpecialisees">
+                </div>
+              </div>
+            </div>
+            <!-- Date de départ -->
+            <div class="setting-item">
+              <div class="row g-2 align-items-center">
+                <div class="col-md-5">
+                  <h5 class="card-text">Date de départ :({{CarrierData?.dateDepart  | date: 'dd-MM-yyyy'}})</h5>
+                </div>
+                <div class="col-md">
+                  <input type="date" class="form-control" id="dateDepart" formControlName="dateDepart" [ngModel]="CarrierData?.dateDepart">
+                </div>
+              </div>
+            </div>
+      
+           
+            <button style="margin-left: 40%;" class="btn btn-primary btn-lg btn-block" type="submit" class="btn btn-primary">Update</button>
+          </form>
+        </div><!-- card-body -->
+      </div><!-- card -->
+      
+      
+  
+
+    <div class="main-footer">
+      <span>© 2024. RH Platform.</span>
+    </div><!-- main-footer -->
+  </div>
+
+

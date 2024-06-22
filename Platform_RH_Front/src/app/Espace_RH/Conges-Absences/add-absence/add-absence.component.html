@@ -1,0 +1,52 @@
+  <app-sidebar></app-sidebar>
+  <div class="container-fluid p-0">
+    <div class="row">
+      <div class="col-md-3">
+
+      </div>
+      <div class="col-md-9 p-0 d-flex align-items-center justify-content-center">
+        <div class="w-75 mt-100">
+          <div class="card">
+            <div class="card-body">
+              <div *ngIf="successMessage" class="alert alert-success" role="alert">
+                {{ successMessage }}
+              </div>
+              <div *ngIf="errorMessage" class="alert alert-danger" role="alert">
+                {{ errorMessage }}
+              </div>
+    <h2 class="my-4">Ajouter une absence</h2>
+    <form (ngSubmit)="createAbsence()" class="needs-validation" novalidate>
+      <div class="row g-3">
+        <div class="col-md-6">
+          <div class="form-floating">
+            <input type="date" class="form-control" id="startDate" [(ngModel)]="absence.startDate" name="startDate" required>
+            <label for="startDate">Date de début:</label>
+            <div class="invalid-feedback">
+              Veuillez entrer une date de début.
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="form-floating my-3">
+        <input type="text" class="form-control" id="numberOfHours" [(ngModel)]="absence.numberOfHours" name="numberOfHours" required (change)="validateNumberOfHours()">
+        <label for="numberOfHours">Nombre d'heure:</label>
+      </div>
+      <div class="form-floating my-3">
+        <select class="form-select" id="reason" [(ngModel)]="absence.reason" name="reason" required>
+          <option value="" disabled selected>Sélectionner une raison</option>
+          <option value="Maladie">Maladie</option>
+          <option value="Congé de maternité">Absence de maternité</option>
+          <option value="Congé de paternité">Absence de paternité</option>
+          <option value="Congé de formation">Absence de formation</option>
+          <option value="Congé pour décès familial">Absence pour décès familiale</option>
+          <option value="Congé pour déménagement">Absence pour déménagement</option>
+        </select>
+        <label for="reason">type d'absence:</label>
+        <div class="invalid-feedback">
+          Veuillez sélectionner une raison.
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary">Soumettre</button>
+    </form>
+  </div>

@@ -1,0 +1,253 @@
+<app-sidebar></app-sidebar>
+ 
+<div class="main main-app p-3 p-lg-4">
+    <div class="d-flex align-items-center justify-content-between mb-4">
+      <div>
+        <ol class="breadcrumb fs-sm mb-1">
+          <li class="breadcrumb-item"><a routerLink="/Gerant">Dashboard</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Ajouter Carriere</li>
+        </ol>
+        <h4 class="main-title mb-0">Ajouter Carriere pour un Employe </h4>
+        
+
+      </div>
+
+      <nav class="nav nav-icon nav-icon-lg">
+      </nav>
+    </div>
+    
+    <div class="container">
+    <div  class="col-12">
+
+        <div class="card card-example">
+            <div class="card-body">
+              <form *ngIf="userForm" [formGroup]="userForm" (ngSubmit)="submitForm()">
+                <div class="row g-3">
+                  <!-- grilleDeSalaire -->
+                  <div class="col-md-6">
+                    <label for="grilleDeSalaire" class="form-label">Grille de Salaire</label>
+                    <input type="text" class="form-control" id="grilleDeSalaire" formControlName="grilleDeSalaire">
+                    <div *ngIf="userForm.get('grilleDeSalaire')?.invalid && (userForm.get('grilleDeSalaire')?.dirty || userForm.get('grilleDeSalaire')?.touched)" class="text-danger">
+                      Grille de Salaire is required
+                    </div>
+                  </div>
+              
+                  <!-- grilleDeDattes -->
+                  <div class="col-md-6">
+                    <label for="grilleDeDattes" class="form-label">Grille de Dattes</label>
+                    <input type="text" class="form-control" id="grilleDeDattes" formControlName="grilleDeDattes">
+                    <div *ngIf="userForm.get('grilleDeDattes')?.invalid && (userForm.get('grilleDeDattes')?.dirty || userForm.get('grilleDeDattes')?.touched)" class="text-danger">
+                      Grille de Dattes is required
+                    </div>
+                  </div>
+              
+                  <!-- dateCategorie -->
+                  <div class="col-md-6">
+                    <label for="dateCategorie" class="form-label">Date Categorie</label>
+                    <input type="date" class="form-control" id="dateCategorie" formControlName="dateCategorie">
+                    <div *ngIf="userForm.get('dateCategorie')?.invalid && (userForm.get('dateCategorie')?.dirty || userForm.get('dateCategorie')?.touched)" class="text-danger">
+                      Date Categorie is required
+                    </div>
+                  </div>
+              
+                  <!-- categorieProchaine -->
+                  <div class="col-md-6">
+                    <label for="categorieProchaine" class="form-label">Categorie Prochaine</label>
+                    <input type="text" class="form-control" id="categorieProchaine" formControlName="categorieProchaine">
+                    <div *ngIf="userForm.get('categorieProchaine')?.invalid && (userForm.get('categorieProchaine')?.dirty || userForm.get('categorieProchaine')?.touched)" class="text-danger">
+                      Categorie Prochaine is required
+                    </div>
+                  </div>
+              
+                  <!-- echelle -->
+                  <div class="col-md-6">
+                    <label for="echelle" class="form-label">Echelle</label>
+                    <input type="text" class="form-control" id="echelle" formControlName="echelle">
+                    <div *ngIf="userForm.get('echelle')?.invalid && (userForm.get('echelle')?.dirty || userForm.get('echelle')?.touched)" class="text-danger">
+                      Echelle is required
+                    </div>
+                  </div>
+              
+                  <!-- dateEchelle -->
+                  <div class="col-md-6">
+                    <label for="dateEchelle" class="form-label">Date Echelle</label>
+                    <input type="date" class="form-control" id="dateEchelle" formControlName="dateEchelle">
+                    <div *ngIf="userForm.get('dateEchelle')?.invalid && (userForm.get('dateEchelle')?.dirty || userForm.get('dateEchelle')?.touched)" class="text-danger">
+                      Date Echelle is required
+                    </div>
+                  </div>
+              
+                  <!-- echelleProchaine -->
+                  <div class="col-md-6">
+                    <label for="echelleProchaine" class="form-label">Echelle Prochaine</label>
+                    <input type="date" class="form-control" id="echelleProchaine" formControlName="echelleProchaine">
+                    <div *ngIf="userForm.get('echelleProchaine')?.invalid && (userForm.get('echelleProchaine')?.dirty || userForm.get('echelleProchaine')?.touched)" class="text-danger">
+                      Echelle Prochaine is required
+                    </div>
+                  </div>
+              
+                  <!-- echelon -->
+                  <div class="col-md-6">
+                    <label for="echelon" class="form-label">Echelon</label>
+                    <input type="text" class="form-control" id="echelon" formControlName="echelon">
+                    <div *ngIf="userForm.get('echelon')?.invalid && (userForm.get('echelon')?.dirty || userForm.get('echelon')?.touched)" class="text-danger">
+                      Echelon is required
+                    </div>
+                  </div>
+              
+                  <!-- echelonDeDates -->
+                  <div class="col-md-6">
+                    <label for="echelonDeDates" class="form-label">Echelon de Dates</label>
+                    <input type="text" class="form-control" id="echelonDeDates" formControlName="echelonDeDates">
+                    <div *ngIf="userForm.get('echelonDeDates')?.invalid && (userForm.get('echelonDeDates')?.dirty || userForm.get('echelonDeDates')?.touched)" class="text-danger">
+                      Echelon de Dates is required
+                    </div>
+                  </div>
+              
+                  <!-- dateRabattement -->
+                  <div class="col-md-6">
+                    <label for="dateRabattement" class="form-label">Date Rabattement</label>
+                    <input type="date" class="form-control" id="dateRabattement" formControlName="dateRabattement">
+                    <div *ngIf="userForm.get('dateRabattement')?.invalid && (userForm.get('dateRabattement')?.dirty || userForm.get('dateRabattement')?.touched)" class="text-danger">
+                      Date Rabattement is required
+                    </div>
+                  </div>
+              
+                  <!-- echelonProchain -->
+                  <div class="col-md-6">
+                    <label for="echelonProchain" class="form-label">Echelon Prochain</label>
+                    <input type="date" class="form-control" id="echelonProchain" formControlName="echelonProchain">
+                    <div *ngIf="userForm.get('echelonProchain')?.invalid && (userForm.get('echelonProchain')?.dirty || userForm.get('echelonProchain')?.touched)" class="text-danger">
+                      Echelon Prochain is required
+                    </div>
+                  </div>
+              
+                  <!-- college -->
+                  <div class="col-md-6">
+                    <label for="college" class="form-label">College</label>
+                    <input type="text" class="form-control" id="college" formControlName="college">
+                    <div *ngIf="userForm.get('college')?.invalid && (userForm.get('college')?.dirty || userForm.get('college')?.touched)" class="text-danger">
+                      College is required
+                    </div>
+                  </div>
+              
+                  <!-- dateCollege -->
+                  <div class="col-md-6">
+                    <label for="dateCollege" class="form-label">Date College</label>
+                    <input type="date" class="form-control" id="dateCollege" formControlName="dateCollege">
+                    <div *ngIf="userForm.get('dateCollege')?.invalid && (userForm.get('dateCollege')?.dirty || userForm.get('dateCollege')?.touched)" class="text-danger">
+                      Date College is required
+                    </div>
+                  </div>
+              
+                  <!-- fonction -->
+                  <div class="col-md-6">
+                    <label for="fonction" class="form-label">Fonction</label>
+                    <input type="text" class="form-control" id="fonction" formControlName="fonction">
+                    <div *ngIf="userForm.get('fonction')?.invalid && (userForm.get('fonction')?.dirty || userForm.get('fonction')?.touched)" class="text-danger">
+                      Fonction is required
+                    </div>
+                  </div>
+              
+                  <!-- dateFonction -->
+                  <div class="col-md-6">
+                    <label for="dateFonction" class="form-label">Date Fonction</label>
+                    <input type="date" class="form-control" id="dateFonction" formControlName="dateFonction">
+                    <div *ngIf="userForm.get('dateFonction')?.invalid && (userForm.get('dateFonction')?.dirty || userForm.get('dateFonction')?.touched)" class="text-danger">
+                      Date Fonction is required
+                    </div>
+                  </div>
+              
+                  <!-- grade -->
+                  <div class="col-md-6">
+                    <label for="grade" class="form-label">Grade</label>
+                    <input type="text" class="form-control" id="grade" formControlName="grade">
+                    <div *ngIf="userForm.get('grade')?.invalid && (userForm.get('grade')?.dirty || userForm.get('grade')?.touched)" class="text-danger">
+                      Grade is required
+                    </div>
+                  </div>
+              
+                  <!-- Date grade -->
+                  <div class="col-md-6">
+                    <label for="noteDeDate" class="form-label">Date grade</label>
+                    <input type="date" class="form-control" id="noteDeDate" formControlName="noteDeDate">
+                    <div *ngIf="userForm.get('noteDeDate')?.invalid && (userForm.get('noteDeDate')?.dirty || userForm.get('noteDeDate')?.touched)" class="text-danger">
+                      Date grade is required
+                    </div>
+                  </div>
+              
+                  <!-- dateEssai -->
+                  <div class="col-md-6">
+                    <label for="dateEssai" class="form-label">Date Essai</label>
+                    <input type="date" class="form-control" id="dateEssai" formControlName="dateEssai">
+                    <div *ngIf="userForm.get('dateEssai')?.invalid && (userForm.get('dateEssai')?.dirty || userForm.get('dateEssai')?.touched)" class="text-danger">
+                      Date Essai is required
+                    </div>
+                  </div>
+              
+                  <!-- titularisation -->
+                  <div class="col-md-6">
+                    <label for="titularisation" class="form-label">Titularisation</label>
+                    <input type="date" class="form-control" id="titularisation" formControlName="titularisation">
+                    <div *ngIf="userForm.get('titularisation')?.invalid && (userForm.get('titularisation')?.dirty || userForm.get('titularisation')?.touched)" class="text-danger">
+                      Titularisation is required
+                    </div>
+                  </div>
+              
+                  <!-- gradeProchain -->
+                  <div class="col-md-6">
+                    <label for="gradeProchain" class="form-label">Grade Prochain</label>
+                    <input type="date" class="form-control" id="gradeProchain" formControlName="gradeProchain">
+                    <div *ngIf="userForm.get('gradeProchain')?.invalid && (userForm.get('gradeProchain')?.dirty || userForm.get('gradeProchain')?.touched)" class="text-danger">
+                      Grade Prochain is required
+                    </div>
+                  </div>
+              
+                  <!-- natureDuDiplome -->
+                  <div class="col-md-6">
+                    <label for="natureDuDiplome" class="form-label">Nature du Diplome</label>
+                    <input type="text" class="form-control" id="natureDuDiplome" formControlName="natureDuDiplome">
+                    <div *ngIf="userForm.get('natureDuDiplome')?.invalid && (userForm.get('natureDuDiplome')?.dirty || userForm.get('natureDuDiplome')?.touched)" class="text-danger">
+                      Nature du Diplome is required
+                    </div>
+                  </div>
+              
+                  <!-- motifDeDepart -->
+                  <div class="col-md-6">
+                    <label for="motifDeDepart" class="form-label">Motif de Depart</label>
+                    <input type="text" class="form-control" id="motifDeDepart" formControlName="motifDeDepart">
+                    <div *ngIf="userForm.get('motifDeDepart')?.invalid && (userForm.get('motifDeDepart')?.dirty || userForm.get('motifDeDepart')?.touched)" class="text-danger">
+                      Motif de Depart is required
+                    </div>
+                  </div>
+              
+                  <!-- retraitePrevue -->
+                  <div class="col-md-6">
+                    <label for="retraitePrevue" class="form-label">Retraite Prevue</label>
+                    <input type="date" class="form-control" id="retraitePrevue" formControlName="retraitePrevue">
+                    <div *ngIf="userForm.get('retraitePrevue')?.invalid && (userForm.get('retraitePrevue')?.dirty || userForm.get('retraitePrevue')?.touched)" class="text-danger">
+                      Retraite Prevue is required
+                    </div>
+                  </div>
+              
+                  <!-- dateDepart -->
+                  <div class="col-md-6">
+                    <label for="dateDepart" class="form-label">Date Depart</label>
+                    <input type="date" class="form-control" id="dateDepart" formControlName="dateDepart">
+                    <div *ngIf="userForm.get('dateDepart')?.invalid && (userForm.get('dateDepart')?.dirty || userForm.get('dateDepart')?.touched)" class="text-danger">
+                      Date Depart is required
+                    </div>
+                  </div>
+              
+                  <!-- Similar structure for other form controls -->
+                </div>
+                <button type="submit" class="btn btn-primary mt-3">Submit</button>
+              </form>
+              
+                  
+              </div>
+              
+            
+          </div>
+      </div>
+    </div>

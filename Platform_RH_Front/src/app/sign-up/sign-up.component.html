@@ -1,0 +1,414 @@
+
+<body class="page-sign d-block py-0">
+
+  <div class="row g-0">
+    <div class="col-md-2 col-lg-5 col-xl-4 col-wrapper">
+
+<div  class="flex-fill ht-50 bg-gray-300" >
+  <div class="card card">
+    <div class="card-body">
+      <div class="mb-3">
+        <form [formGroup]="userForm" class="main main-docs" style="margin-top: -37%;" (ngSubmit)="submitForm()"   id="wizard1" class="wizard-demo">
+            <div *ngIf="step === 1">
+                <div formGroupName="user" class="row g-8">
+                    <P style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif ; color: black;">Informations Personnelles</P>
+
+                    <div class="col-md-6">
+                        <label for="userFirstName" class="form-label">Prénom</label>
+                        <input type="text" class="form-control" id="userFirstName" formControlName="userFirstName">
+                        <div *ngIf="userForm.get('user')?.get('userFirstName')?.errors?.['required'] && (userForm.get('user')?.get('userFirstName')?.dirty || userForm.get('user')?.get('userFirstName')?.touched)" class="text-danger">
+                          Le prénom est requis
+                        </div>
+                        <div *ngIf="userForm.get('user')?.get('userFirstName')?.errors?.['pattern'] && (userForm.get('user')?.get('userFirstName')?.dirty || userForm.get('user')?.get('userFirstName')?.touched)" class="text-danger">
+                          Le prénom ne doit pas contenir de chiffres
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <label for="userLastName" class="form-label">Nom de Famille</label>
+                        <input type="text" class="form-control" id="userLastName" formControlName="userLastName">
+                        <div *ngIf="userForm.get('user')?.get('userLastName')?.errors?.['required'] && (userForm.get('user')?.get('userLastName')?.dirty || userForm.get('user')?.get('userLastName')?.touched)" class="text-danger">
+                          Le nom de famille est requis
+                        </div>
+                        <div *ngIf="userForm.get('user')?.get('userLastName')?.errors?.['pattern'] && (userForm.get('user')?.get('userLastName')?.dirty || userForm.get('user')?.get('userLastName')?.touched)" class="text-danger">
+                          Le nom de famille ne doit pas contenir de chiffres
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <label for="cin" class="form-label">CIN</label>
+                        <input type="text" class="form-control" id="cin" formControlName="cin">
+                        <div *ngIf="userForm.get('user')?.get('cin')?.errors?.['required'] && (userForm.get('user')?.get('cin')?.dirty || userForm.get('user')?.get('cin')?.touched)" class="text-danger">
+                          Le CIN est requis
+                        </div>
+                        <div *ngIf="userForm.get('user')?.get('cin')?.errors?.['pattern'] && (userForm.get('user')?.get('cin')?.dirty || userForm.get('user')?.get('cin')?.touched)" class="text-danger">
+                          Le CIN doit contenir exactement 8 chiffres
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <label for="locality" class="form-label">Localité</label>
+                        <input type="text" class="form-control" id="locality" formControlName="locality">
+                        <div *ngIf="userForm.get('user')?.get('locality')?.errors?.['required'] && (userForm.get('user')?.get('locality')?.dirty || userForm.get('user')?.get('locality')?.touched)" class="text-danger">
+                          La localité est requise
+                        </div>
+                        <div *ngIf="userForm.get('user')?.get('locality')?.errors?.['pattern'] && (userForm.get('user')?.get('locality')?.dirty || userForm.get('user')?.get('locality')?.touched)" class="text-danger">
+                          La localité ne doit contenir que des lettres et des espaces
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <label for="civility" class="form-label">Civilité</label>
+                        <input type="text" class="form-control" id="civility" formControlName="civility">
+                        <div *ngIf="userForm.get('user')?.get('civility')?.errors?.['required'] && (userForm.get('user')?.get('civility')?.dirty || userForm.get('user')?.get('civility')?.touched)" class="text-danger">
+                            La civilité est requise
+                        </div>
+                        <div *ngIf="userForm.get('user')?.get('civility')?.errors?.['pattern']" class="text-danger">
+                            La civilité doit contenir uniquement des lettres
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="dateOfBirth" class="form-label">Date de Naissance</label>
+                        <input type="date" class="form-control" id="dateOfBirth" formControlName="dateOfBirth">
+                        <div *ngIf="userForm.get('user')?.get('dateOfBirth')?.errors?.['required'] && (userForm.get('user')?.get('dateOfBirth')?.dirty || userForm.get('user')?.get('dateOfBirth')?.touched)" class="text-danger">
+                            La date de naissance est requise
+                        </div>
+                        <div *ngIf="userForm.get('user')?.get('dateOfBirth')?.errors?.['pattern'] && (userForm.get('user')?.get('dateOfBirth')?.dirty || userForm.get('user')?.get('dateOfBirth')?.touched)" class="text-danger">
+                            Format de date invalide (jj/mm/aaaa)
+                        </div>
+                        <div *ngIf="userForm.get('user')?.get('dateOfBirth')?.errors?.['futureOrCurrentDate'] && (userForm.get('user')?.get('dateOfBirth')?.dirty || userForm.get('user')?.get('dateOfBirth')?.touched)" class="text-danger">
+                            La date de naissance doit être dans le passé
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="placeOfBirth" class="form-label">Lieu de Naissance</label>
+                        <input type="text" class="form-control" id="placeOfBirth" formControlName="placeOfBirth">
+                        <div *ngIf="userForm.get('user')?.get('placeOfBirth')?.errors?.['required'] && (userForm.get('user')?.get('placeOfBirth')?.dirty || userForm.get('user')?.get('placeOfBirth')?.touched)" class="text-danger">
+                            Le lieu de naissance est requis
+                        </div>
+                        <div *ngIf="userForm.get('user')?.get('placeOfBirth')?.errors?.['pattern']" class="text-danger">
+                            Le lieu de naissance doit contenir uniquement des lettres
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="nationality" class="form-label">Nationalité</label>
+                        <input type="text" class="form-control" id="nationality" formControlName="nationality">
+                        <div *ngIf="userForm.get('user')?.get('nationality')?.errors?.['required'] && (userForm.get('user')?.get('nationality')?.dirty || userForm.get('user')?.get('nationality')?.touched)" class="text-danger">
+                          La nationalité est requise
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <label for="gender" class="form-label">Genre</label>
+                        <select class="form-select" id="gender" formControlName="gender">
+                          <option value="male">Masculin</option>
+                          <option value="female">Féminin</option>
+                        </select>
+                        <div *ngIf="userForm.get('user')?.get('gender')?.errors?.['required'] && (userForm.get('user')?.get('gender')?.dirty || userForm.get('user')?.get('gender')?.touched)" class="text-danger">
+                          Le genre est requis
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <label for="cinDate" class="form-label">Date du CIN</label>
+                        <input type="date" class="form-control" id="cinDate" formControlName="cinDate">
+                        <div *ngIf="userForm.get('user')?.get('cinDate')?.errors?.['required'] && (userForm.get('user')?.get('cinDate')?.dirty || userForm.get('user')?.get('cinDate')?.touched)" class="text-danger">
+                          La date du CIN est requise
+                        </div>
+                        <div *ngIf="userForm.get('user')?.get('cinDate')?.errors?.['futureOrCurrentDate'] && (userForm.get('user')?.get('cinDate')?.dirty || userForm.get('user')?.get('cinDate')?.touched)" class="text-danger">
+                            La date du CIN  doit être dans le passé
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <label for="phoneNumber" class="form-label">Numéro de Téléphone</label>
+                        <input type="tel" class="form-control" id="phoneNumber" formControlName="phoneNumber">
+                        <div *ngIf="userForm.get('user')?.get('phoneNumber')?.errors?.['required'] && (userForm.get('user')?.get('phoneNumber')?.dirty || userForm.get('user')?.get('phoneNumber')?.touched)" class="text-danger">
+                          Le numéro de téléphone est requis
+                        </div>
+                        <div *ngIf="userForm.get('user')?.get('phoneNumber')?.errors?.['pattern'] && (userForm.get('user')?.get('phoneNumber')?.dirty || userForm.get('user')?.get('phoneNumber')?.touched)" class="text-danger">
+                            Le numéro de téléphone contenir au moins 8 chiffres
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <label for="address" class="form-label">Adresse</label>
+                        <input type="text" class="form-control" id="address" formControlName="address">
+                        <div *ngIf="userForm.get('user')?.get('address')?.errors?.['required'] && (userForm.get('user')?.get('address')?.dirty || userForm.get('user')?.get('address')?.touched)" class="text-danger">
+                            L'adresse est requise
+                        </div>
+                        <div *ngIf="userForm.get('user')?.get('address')?.errors?.['pattern'] && (userForm.get('user')?.get('address')?.dirty || userForm.get('user')?.get('address')?.touched)" class="text-danger">
+                            L'adresse ne peut contenir que des lettres et des espaces
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" formControlName="email">
+                        <div *ngIf="userForm.get('user')?.get('email')?.errors?.['required'] && (userForm.get('user')?.get('email')?.dirty || userForm.get('user')?.get('email')?.touched)" class="text-danger">
+                            L'email est requis
+                        </div>
+                        <div *ngIf="userForm.get('user')?.get('email')?.errors?.['email'] && (userForm.get('user')?.get('email')?.dirty || userForm.get('user')?.get('email')?.touched)" class="text-danger">
+                            Veuillez entrer une adresse email valide
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="userPassword" class="form-label">Mot de Passe</label>
+                        <input type="password" class="form-control" id="userPassword" formControlName="userPassword">
+                        <div *ngIf="userForm.get('user')?.get('userPassword')?.errors?.['required'] && (userForm.get('user')?.get('userPassword')?.dirty || userForm.get('user')?.get('userPassword')?.touched)" class="text-danger">
+                            Le mot de passe est requis
+                        </div>
+                        <div *ngIf="userForm.get('user')?.get('userPassword')?.errors?.['minlength'] && (userForm.get('user')?.get('userPassword')?.dirty || userForm.get('user')?.get('userPassword')?.touched)" class="text-danger">
+                            Le mot de passe doit contenir au moins 8 caractères
+                        </div>
+                    </div>
+
+                </div>
+                <br>
+                <button type="button" style="margin-left: 90%;" class="btn btn-primary" (click)="nextStep()">Suivant</button>
+            </div>
+
+            <div *ngIf="step === 2">
+                <P style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif ; color: black;">Informations sur l'entreprise</P>
+
+                <!-- Informations sur l'entreprise -->
+                <div formGroupName="entreprise" class="row g-3">
+                    <div class="col-md-6">
+                        <label for="entrepriseName" class="form-label">Nom de l'entreprise</label>
+                        <input type="text" class="form-control" id="entrepriseName" formControlName="entrepriseName">
+                        <div *ngIf="userForm.get('entreprise')?.get('entrepriseName')?.errors?.['required'] && (userForm.get('entreprise')?.get('entrepriseName')?.dirty || userForm.get('entreprise')?.get('entrepriseName')?.touched)" class="text-danger">
+                            Le nom de l'entreprise est requis
+                        </div>
+                        <div *ngIf="userForm.get('entreprise')?.get('entrepriseName')?.errors?.['pattern'] && (userForm.get('entreprise')?.get('entrepriseName')?.dirty || userForm.get('entreprise')?.get('entrepriseName')?.touched)" class="text-danger">
+                            Le nom de l'entreprise ne peut contenir que des lettres et des espaces
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="adresse_Entreprise" class="form-label">Adresse</label>
+                        <input type="text" class="form-control" id="adresse_Entreprise" formControlName="adresse_Entreprise">
+                        <div *ngIf="userForm.get('entreprise')?.get('adresse_Entreprise')?.errors?.['required'] && (userForm.get('entreprise')?.get('adresse_Entreprise')?.dirty || userForm.get('entreprise')?.get('adresse_Entreprise')?.touched)" class="text-danger">
+                            L'adresse de l'entreprise est requise
+                        </div>
+                        <div *ngIf="userForm.get('entreprise')?.get('adresse_Entreprise')?.errors?.['pattern'] && (userForm.get('entreprise')?.get('adresse_Entreprise')?.dirty || userForm.get('entreprise')?.get('adresse_Entreprise')?.touched)" class="text-danger">
+                            L'adresse de l'entreprise invalid
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="code_Postal" class="form-label">Code Postal</label>
+                        <input type="text" class="form-control" id="code_Postal" formControlName="code_Postal">
+                        <div *ngIf="userForm.get('entreprise')?.get('code_Postal')?.errors?.['required'] && (userForm.get('entreprise')?.get('code_Postal')?.dirty || userForm.get('entreprise')?.get('code_Postal')?.touched)" class="text-danger">
+                            Le code postal est requis
+                        </div>
+                        <div *ngIf="userForm.get('entreprise')?.get('code_Postal')?.errors?.['pattern'] && (userForm.get('entreprise')?.get('code_Postal')?.dirty || userForm.get('entreprise')?.get('code_Postal')?.touched)" class="text-danger">
+                            Le code postal doit être composé de chiffres uniquement
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="ville" class="form-label">Ville</label>
+                        <input type="text" class="form-control" id="ville" formControlName="ville">
+                        <div *ngIf="userForm.get('entreprise')?.get('ville')?.errors?.['required'] && (userForm.get('entreprise')?.get('ville')?.dirty || userForm.get('entreprise')?.get('ville')?.touched)" class="text-danger">
+                            La ville est requise
+                        </div>
+                        <div *ngIf="userForm.get('entreprise')?.get('ville')?.errors?.['pattern'] && (userForm.get('entreprise')?.get('ville')?.dirty || userForm.get('entreprise')?.get('ville')?.touched)" class="text-danger">
+                            La ville est invalid
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="pays" class="form-label">Pays</label>
+                        <input type="text" class="form-control" id="pays" formControlName="pays">
+                        <div *ngIf="userForm.get('entreprise')?.get('pays')?.errors?.['required'] && (userForm.get('entreprise')?.get('pays')?.dirty || userForm.get('entreprise')?.get('pays')?.touched)" class="text-danger">
+                            Le pays est requis
+                        </div>
+                        <div *ngIf="userForm.get('entreprise')?.get('pays')?.errors?.['pattern'] && (userForm.get('entreprise')?.get('pays')?.dirty || userForm.get('entreprise')?.get('pays')?.touched)" class="text-danger">
+                            Le pays est invalid
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" formControlName="email">
+                        <div *ngIf="userForm.get('entreprise')?.get('email')?.errors?.['required'] && (userForm.get('entreprise')?.get('email')?.dirty || userForm.get('entreprise')?.get('email')?.touched)" class="text-danger">
+                            L'email est requis
+                        </div>
+                        <div *ngIf="userForm.get('entreprise')?.get('email')?.errors?.['pattern'] && (userForm.get('entreprise')?.get('email')?.dirty || userForm.get('entreprise')?.get('email')?.touched)" class="text-danger">
+                            L'email doit être au format valide
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="numFiscale" class="form-label">Numéro Fiscal</label>
+                        <input type="text" class="form-control" id="numFiscale" formControlName="numFiscale">
+                        <div *ngIf="userForm.get('entreprise')?.get('numFiscale')?.errors?.['required'] && (userForm.get('entreprise')?.get('numFiscale')?.dirty || userForm.get('entreprise')?.get('numFiscale')?.touched)" class="text-danger">
+                            Le numéro fiscal est requis
+                        </div>
+                        <div *ngIf="userForm.get('entreprise')?.get('numFiscale')?.errors?.['pattern'] && (userForm.get('entreprise')?.get('numFiscale')?.dirty || userForm.get('entreprise')?.get('numFiscale')?.touched)" class="text-danger">
+                            Le numéro fiscal doit contenir uniquement des chiffres
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="tel_Entreprise" class="form-label">Téléphone</label>
+                        <input type="tel" class="form-control" id="tel_Entreprise" formControlName="tel_Entreprise">
+                        <div *ngIf="userForm.get('entreprise')?.get('tel_Entreprise')?.errors?.['required'] && (userForm.get('entreprise')?.get('tel_Entreprise')?.dirty || userForm.get('entreprise')?.get('tel_Entreprise')?.touched)" class="text-danger">
+                            Le téléphone est requis
+                        </div>
+                        <div *ngIf="userForm.get('entreprise')?.get('tel_Entreprise')?.errors?.['pattern'] && (userForm.get('entreprise')?.get('tel_Entreprise')?.dirty || userForm.get('entreprise')?.get('tel_Entreprise')?.touched)" class="text-danger">
+                            Le téléphone doit contenir uniquement des chiffres
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="site_Web" class="form-label">Site Web</label>
+                        <input type="url" class="form-control" id="site_Web" formControlName="site_Web">
+                        <div *ngIf="userForm.get('entreprise')?.get('site_Web')?.errors?.['required'] && (userForm.get('entreprise')?.get('site_Web')?.dirty || userForm.get('entreprise')?.get('site_Web')?.touched)" class="text-danger">
+                            Le site web est requis
+                        </div>
+                        <div *ngIf="userForm.get('entreprise')?.get('site_Web')?.errors?.['pattern'] && (userForm.get('entreprise')?.get('site_Web')?.dirty || userForm.get('entreprise')?.get('site_Web')?.touched)" class="text-danger">
+                            Le site web doit être au format valide
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="domaine_Activite" class="form-label">Domaine d'activité</label>
+                        <input type="text" class="form-control" id="domaine_Activite" formControlName="domaine_Activite">
+                        <div *ngIf="userForm.get('entreprise')?.get('domaine_Activite')?.errors?.['required'] && (userForm.get('entreprise')?.get('domaine_Activite')?.dirty || userForm.get('entreprise')?.get('domaine_Activite')?.touched)" class="text-danger">
+                            Le domaine d'activité est requis
+                        </div>
+                        <div *ngIf="userForm.get('entreprise')?.get('domaine_Activite')?.errors?.['pattern'] && (userForm.get('entreprise')?.get('domaine_Activite')?.dirty || userForm.get('entreprise')?.get('domaine_Activite')?.touched)" class="text-danger">
+                            Le domaine d'activité est invalid
+                                                </div>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="date_Creation_Entreprise" class="form-label">Date de création</label>
+                        <input type="date" class="form-control" id="date_Creation_Entreprise" formControlName="date_Creation_Entreprise">
+                        <div *ngIf="userForm.get('entreprise')?.get('date_Creation_Entreprise')?.errors?.['required'] && (userForm.get('entreprise')?.get('date_Creation_Entreprise')?.dirty || userForm.get('entreprise')?.get('date_Creation_Entreprise')?.touched)" class="text-danger">
+                            La date de création est requise
+                        </div>
+                        <div *ngIf="userForm.get('entreprise')?.get('date_Creation_Entreprise')?.errors?.['futureOrCurrentDate']" class="text-danger">
+                            Format de date incorrect
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <label for="nb_Employees" class="form-label">Nombre d'employés</label>
+                        <input type="number" class="form-control" id="nb_Employees" formControlName="nb_Employees">
+                        <div *ngIf="userForm.get('entreprise')?.get('nb_Employees')?.errors?.['required'] && (userForm.get('entreprise')?.get('nb_Employees')?.dirty || userForm.get('entreprise')?.get('nb_Employees')?.touched)" class="text-danger">
+                            Le nombre d'employés est requis
+                        </div>
+                        <div *ngIf="userForm.get('entreprise')?.get('nb_Employees')?.errors?.['pattern']" class="text-danger">
+                            Nombre invalide
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <label for="entrepriseDescription" class="form-label">Description</label>
+                        <textarea class="form-control" id="entrepriseDescription" formControlName="entrepriseDescription"></textarea>
+                        <div *ngIf="userForm.get('entreprise')?.get('entrepriseDescription')?.errors?.['required'] && (userForm.get('entreprise')?.get('entrepriseDescription')?.dirty || userForm.get('entreprise')?.get('entrepriseDescription')?.touched)" class="text-danger">
+                            La description est requise
+                        </div>
+                        <div *ngIf="userForm.get('entreprise')?.get('entrepriseDescription')?.errors?.['pattern'] && (userForm.get('entreprise')?.get('entrepriseDescription')?.dirty || userForm.get('entreprise')?.get('entrepriseDescription')?.touched)" class="text-danger">
+                            La description est invalid
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="dateInscriptionRegistreCommerce" class="form-label">Date d'inscription au Registre de Commerce</label>
+                        <input type="date" class="form-control" id="dateInscriptionRegistreCommerce" formControlName="dateInscriptionRegistreCommerce">
+                        <div *ngIf="userForm.get('entreprise')?.get('dateInscriptionRegistreCommerce')?.errors?.['required'] && (userForm.get('entreprise')?.get('dateInscriptionRegistreCommerce')?.dirty || userForm.get('entreprise')?.get('dateInscriptionRegistreCommerce')?.touched)" class="text-danger">
+                            La date d'inscription au Registre de Commerce est requise
+                        </div>
+                        <div *ngIf="userForm.get('entreprise')?.get('dateInscriptionRegistreCommerce')?.errors?.['pattern']" class="text-danger">
+                            Format de date incorrect
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <label for="affiliationCaisseSociale" class="form-label">Affiliation à la Caisse Sociale</label>
+                        <input type="text" class="form-control" id="affiliationCaisseSociale" formControlName="affiliationCaisseSociale">
+                        <div *ngIf="userForm.get('entreprise')?.get('affiliationCaisseSociale')?.errors?.['required'] && (userForm.get('entreprise')?.get('affiliationCaisseSociale')?.dirty || userForm.get('entreprise')?.get('affiliationCaisseSociale')?.touched)" class="text-danger">
+                            L'affiliation à la Caisse Sociale est requise
+                        </div>
+                        <div *ngIf="userForm.get('entreprise')?.get('affiliationCaisseSociale')?.errors?.['pattern']" class="text-danger">
+                            Format invalide
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <label for="numeroSecuriteSocial" class="form-label">Numéro de Sécurité Sociale</label>
+                        <input type="text" class="form-control" id="numeroSecuriteSocial" formControlName="numeroSecuriteSocial">
+                        <div *ngIf="userForm.get('entreprise')?.get('numeroSecuriteSocial')?.errors?.['required'] && (userForm.get('entreprise')?.get('numeroSecuriteSocial')?.dirty || userForm.get('entreprise')?.get('numeroSecuriteSocial')?.touched)" class="text-danger">
+                            Le numéro de sécurité sociale est requis
+                        </div>
+                        <div *ngIf="userForm.get('entreprise')?.get('numeroSecuriteSocial')?.errors?.['pattern'] && (userForm.get('entreprise')?.get('numeroSecuriteSocial')?.dirty || userForm.get('entreprise')?.get('numeroSecuriteSocial')?.touched)" class="text-danger">
+                            Le numéro de sécurité sociale doit être composé de 15 chiffres
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="numeroCompteBancaire" class="form-label">Numéro de Compte Bancaire</label>
+                        <input type="text" class="form-control" id="numeroCompteBancaire" formControlName="numeroCompteBancaire">
+                        <div *ngIf="userForm.get('entreprise')?.get('numeroCompteBancaire')?.errors?.['required'] && (userForm.get('entreprise')?.get('numeroCompteBancaire')?.dirty || userForm.get('entreprise')?.get('numeroCompteBancaire')?.touched)" class="text-danger">
+                            Le numéro de compte bancaire est requis
+                        </div>
+                        <div *ngIf="userForm.get('entreprise')?.get('numeroCompteBancaire')?.errors?.['pattern'] && (userForm.get('entreprise')?.get('numeroCompteBancaire')?.dirty || userForm.get('entreprise')?.get('numeroCompteBancaire')?.touched)" class="text-danger">
+                            Le numéro de compte bancaire doit contenir uniquement des chiffres
+                        </div>
+                    </div>
+                 <div class="col-md-6">
+                        <label for="assurance" class="form-label">Assurance</label>
+                        <input type="text" class="form-control" id="assurance" formControlName="assurance">
+                        <div *ngIf="userForm.get('entreprise')?.get('assurance')?.errors?.['required'] && (userForm.get('entreprise')?.get('assurance')?.dirty || userForm.get('entreprise')?.get('assurance')?.touched)" class="text-danger">
+                            L'assurance est requise
+                        </div>
+                        <div *ngIf="userForm.get('entreprise')?.get('assurance')?.errors?.['pattern'] && (userForm.get('entreprise')?.get('assurance')?.dirty || userForm.get('entreprise')?.get('assurance')?.touched)" class="text-danger">
+                            Le nom de l'assurance doit contenir uniquement des lettres
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="emailAssurance" class="form-label">Email de l'Assurance</label>
+                        <input type="email" class="form-control" id="emailAssurance" formControlName="emailAssurance">
+                        <div *ngIf="userForm.get('entreprise')?.get('emailAssurance')?.errors?.['required'] && (userForm.get('entreprise')?.get('emailAssurance')?.dirty || userForm.get('entreprise')?.get('emailAssurance')?.touched)" class="text-danger">
+                            L'email de l'assurance est requis
+                        </div>
+                        <div *ngIf="userForm.get('entreprise')?.get('emailAssurance')?.errors?.['pattern'] && (userForm.get('entreprise')?.get('emailAssurance')?.dirty || userForm.get('entreprise')?.get('emailAssurance')?.touched)" class="text-danger">
+                            L'email de l'assurance doit être au format valide
+                        </div>
+                    </div>
+                   <div class="col-md-3">
+                        <label for="telAssurance" class="form-label">Téléphone de l'Assurance</label>
+                        <input type="tel" class="form-control" id="telAssurance" formControlName="telAssurance">
+                        <div *ngIf="userForm.get('entreprise')?.get('telAssurance')?.errors?.['required'] && (userForm.get('entreprise')?.get('telAssurance')?.dirty || userForm.get('entreprise')?.get('telAssurance')?.touched)" class="text-danger">
+                            Le téléphone de l'assurance est requis
+                        </div>
+                        <div *ngIf="userForm.get('entreprise')?.get('telAssurance')?.errors?.['pattern'] && (userForm.get('entreprise')?.get('telAssurance')?.dirty || userForm.get('entreprise')?.get('telAssurance')?.touched)" class="text-danger">
+                            Le numéro de téléphone doit contenir uniquement des chiffres et être composé de 8 chiffres
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <label for="numeroAffiliationAssurance" class="form-label">Numéro d'Affiliation de l'Assurance</label>
+                        <input type="text" class="form-control" id="numeroAffiliationAssurance" formControlName="numeroAffiliationAssurance">
+                        <div *ngIf="userForm.get('entreprise')?.get('numeroAffiliationAssurance')?.errors?.['required'] && (userForm.get('entreprise')?.get('numeroAffiliationAssurance')?.dirty || userForm.get('entreprise')?.get('numeroAffiliationAssurance')?.touched)" class="text-danger">
+                            Le numéro d'affiliation de l'assurance est requis
+                        </div>
+                        <div *ngIf="userForm.get('entreprise')?.get('numeroAffiliationAssurance')?.errors?.['pattern'] && (userForm.get('entreprise')?.get('numeroAffiliationAssurance')?.dirty || userForm.get('entreprise')?.get('numeroAffiliationAssurance')?.touched)" class="text-danger">
+                            Le numéro d'affiliation de l'assurance doit contenir uniquement des chiffres
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <button type="submit" class="btn btn-primary float-end">Valider</button>
+                <button type="button" class="btn btn-secondary" (click)="backStep()">Précédent</button>
+            </div>
+
+      </form>
+
+   </div>
+  </div>
+</div>
+
+
+
+ </div>
+</div>
+    <div class="col d-none d-lg-block"><img src="assets/imgs/page/services/img-news2.png" class="fixed-image" ></div>
+  </div><!-- row -->
+
+
+</body>
+
+<style>
+  @media screen and (min-width: 768px) {
+      .col-wrapper {
+          width: 60%;
+      }
+  }
+</style>

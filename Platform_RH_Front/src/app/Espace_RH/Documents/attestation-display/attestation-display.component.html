@@ -1,0 +1,17 @@
+<div *ngIf="userData">
+  <h2>Attestation de Travail</h2>
+  <p>Tunis, <span class="date-time">{{ userData.date }}</span></p>
+  <p>Nous soussignés «{{ userData.entrepriseName }}» Société Anonyme, au capital de  «{{ userData.pays }}» Dinars dont le siège est sis à Blue Center, «{{ userData.adresse }}», attestons par la présente que Monsieur :</p>
+  <ul>
+    <li><strong>Nom :</strong> {{ userData.userLastName }}</li>
+    <li><strong>Prénom :</strong> {{ userData.userFirstName }}</li>
+    <li><strong>Matricule :</strong> {{ userData.matricule }}</li>
+    <li><strong>CIN N° :</strong> {{ userData.cin }} délivrée le {{ userData.cinDate }}</li>
+    <li><strong>Date de naissance :</strong> {{ userData.dateOfBirth }} à {{ userData.nationality }}</li>
+    <li><strong>Fait partie de notre personnel depuis le {{ userData.datedebut }} en qualité de {{ userData.fonction }}</strong></li>
+  </ul>
+  <p>Cette attestation est délivrée à l'intéressé sur sa demande pour servir et valoir ce que de droit.</p>
+  <div>
+    <p>Directeur des Ressources Humaines</p>
+  </div>
+</div>

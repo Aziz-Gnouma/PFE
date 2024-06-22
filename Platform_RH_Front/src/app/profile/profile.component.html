@@ -1,0 +1,249 @@
+<app-sidebar></app-sidebar>
+<div class="main p-4 p-lg-5">
+    <ol class="breadcrumb fs-sm mb-2">
+      <li class="breadcrumb-item"><a href="#">Pages</a></li>
+      <li class="breadcrumb-item"><a href="#">User Pages</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Settings</li>
+    </ol>
+    <h2 class="main-title">parametre</h2>
+
+    <nav class="nav nav-line mb-4">
+      <a (click)="backStep()" class="nav-link active">Personal Information</a>
+      <a (click)="nextStep()" class="nav-link">More Information</a>
+      <a (click)="FinalStep()" class="nav-link">Compte Information</a>
+    
+    </nav>
+
+    <div class="card card-settings"*ngIf="step === 1">
+      <div class="card-header">
+        <h6 class="card-title">Informations personnelles</h6>
+        <p class="card-text">Découvrez vos informations personnelles pour une meilleure expérience utilisateur et une communication plus efficace.</p>
+      </div><!-- card-header -->
+      <div class="card-body p-0">
+        <!-- Prénom -->
+        <div class="setting-item">
+          <div class="row g-2 align-items-center">
+            <div class="col-md-5">
+              <h6 class="card-text">Prénom</h6>
+            </div>
+            <div class="col-md">
+              <input type="text" class="form-control" placeholder="Entrez votre prénom" [(ngModel)]="userData.userFirstName" disabled="">
+            </div>
+          </div>
+        </div>
+      
+        <!-- Nom de famille -->
+        <div class="setting-item">
+          <div class="row g-2 align-items-center">
+            <div class="col-md-5">
+              <h6 class="card-text">Nom de famille</h6>
+            </div>
+            <div class="col-md">
+              <input type="text" class="form-control" placeholder="Entrez votre nom de famille" [(ngModel)]="userData.userLastName" disabled="">
+            </div>
+          </div>
+        </div>
+      
+        
+      
+        <!-- CIN -->
+        <div class="setting-item">
+          <div class="row g-2 align-items-center">
+            <div class="col-md-5">
+              <h6 class="card-text">CIN</h6>
+            </div>
+            <div class="col-md">
+              <input type="text" class="form-control" placeholder="Entrez votre CIN" [(ngModel)]="userData.cin" disabled="">
+            </div>
+          </div>
+        </div>
+      
+        
+      
+        <!-- Date de naissance -->
+        <div class="setting-item">
+          <div class="row g-2 align-items-center">
+            <div class="col-md-5">
+              <h6 class="card-text">Date de naissance</h6>
+            </div>
+            <div class="col-md">
+              <input type="text" class="form-control" placeholder="Entrez votre date de naissance" [(ngModel)]="userData.dateOfBirth" disabled="">
+            </div>
+          </div>
+        </div>
+      
+        <!-- Lieu de naissance -->
+        <div class="setting-item">
+          <div class="row g-2 align-items-center">
+            <div class="col-md-5">
+              <h6 class="card-text">Lieu de naissance</h6>
+            </div>
+            <div class="col-md">
+              <input type="text" class="form-control" placeholder="Entrez votre lieu de naissance" [(ngModel)]="userData.placeOfBirth" disabled="">
+            </div>
+          </div>
+        </div>
+      
+        <!-- Nationalité -->
+        <div class="setting-item">
+          <div class="row g-2 align-items-center">
+            <div class="col-md-5">
+              <h6 class="card-text">Nationalité</h6>
+            </div>
+            <div class="col-md">
+              <input type="text" class="form-control" placeholder="Entrez votre nationalité" [(ngModel)]="userData.nationality" disabled="">
+            </div>
+          </div>
+        </div>
+      
+        <!-- Sexe -->
+        <div class="setting-item">
+          <div class="row g-2 align-items-center">
+            <div class="col-md-5">
+              <h6 class="card-text">Sexe</h6>
+            </div>
+            <div class="col-md">
+              <input type="text" class="form-control" placeholder="Entrez votre sexe" [(ngModel)]="userData.gender" disabled="">
+            </div>
+          </div>
+        </div>
+      
+        <!-- Date de la CIN -->
+        <div class="setting-item">
+          <div class="row g-2 align-items-center">
+            <div class="col-md-5">
+              <h6 class="card-text">Date  CIN</h6>
+            </div>
+            <div class="col-md">
+              <input type="text" class="form-control" placeholder="Entrez la date de votre CIN" [(ngModel)]="userData.cinDate" disabled="">
+            </div>
+          </div>
+        </div>
+      
+     
+      
+      
+      
+        <!-- Ajoutez plus de champs au besoin -->
+      
+      </div><!-- card-body -->
+      
+      
+    </div><!-- card -->
+    
+
+    <div class="card card-settings" *ngIf="step === 2">
+      <div class="card-header">
+        <h6 class="card-title">Plus d'informations</h6>
+        <p class="card-text">Obtenez des détails complémentaires pour enrichir votre profil personnel et mieux vous connaître.</p>
+      </div><!-- card-header -->
+      <div class="card-body p-0">
+        
+        
+        
+        
+        
+        <!-- Civilité -->
+        <div class="setting-item">
+          <div class="row g-2 align-items-center">
+            <div class="col-md-5">
+              <h6 class="card-text">Civilité</h6>
+            </div>
+            <div class="col-md">
+              <input type="text" class="form-control" placeholder="Entrez votre civilité" [(ngModel)]="userData.civility">
+            </div>
+          </div>
+        </div>
+        
+        
+        
+        
+        
+        <!-- Numéro de téléphone -->
+        <div class="setting-item">
+          <div class="row g-2 align-items-center">
+            <div class="col-md-5">
+              <h6 class="card-text">Numéro de téléphone</h6>
+            </div>
+            <div class="col-md">
+              <input type="text" class="form-control" placeholder="Entrez votre numéro de téléphone" [(ngModel)]="userData.phoneNumber">
+            </div>
+          </div>
+        </div>
+        
+        <!-- Adresse -->
+        <div class="setting-item">
+          <div class="row g-2 align-items-center">
+            <div class="col-md-5">
+              <h6 class="card-text">Adresse</h6>
+            </div>
+            <div class="col-md">
+              <input type="text" class="form-control" placeholder="Entrez votre adresse" [(ngModel)]="userData.address">
+            </div>
+          </div>
+        </div>
+        
+        <!-- Localité -->
+        <div class="setting-item">
+          <div class="row g-2 align-items-center">
+            <div class="col-md-5">
+              <h6 class="card-text">Localité</h6>
+            </div>
+            <div class="col-md">
+              <input type="text" class="form-control" placeholder="Entrez votre localité" [(ngModel)]="userData.locality">
+            </div>
+          </div>
+        </div>
+        
+        <!-- Ajoutez plus de champs au besoin -->
+        
+      </div><!-- card-body -->
+      <!-- Bouton pour mettre à jour les informations de l'utilisateur -->
+      <button type="button" class="btn btn-primary" (click)="updateProfile()">Mettre à jour le profil</button>
+    </div><!-- card -->
+    
+
+      <div class="card card-settings" *ngIf="step === 3">
+        <div class="card-header">
+          <h6 class="card-title">compte Information</h6>
+          <p class="card-text">Accédez et modifiez les informations de votre compte pour une gestion sécurisée et personnalisée.</p>
+        </div><!-- card-header -->
+        <div class="card-body p-0">
+      
+          <!-- Email -->
+          <div class="setting-item">
+            <div class="row g-2 align-items-center">
+              <div class="col-md-5">
+                <h6 class="card-text">Email</h6>
+              </div>
+              <div class="col-md">
+                <input type="email" class="form-control" placeholder="Enter email" [(ngModel)]="userData.email">
+              </div>
+            </div>
+          </div>
+      
+          <div class="setting-item">
+            <div class="row g-2 align-items-center">
+              <div class="col-md-5">
+                <h6 class="card-text">Mot de passe</h6>
+              </div>
+              <div class="col-md">
+                <input type="password" class="form-control" placeholder="Enter password" [(ngModel)]="userData.userPassword">
+              </div>
+            </div>
+          </div>
+      
+          <!-- Button to update user information -->
+      
+        </div><!-- card-body -->
+        <button type="button" class="btn btn-primary" (click)="updateProfile()">modifier Profile</button>
+
+      </div><!-- card -->
+      
+
+  
+
+    <div class="main-footer">
+      <span>© 2024. RH Platform.</span>
+    </div><!-- main-footer -->
+  </div>

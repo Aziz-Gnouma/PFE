@@ -1,0 +1,345 @@
+<app-sidebar></app-sidebar>
+
+
+  <div class="main main-app p-3 p-lg-4">
+    <div class="d-md-flex align-items-center justify-content-between mb-4">
+      <div>
+        <ol class="breadcrumb fs-sm mb-1">
+          <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Admin Service</li>
+        </ol>
+        <h4 class="main-title mb-0">Bienvenue sur le tableau de bord</h4>
+      </div>
+      <div class="d-flex align-items-center gap-2 mt-3 mt-md-0">
+        <button type="button" class="btn btn-white btn-icon"><i class="ri-share-line fs-18 lh-1"></i></button>
+        <button type="button" class="btn btn-white btn-icon"><i class="ri-printer-line fs-18 lh-1"></i></button>
+        <button type="button" class="btn btn-primary btn-icon"><i class="ri-bar-chart-2-line fs-18 lh-1"></i></button>
+      </div>
+    </div>
+
+    <div class="row g-3">
+      <div class="col-sm-4">
+        <div class="card card-one">
+          <div class="card-body p-3">
+            <div class="d-flex d-sm-block d-xl-flex align-items-center">
+              <div class="helpdesk-icon bg-primary text-white"><i class="ri-mail-settings-fill"></i></div>
+              <div class="ms-3 ms-sm-0 ms-xl-3 mt-sm-3 mt-xl-0">
+                <h2 class="card-value d-flex align-items-baseline mb-0">{{newDemandeNumber}} <small class="text-success">+3.82%</small></h2>
+                <label class="card-label fs-sm fw-medium mb-1">Nouvelles invitations</label>
+                <div class="mutual-badge">
+                  <ul>
+                    <li><a href="" class="avatar"><img src="https://via.placeholder.com/300/4c5366/fff" alt=""></a></li>
+                    <li><a href="" class="avatar"><img src="https://via.placeholder.com/300/4c5366/fff" alt=""></a></li>
+                    <li><a href="" class="avatar"><img src="https://via.placeholder.com/300/4c5366/fff" alt=""></a></li>
+                    <li><a href="" class="avatar"><img src="https://via.placeholder.com/300/4c5366/fff" alt=""></a></li>
+                  </ul>
+                  <label>++ support agents</label>
+                </div>
+              </div>
+            </div>
+          </div><!-- card-body -->
+        </div><!-- card -->
+      </div><!-- col -->
+      <div class="col-sm-4">
+        <div class="card card-one">
+          <div class="card-body p-3">
+            <div class="d-flex d-sm-block d-xl-flex align-items-center">
+              <div class="helpdesk-icon bg-ui-02 text-white"><i class="ri-user-star-fill"></i></div>
+              <div class="ms-3 ms-sm-0 ms-xl-3 mt-sm-3 mt-xl-0">
+                <h2 class="card-value d-flex align-items-baseline mb-0">{{totalUsersNumber}}<small class="text-success">+1.82%</small></h2>
+                <label class="card-label fs-sm fw-medium mb-1">Tous les utilisateurs</label>
+                <div class="mutual-badge">
+                  <ul>
+                    <li><a href="" class="avatar"><img src="https://via.placeholder.com/300/4c5366/fff" alt=""></a></li>
+                    <li><a href="" class="avatar"><img src="https://via.placeholder.com/300/4c5366/fff" alt=""></a></li>
+                    <li><a href="" class="avatar"><img src="https://via.placeholder.com/300/4c5366/fff" alt=""></a></li>
+                    <li><a href="" class="avatar"><img src="https://via.placeholder.com/300/4c5366/fff" alt=""></a></li>
+                  </ul>
+                  <label>participants</label>
+                </div>
+              </div>
+            </div>
+          </div><!-- card-body -->
+        </div><!-- card -->
+      </div><!-- col -->
+      <div class="col-sm-4">
+        <div class="card card-one">
+          <div class="card-body p-3">
+            <div class="d-flex d-sm-block d-xl-flex align-items-center">
+              <div class="helpdesk-icon bg-ui-03 text-white"><i class="ri-star-smile-line"></i></div>
+              <div class="ms-3 ms-sm-0 ms-xl-3 mt-sm-3 mt-xl-0">
+                <h2 class="card-value d-flex align-items-baseline mb-0"> {{totalEnterprisesNumber}} <small class="text-success">+0.05%</small></h2>
+                <label class="card-label fs-sm fw-medium mb-1">tous les entreprises</label>
+                <div class="mutual-badge">
+                  <ul>
+                    <li><a href="" class="avatar"><img src="https://via.placeholder.com/300/4c5366/fff" alt=""></a></li>
+                    <li><a href="" class="avatar"><img src="https://via.placeholder.com/300/4c5366/fff" alt=""></a></li>
+                    <li><a href="" class="avatar"><img src="https://via.placeholder.com/300/4c5366/fff" alt=""></a></li>
+                    <li><a href="" class="avatar"><img src="https://via.placeholder.com/300/4c5366/fff" alt=""></a></li>
+                  </ul>
+                  <label>+ support business</label>
+                </div>
+              </div>
+            </div>
+          </div><!-- card-body -->
+        </div><!-- card -->
+      </div><!-- col -->
+      <div class="col-md-7 col-xl-8">
+        <div class="card card-one">
+          <div class="card-header">
+            <h6 class="card-title">Current Ticket Status</h6>
+            <nav class="nav nav-icon nav-icon-sm ms-auto">
+              <a href="" class="nav-link"><i class="ri-refresh-line"></i></a>
+              <a href="" class="nav-link"><i class="ri-more-2-fill"></i></a>
+            </nav>
+          </div><!-- card-header -->
+          <div class="card-body">
+            <div class="chartjs-one"><canvas id="chartBar1"></canvas></div>
+          </div><!-- card-body -->
+        </div><!-- card -->
+      </div><!-- col -->
+      <div class="col-md-5 col-xl-4">
+        <div class="card card-one overflow-hidden">
+          <div class="card-header">
+            <h6 class="card-title">Plaintes reçues</h6>
+            <nav class="nav nav-icon nav-icon-sm ms-auto">
+              <a  class="nav-link"><i class="ri-refresh-line"></i></a>
+              <a class="nav-link"><i class="ri-more-2-fill"></i></a>
+            </nav>
+          </div><!-- card-header -->
+          <div class="card-body p-0">
+            <div class="position-absolute p-4">
+              <h1 class="card-value d-flex align-items-baseline mb-0">{{ReclamationsNumber}}</h1>
+              <p class="fs-xs mb-2"><span class="text-danger fs-numerals">- 0.3%</span> plus élevé que le mois dernier</p>
+              <p class="fs-sm">Le nombre total de plaintes reçues.</p>
+            </div>
+            <div id="flotChart1" class="flot-chart-ten" style="padding: 0px;"><canvas class="flot-base" width="768" height="300" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 614.4px; height: 240px;"></canvas><canvas class="flot-overlay" width="768" height="300" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 614.4px; height: 240px;"></canvas></div>
+          </div><!-- card-body -->
+        </div><!-- card -->
+      </div><!-- col -->
+      <div class="col-md-6">
+        <div class="card card-one">
+          <div class="card-body p-3">
+            <div class="row g-3 row-cols-auto align-items-center">
+              <div class="col">
+                <div class="peity-two">
+                  <span class="peity-donut" data-peity='{ "fill": ["#506fd9","#e5e9f2"], "height": 130, "width": 130, "innerRadius": 46 }'>86,14</span>
+                  <div>
+                    <h4 class="ff-numerals text-dark mb-0">86%</h4>
+                    <span class="fs-xs text-secondary">Reached</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-6 col-xl-7">
+                <h2 class="card-value mb-3">7m:32s</h2>
+                <h6 class="card-label text-dark fw-semibold mb-1">Time to Resolved Complaint</h6>
+                <p class="fs-sm text-secondary mb-0">The average time taken to resolve complaints.</p>
+              </div>
+            </div><!-- row -->
+          </div><!-- card-body -->
+        </div><!-- card -->
+      </div><!-- col -->
+      <div class="col-md-6">
+        <div class="card card-one">
+          <div class="card-body p-3">
+            <div class="row g-3 row-cols-auto align-items-center">
+              <div class="col">
+                <div class="peity-two">
+                  <span class="peity-donut" data-peity='{ "fill": ["#4c5366","#e5e9f2"], "height": 130, "width": 130, "innerRadius": 46 }'>68,32</span>
+                  <div>
+                    <h4 class="ff-numerals text-dark mb-0">68%</h4>
+                    <span class="fs-xs text-secondary">Reached</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-6 col-xl-7">
+                <h2 class="card-value mb-3">0m:20s</h2>
+                <h6 class="card-label text-dark fw-semibold mb-1">Average Speed of Answer</h6>
+                <p class="fs-sm text-secondary mb-0">The average time taken to resolve complaints.</p>
+              </div>
+            </div><!-- row -->
+          </div><!-- card-body -->
+        </div><!-- card -->
+      </div><!-- col -->
+      <div class="col-xl-5">
+        <div class="card card-one">
+          <div class="card-header">
+            <h6 class="card-title">Tickets By Request Type</h6>
+            <nav class="nav nav-icon nav-icon-sm ms-auto">
+              <a href="" class="nav-link"><i class="ri-refresh-line"></i></a>
+              <a href="" class="nav-link"><i class="ri-more-2-fill"></i></a>
+            </nav>
+          </div><!-- card-header -->
+          <div class="card-body">
+            <div class="chartjs-two"><canvas id="chartBar5"></canvas></div>
+          </div><!-- card-body -->
+        </div><!-- card -->
+      </div><!-- col -->
+      <div class="col-sm-6 col-xl">
+        <div class="card card-one">
+          <div class="card-header">
+            <h6 class="card-title">Overall Rating</h6>
+            <nav class="nav nav-icon nav-icon-sm ms-auto">
+              <a href="" class="nav-link"><i class="ri-refresh-line"></i></a>
+              <a href="" class="nav-link"><i class="ri-more-2-fill"></i></a>
+            </nav>
+          </div><!-- card-header -->
+          <div class="card-body">
+            <div class="d-flex align-items-baseline gap-2 mb-0">
+              <h1 class="card-value mb-0">4.8</h1>
+              <div class="d-flex gap-1 text-warning fs-20">
+                <i class="ri-star-fill"></i>
+                <i class="ri-star-fill"></i>
+                <i class="ri-star-fill"></i>
+                <i class="ri-star-fill"></i>
+                <i class="ri-star-half-fill"></i>
+              </div>
+            </div>
+            <p class="fs-sm">Measures the quality or your support team’s efforts.</p>
+
+            <table class="table table-ratings mb-0">
+              <tbody>
+                <tr>
+                  <td><strong>5.0</strong></td>
+                  <td>
+                    <div class="d-flex gap-1 text-warning fs-16">
+                      <i class="ri-star-fill"></i>
+                      <i class="ri-star-fill"></i>
+                      <i class="ri-star-fill"></i>
+                      <i class="ri-star-fill"></i>
+                      <i class="ri-star-fill"></i>
+                    </div>
+                  </td>
+                  <td>4,230</td>
+                  <td>58%</td>
+                </tr>
+                <tr>
+                  <td><strong>4.0</strong></td>
+                  <td>
+                    <div class="d-flex gap-1 text-warning fs-16">
+                      <i class="ri-star-fill"></i>
+                      <i class="ri-star-fill"></i>
+                      <i class="ri-star-fill"></i>
+                      <i class="ri-star-fill"></i>
+                      <i class="ri-star-line"></i>
+                    </div>
+                  </td>
+                  <td>1,416</td>
+                  <td>24%</td>
+                </tr>
+                <tr>
+                  <td><strong>3.0</strong></td>
+                  <td>
+                    <div class="d-flex gap-1 text-warning fs-16">
+                      <i class="ri-star-fill"></i>
+                      <i class="ri-star-fill"></i>
+                      <i class="ri-star-fill"></i>
+                      <i class="ri-star-line"></i>
+                      <i class="ri-star-line"></i>
+                    </div>
+                  </td>
+                  <td>980</td>
+                  <td>16%</td>
+                </tr>
+                <tr>
+                  <td><strong>2.0</strong></td>
+                  <td>
+                    <div class="d-flex gap-1 text-warning fs-16">
+                      <i class="ri-star-fill"></i>
+                      <i class="ri-star-fill"></i>
+                      <i class="ri-star-line"></i>
+                      <i class="ri-star-line"></i>
+                      <i class="ri-star-line"></i>
+                    </div>
+                  </td>
+                  <td>798</td>
+                  <td>12%</td>
+                </tr>
+                <tr>
+                  <td><strong>1.0</strong></td>
+                  <td>
+                    <div class="d-flex gap-1 text-warning fs-16">
+                      <i class="ri-star-fill"></i>
+                      <i class="ri-star-line"></i>
+                      <i class="ri-star-line"></i>
+                      <i class="ri-star-line"></i>
+                      <i class="ri-star-line"></i>
+                    </div>
+                  </td>
+                  <td>401</td>
+                  <td>8%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div><!-- card-body -->
+        </div><!-- card -->
+      </div><!-- col -->
+      <div class="col-sm-6 col-xl">
+        <div class="card card-one">
+          <div class="card-header">
+            <h6 class="card-title">Performance Score</h6>
+            <nav class="nav nav-icon nav-icon-sm ms-auto">
+              <a href="" class="nav-link"><i class="ri-refresh-line"></i></a>
+              <a href="" class="nav-link"><i class="ri-more-2-fill"></i></a>
+            </nav>
+          </div><!-- card-header -->
+          <div class="card-body">
+            <div class="d-flex align-items-baseline gap-2 mb-0">
+              <h1 class="card-value mb-0">9.6</h1>
+              <div class="progress flex-fill ht-5">
+                <div class="progress-bar w-20" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+                <div class="progress-bar bg-success w-15" role="progressbar" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
+                <div class="progress-bar bg-warning w-15" role="progressbar" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
+                <div class="progress-bar bg-info w-20" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+                <div class="progress-bar bg-danger w-10" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+            <p class="fs-sm">The percentage value assigned to the operating metric.</p>
+
+            <table class="table table-ratings mb-0">
+              <tbody>
+                <tr>
+                  <td><span class="badge-dot bg-primary"></span></td>
+                  <td><strong>Excellent</strong></td>
+                  <td>3,007</td>
+                  <td>50%</td>
+                </tr>
+                <tr>
+                  <td><span class="badge-dot bg-success"></span></td>
+                  <td><strong>Very Good</strong></td>
+                  <td>1,674</td>
+                  <td>25%</td>
+                </tr>
+                <tr>
+                  <td><span class="badge-dot bg-warning"></span></td>
+                  <td><strong>Good</strong></td>
+                  <td>125</td>
+                  <td>6%</td>
+                </tr>
+                <tr>
+                  <td><span class="badge-dot bg-info"></span></td>
+                  <td><strong>Fair</strong></td>
+                  <td>98</td>
+                  <td>5%</td>
+                </tr>
+                <tr>
+                  <td><span class="badge-dot bg-danger"></span></td>
+                  <td><strong>Poor</strong></td>
+                  <td>512</td>
+                  <td>10%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div><!-- card-body -->
+        </div><!-- card -->
+      </div><!-- col -->
+
+    </div><!-- row -->
+    <script src="assets/assets/js/db.helpdesk.js"></script>
+
+    <div class="main-footer mt-5">
+      <span>&copy; 2023. Dashbyte. All Rights Reserved.</span>
+      <span>Created by: <a href="http://themepixels.me" target="_blank">Themepixels</a></span>
+    </div><!-- main-footer -->
+  </div><!-- main -->
+  <script src="assets/assets/js/db.helpdesk.js"></script>

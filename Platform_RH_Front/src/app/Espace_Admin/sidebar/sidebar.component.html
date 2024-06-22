@@ -1,0 +1,345 @@
+
+<div class="sidebar">
+  <div class="sidebar-header">
+    <a href="../" class="sidebar-logo">RH Platform</a>
+  </div><!-- sidebar-header -->
+  <div id="sidebarMenu" class="sidebar-body">
+    <div class="nav-group show">
+      <a  class="nav-label">Dashboard</a>
+      <ul class="nav nav-sidebar">
+
+        <li class="nav-item"  *ngIf="AppServiceService.roleMatch(['Admin'])">
+          <a [class.active]="isActive('/Admin')" class="nav-link" routerLink="/Admin"><i class="ri-bar-chart-2-fill"></i> <span>Platform Analytics</span></a>
+        </li>
+        <li class="nav-item"  *ngIf="AppServiceService.roleMatch(['Gerant'])">
+          <a [class.active]="isActive('/dashboard')" class="nav-link" routerLink="/"><i class="ri-bar-chart-2-fill"></i> <span>Platform Analytics</span></a>
+        </li>
+        <li class="nav-item"  *ngIf="AppServiceService.roleMatch(['GRH'])">
+          <a [class.active]="isActive('/dashboard_RH')" class="nav-link" routerLink="/dashboard_RH"><i class="ri-bar-chart-2-fill"></i> <span>Platform Analytics</span></a>
+        </li>
+        <li class="nav-item"  *ngIf="AppServiceService.roleMatch(['User'])">
+          <a [class.active]="isActive('/dashboard_RH')" class="nav-link" routerLink="/dashboard_RH"><i class="ri-bar-chart-2-fill"></i> <span>Platform Analytics</span></a>
+        </li>
+      </ul>
+    </div><!-- nav-group -->
+
+   <!-- nav-group Admin -->
+    <div class="nav-group show" *ngIf="AppServiceService.roleMatch(['Admin'])">
+      <a class="nav-label">Invitations</a>
+      <ul class="nav nav-sidebar">
+        <li class="nav-item">
+          <a routerLink="/ALLNewUsers" class="nav-link has-sub"><i class="ri-medal-fill"></i> <span>Les Demandes</span></a>
+
+        </li>
+
+
+      </ul>
+    </div>
+    <div class="nav-group show" *ngIf="AppServiceService.roleMatch(['Admin'])">
+      <a class="nav-label"> Gérants</a>
+      <ul class="nav nav-sidebar">
+        <li class="nav-item">
+          <a routerLink="/Entrepreuneurs" class="nav-link has-sub"><i class="ri-account-circle-line"></i> <span>Active Managers</span></a>
+
+        </li>
+
+
+        <li class="nav-item">
+          <a routerLink="/ArchivedEntrepreuneurs"  class="nav-link has-sub"><i class="ri-error-warning-line"></i> <span>Inactive Managers</span></a>
+
+        </li>
+
+      </ul>
+    </div>
+    <div class="nav-group show" *ngIf="AppServiceService.roleMatch(['Admin'])">
+      <a class="nav-label">  Entreprises</a>
+      <ul class="nav nav-sidebar">
+        <li class="nav-item">
+          <a routerLink="/Entreprises" class="nav-link has-sub"><i class="ri-suitcase-2-line"></i> <span>Active Entreprises </span></a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/InactiveEntreprises" class="nav-link has-sub"><i class="ri-error-warning-line"></i> <span> Inactive Entreprises </span></a>
+
+        </li>
+
+      </ul>
+
+    </div>
+    <div class="nav-group show" *ngIf="AppServiceService.roleMatch(['Admin'])">
+      <a href="#" class="nav-label">Toutes les plaintes</a>
+      <ul class="nav nav-sidebar">
+        <li class="nav-item">
+          <a routerLink="/ListReclamations" class="nav-link has-sub"><i class="ri-mail-send-line"></i> <span>notre plaintes </span></a>
+        </li>
+
+
+      </ul>
+    </div>
+
+
+
+    <div class="nav-group show" *ngIf="AppServiceService.roleMatch(['Gerant'])">
+      <a class="nav-label">Employees</a>
+      <ul class="nav nav-sidebar">
+          <li class="nav-item">
+              <a (click)="goToAllEmployees()" class="nav-link has-sub" [class.active]="isActive('/dashboard_RH')">
+                  <i class="ri-medal-fill"></i> <span>ALL Employees</span>
+              </a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="/ArchivedEmployees"  class="nav-link has-sub">
+                <i class="ri-error-warning-line"></i> <span>Archived Employees</span>
+            </a>
+        </li>
+      </ul>
+  </div>
+
+
+  <div class="nav-group show" *ngIf="AppServiceService.roleMatch(['GRH'])">
+    <a class="nav-label">Employees</a>
+    <ul class="nav nav-sidebar">
+        <li class="nav-item">
+            <a routerLink="/EmployeeList" class="nav-link has-sub" [class.active]="isActive('/EmployeeList')">
+                <i class="ri-medal-fill"></i> <span>ALL Employees</span>
+            </a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/ArchivedEmployees"  class="nav-link has-sub" [class.active]="isActive('/ArchivedEmployees')">
+              <i class="ri-error-warning-line"></i> <span>Archived Employees</span>
+          </a>
+      </li>
+    </ul>
+</div>
+<!-- <div class="nav-group show" *ngIf="AppServiceService.roleMatch(['GRH'])">
+  <a class="nav-label">Affaire Sociale</a>
+  <ul class="nav nav-sidebar">
+      <li class="nav-item">
+          <a routerLink="/list-affaire" class="nav-link has-sub">
+              <i class="ri-briefcase-4-line"></i> <span>Liste des affaires</span>
+          </a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/listChilds" class="nav-link has-sub">
+            <i class="ri-file-user-line"></i> <span>Liste des enfants</span>
+        </a>
+    </li>
+
+  </ul>
+</div> -->
+<div class="nav-group show" *ngIf="AppServiceService.roleMatch(['GRH'])">
+  <a class="nav-label" >Sanctions & Récompences</a>
+  <ul class="nav nav-sidebar">
+      <li class="nav-item">
+          <a routerLink="/ListRecompSanction" class="nav-link has-sub" [class.active]="isActive('/ListRecompSanction')">
+              <i class="ri-draft-line"></i> <span>Liste </span>
+          </a>
+      </li>
+
+  </ul>
+</div>
+<div class="nav-group show" *ngIf="AppServiceService.roleMatch(['GRH','Gerant'])">
+  <a class="nav-label">Salariés</a>
+  <ul class="nav nav-sidebar">
+      <li class="nav-item">
+          <a routerLink="/FicheDePaie" class="nav-link has-sub" [class.active]="isActive('/FicheDePaie')">
+              <i class="ri-coins-fill"></i> <span>Fiches de Paie</span>
+          </a>
+      </li>
+
+  </ul>
+</div>
+<div class="nav-group show" *ngIf="AppServiceService.roleMatch(['GRH','Gerant'])">
+  <a class="nav-label">Formations</a>
+  <ul class="nav nav-sidebar">
+      <li class="nav-item">
+          <a routerLink="/ListFormation" class="nav-link has-sub" [class.active]="isActive('/ListFormation')">
+              <i class="ri-git-repository-fill"></i> <span>Les formations </span>
+          </a>
+      </li>
+
+  </ul>
+</div>
+<div class="nav-group show" *ngIf="AppServiceService.roleMatch(['GRH'])">
+  <a class="nav-label">Congés & Absences</a>
+  <ul class="nav nav-sidebar">
+      <li class="nav-item">
+          <a routerLink="/congesList" class="nav-link has-sub" [class.active]="isActive('/congesList')">
+              <i class="ri-swap-fill"></i> <span>Les conges </span>
+          </a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/AbsencesList1" class="nav-link has-sub" [class.active]="isActive('/AbsencesList1')">
+            <i class="ri-swap-fill"></i> <span>Les absences </span>
+        </a>
+    </li>
+
+  </ul>
+</div>
+<div class="nav-group show" *ngIf="AppServiceService.roleMatch(['GRH'])">
+  <a class="nav-label">Departure</a>
+  <ul class="nav nav-sidebar">
+      <li class="nav-item">
+          <a routerLink="/ListDepart" class="nav-link has-sub" [class.active]="isActive('/ListDepart')">
+              <i class="ri-flight-takeoff-line"></i> <span>List Departs</span>
+          </a>
+      </li>
+
+  </ul>
+</div>
+<div class="nav-group show" *ngIf="AppServiceService.roleMatch(['User'])">
+  <a class="nav-label">Congés & Absences</a>
+  <ul class="nav nav-sidebar">
+      <li class="nav-item">
+          <a routerLink="/congesListEmployee" class="nav-link has-sub">
+              <i class="ri-swap-fill"></i> <span>Les congés </span>
+          </a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/AbsencesListEmployee" class="nav-link has-sub">
+            <i class="ri-swap-fill"></i> <span>Les absences </span>
+        </a>
+    </li>
+
+  </ul>
+</div>
+<div class="nav-group show" *ngIf="AppServiceService.roleMatch(['User'])">
+  <a class="nav-label">Sanctions & Récompences</a>
+  <ul class="nav nav-sidebar">
+      <li class="nav-item">
+          <a routerLink="/ListRecompSanctionEmployee" class="nav-link has-sub">
+              <i class="ri-draft-line"></i> <span>Liste des sanctions & Récompences </span>
+          </a>
+      </li>
+
+  </ul>
+</div>
+<div class="nav-group show" *ngIf="AppServiceService.roleMatch(['User'])">
+  <a class="nav-label">Documents Authentiques</a>
+  <ul class="nav nav-sidebar">
+      <li class="nav-item">
+          <a routerLink="/listDoc" class="nav-link has-sub">
+              <i class="ri-draft-line"></i> <span>Liste des documents authentiques </span>
+          </a>
+      </li>
+
+  </ul>
+</div>
+<div class="nav-group show" *ngIf="AppServiceService.roleMatch(['GRH'])">
+  <a class="nav-label">Recrutement</a>
+  <ul class="nav nav-sidebar">
+      <li class="nav-item">
+          <a routerLink="/postulelistrh" class="nav-link has-sub">
+              <i class="ri-draft-line"></i> <span>Liste des offre d'emplois </span>
+          </a>
+      </li>
+
+  </ul>
+</div>
+<div class="nav-group show" *ngIf="AppServiceService.roleMatch(['User'])">
+  <a class="nav-label">Mon Espace</a>
+
+  <ul class="nav nav-sidebar">
+    <li class="nav-item">
+        <a routerLink="/MesFormation" class="nav-link has-sub">
+            <i class="ri-git-repository-fill"></i> <span>Les formations </span>
+        </a>
+    </li>
+
+</ul>
+<ul class="nav nav-sidebar">
+  <li class="nav-item">
+      <a routerLink="/EspaceDepart" class="nav-link has-sub">
+        <i class="ri-error-warning-line"></i> <span>Departure</span>
+      </a>
+  </li>
+
+</ul>
+</div>
+  </div><!-- sidebar-body -->
+
+
+</div><!-- sidebar -->
+
+
+
+<div class="header-main px-3 px-lg-4">
+  <a id="menuSidebar" href="#" class="menu-link me-3 me-lg-4"><i class="ri-menu-2-fill"></i></a>
+
+  <div class="form-search me-auto">
+
+  </div><!-- form-search -->
+
+  <div class="dropdown dropdown-skin">
+    <a href="" class="dropdown-link" data-bs-toggle="dropdown" data-bs-auto-close="outside"><i class="ri-settings-3-line"></i></a>
+
+  </div><!-- dropdown -->
+
+  <div class="dropdown dropdown-notification ms-3 ms-xl-4">
+    <a href="" class="dropdown-link" data-bs-toggle="dropdown" data-bs-auto-close="outside"><small>3</small><i class="ri-notification-3-line"></i></a>
+    <div class="dropdown-menu dropdown-menu-end mt-10-f me--10-f">
+      <div class="dropdown-menu-header">
+        <h6 class="dropdown-menu-title">Notifications</h6>
+      </div><!-- dropdown-menu-header -->
+      <ul class="list-group">
+        <li class="list-group-item">
+          <div class="avatar online"><img src="https://via.placeholder.com/300/4c5366/fff" alt=""></div>
+          <div class="list-group-body">
+            <p><strong>Dominador Manuel</strong> and <strong>100 other people</strong> reacted to your comment "Tell your partner that...</p>
+            <span>Aug 20 08:55am</span>
+          </div><!-- list-group-body -->
+        </li>
+        <li class="list-group-item">
+          <div class="avatar online"><img src="https://via.placeholder.com/300/4c5366/fff" alt=""></div>
+          <div class="list-group-body">
+            <p><strong>Angela Ighot</strong> tagged you and <strong>9 others</strong> in a post.</p>
+            <span>Aug 18 10:30am</span>
+          </div><!-- list-group-body -->
+        </li>
+        <li class="list-group-item">
+          <div class="avatar"><span class="avatar-initial bg-primary">a</span></div>
+          <div class="list-group-body">
+            <p>New listings were added that match your search alert <strong>house for rent</strong></p>
+            <span>Aug 15 08:10pm</span>
+          </div><!-- list-group-body -->
+        </li>
+        <li class="list-group-item">
+          <div class="avatar online"><img src="https://via.placeholder.com/300/4c5366/fff" alt=""></div>
+          <div class="list-group-body">
+            <p>Reminder: <strong>Jerry Cuares</strong> invited you to like <strong>Cuares Surveying Services</strong>. <br><a href="">Accept</a> or <a href="">Decline</a></p>
+            <span>Aug 14 11:50pm</span>
+          </div><!-- list-group-body -->
+        </li>
+        <li class="list-group-item">
+          <div class="avatar online"><img src="https://via.placeholder.com/300/4c5366/fff" alt=""></div>
+          <div class="list-group-body">
+            <p><strong>Dyanne Aceron</strong> reacted to your post <strong>King of the Bed</strong>.</p>
+            <span>Aug 10 05:30am</span>
+          </div><!-- list-group-body -->
+        </li>
+      </ul>
+      <div class="dropdown-menu-footer"><a href="">Show all Notifications</a></div>
+    </div><!-- dropdown-menu -->
+  </div><!-- dropdown -->
+  <div class="dropdown dropdown-profile ms-3 ms-xl-4">
+      <a href="" class="dropdown-link" data-bs-toggle="dropdown" data-bs-auto-close="outside"><div class="avatar online"><img src="/assets/1111.jpg" alt=""></div></a>
+      <div class="dropdown-menu dropdown-menu-end mt-10-f">
+        <div class="dropdown-menu-body">
+          <div class="avatar avatar-xl online mb-3"><img src="/assets/1111.jpg" alt=""></div>
+          <h5 class="mb-1 text-dark fw-semibold">{{UserName}}</h5>
+          <p class="fs-sm text-secondary">Premium Member</p>
+
+          <nav class="nav">
+            <a routerLink="/Profile" ><i class="ri-profile-line"></i>  Profile</a>
+
+          </nav>
+          <hr>
+          <nav class="nav">
+
+              <a *ngIf="isLoggedIn()"  (click)="logout()">  <i class="ri-logout-box-r-line"></i>Log out</a>
+
+                          </nav>
+        </div><!-- dropdown-menu-body -->
+      </div><!-- dropdown-menu -->
+  </div><!-- dropdown -->
+</div><!-- header-main -->
+<script src="assets/js/plugins/perfect-scrollbar.min.js"></script>

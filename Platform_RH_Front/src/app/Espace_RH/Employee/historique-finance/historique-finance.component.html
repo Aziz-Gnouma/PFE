@@ -1,0 +1,68 @@
+
+
+<app-sidebar></app-sidebar>
+<div class="main main-app p-3 p-lg-4">
+    <div class="d-flex align-items-center justify-content-between mb-4">
+      <div>
+        <ol class="breadcrumb fs-sm mb-1">
+          <li class="breadcrumb-item"><a routerLink="/DetailsEmplyee/{{id}}">financières</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Historique financières</li>
+        </ol>
+
+
+      </div>
+    
+    </div>
+
+    <nav class="nav nav-line mb-4">
+        <a  class="nav-link active " > Information financières Historique </a>
+
+        </nav>
+
+    <div class="col-12"  >
+        
+          <br>
+
+        <input type="text"  [(ngModel)]="searchTerm" placeholder="Search avec Grade ou categorie ou Date Ajouter ...">
+        <br><br>
+        <table  id="tableGrid2" class="table table-hover">
+            <thead>
+              <tr style="border: 20px; color: black;">
+                <th> <span >Date Ajouter</span>
+                </th>
+                    <th>Cin</th>
+                    <th>Grille Salaire</th>
+                    <th>Salaire Base</th>
+                    <th>Bank Name</th>
+                    <th>Agency Name</th>
+                    <th>Numero Compte</th>
+                    <th>Montant Assurance</th>
+                    <th>Montant Mutuelle</th>
+                    <th>Mode Paiement</th>
+
+              </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let ok of FinancieresData ">
+                    <td> <span class="badge badge-pill bg-info"> {{ ok.dateAjouter | dateFormat }}</span></td>
+                    <td>{{ ok.matricule.substring(ok.matricule.lastIndexOf('_') + 1) }}</td>
+                    <td>{{ ok.grilleSalaire }}</td>
+                    <td>{{ ok.salaireBase }}</td>
+                    <td>{{ ok.bank.name }}</td>
+                    <td>{{ ok.agency.name }}</td>
+                    <td>{{ ok.numeroCompte }}</td>
+                    <td>{{ ok.montantAssurance }}</td>
+                    <td>{{ ok.montantMutuelle }}</td>
+                  
+                    <td> <span class="badge badge-pill bg-success"> {{ok.modePaiement }}</span>
+                    </td>
+
+                </tr>
+             
+            </tbody>
+          </table>
+          <mat-paginator [pageSizeOptions]="[5, 10, 20]" [pageSize]="itemsPerPage" (page)="currentPage = $event.pageIndex + 1"></mat-paginator>
+
+          
+      </div>
+

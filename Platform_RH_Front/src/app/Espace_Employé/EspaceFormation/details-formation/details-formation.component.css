@@ -1,0 +1,30 @@
+.video-player {
+    width: 100%;
+    max-height: 400px; /* Réglez la hauteur maximale selon vos besoins */
+}
+
+/* Pour mettre en plein écran */
+.video-player.fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background-color: #000;
+}
+
+.video-headline-body {
+    position: relative; /* Assurez-vous que le conteneur est positionné pour que le bouton de lecture puisse être superposé */
+}
+
+.btn.btn-outline-white {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100; /* Assurez-vous que le bouton est au-dessus de la vidéo */
+}
+#ok {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Example shadow properties */
+}

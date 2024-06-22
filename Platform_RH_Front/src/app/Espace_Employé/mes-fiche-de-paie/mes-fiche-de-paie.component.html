@@ -1,0 +1,59 @@
+
+<app-sidebar></app-sidebar>
+
+
+ 
+
+        
+   
+
+        <div id="fileContent" class="file-content p-3 p-lg-4 ps ps--active-y">
+            <div class="d-flex align-items-center mb-5">
+              <a id="menuFileManager" href="" class="menu-file-manager"><i class="ri-arrow-left-line"></i></a>
+              <h5 class="mb-0 text-dark fw-semibold">All Files</h5>
+              <nav class="nav nav-icon ms-auto">
+                <a href="" class="nav-link"><i class="ri-list-check-2"></i></a>
+                <a href="" class="nav-link"><i class="ri-information-line"></i></a>
+                <a href="" class="nav-link"><i class="ri-settings-3-line"></i></a>
+              </nav>
+            </div>
+    
+            <label class="d-block fs-sm text-secondary mb-3">Recently Accessed Files</label>
+            <h3 class="mb-0 text-dark fw-semibold">Tous mes fiches</h3>
+          
+              <input type="text" [(ngModel)]="selectedDate" placeholder="ajouter mois-année (e.g., 2024-04)" class="search-input">
+
+            <br><br>            <div class="row g-1 g-sm-2 g-xl-3 mb-5">
+              <div class="col-6 col-sm-4 col-md-3 col-xl" *ngFor="let fiche of FicheDePaie | ficheDePaieFilter:selectedDate">
+                <div class="card card-file">
+                  <div class="dropdown-file">
+                    <a class="dropdown-link" data-bs-toggle="dropdown" aria-expanded="false"><i class="ri-more-2-fill"></i></a>
+                    <div class="dropdown-menu dropdown-menu-end">
+                      <a class="dropdown-item download" (click)="telechargerFiche2(fiche.matricule, fiche.dateAjouter)"><i class="ri-download-2-line"></i>  Télécharger</a>
+                    </div>
+                  </div><!-- dropdown -->
+                  <div class="card-file-icon danger">
+                    <i class="ri-mail-send-line"></i>
+                  </div>
+                  <div class="card-body">
+                    <h6><a  class="link-02">{{ fiche.nomEmploye }}</a></h6>
+                    <h6><a  class="link-02"> Entreprise: {{ fiche.nomEntreprise }}</a></h6>
+
+                  </div>
+                  <span class="badge badge-pill bg-success"> Payé</span>
+                  <div class="card-footer"><span class="d-none d-sm-inline">Date: </span>{{ fiche.dateAjouter  }}</div>
+                </div>
+              </div><!-- col -->
+            </div><!-- row -->
+            
+    
+
+          <div class="ps__rail-x" style="left: 0px; top: 0px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps__rail-y" style="top: 0px; height: 656px; right: 0px;"><div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 355px;"></div></div></div>
+
+          
+<script>
+        $('#datepicker5').datepicker({
+        showButtonPanel: true
+      });
+
+</script>

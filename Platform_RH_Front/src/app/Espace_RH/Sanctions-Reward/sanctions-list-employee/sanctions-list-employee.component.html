@@ -1,0 +1,65 @@
+<div class="main main-app p-3 p-lg-4">
+  <div class="d-flex align-items-center justify-content-between mb-4">
+    <div>
+      <ol class="breadcrumb fs-sm mb-1">
+        <li class="breadcrumb-item"><a href="#">Tableau de bord</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Sanction</li>
+      </ol>
+      <h4 class="main-title mb-0">Voici la liste des sanctions</h4>
+    </div>
+    <nav class="nav nav-icon nav-icon-lg">
+      <a href="" class="nav-link" data-bs-toggle="tooltip" title="Partager"><i class="ri-share-line"></i></a>
+      <a href="" class="nav-link" data-bs-toggle="tooltip" title="Imprimer"><i class="ri-printer-line"></i></a>
+      <a href="" class="nav-link" data-bs-toggle="tooltip" title="Rapport"><i class="ri-bar-chart-2-line"></i></a>
+    </nav>
+  </div>
+  <div class="col-12">
+    <input type="text" [(ngModel)]="searchMatricule" placeholder="Recherche par matricule..." (input)="onSearchMatriculeChange()">
+    <br><br>
+    <table id="tableGrid2" class="table table-hover">
+      <thead>
+        <tr>
+          <th><span class="badge bg-success">Nom et Prénom</span></th>
+          <th><span class="badge bg-success">Matricule</span></th>
+          <th>Type</th>
+          <th>Date de démission</th>
+          <th>Autorité</th>
+          <th>Description</th>
+          <th>Gravité</th>
+          <th>Durée</th>
+          <th>Statut</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let sanction of filteredSanctions">
+          <td>{{ userData.userFirstName }} {{ userData.userLastName }}</td>
+          <td>{{ userData.matricule }}</td>
+          <td>{{ sanction.type }}</td>
+          <td>{{ sanction.dateDemission | date: 'dd/MM/yyyy' }}</td>
+          <td>{{ sanction.Autorite }}</td>
+          <td>{{ sanction.description }}</td>
+          <td>{{ sanction.gravite }}</td>
+          <td>{{ sanction.duree | date: 'dd/MM/yyyy' }}</td>
+          <td>{{ sanction.StatutA }}</td>
+          <td>
+            <button type="button" class="btn btn-primary" (click)="openPopup(sanction)">Afficher les détails</button>
+            <!-- <span style="display: inline-block; width: 10px;"></span>
+            <button type="button" class="btn btn-primary" (click)="editSanction(sanction)">Edit</button> -->
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <ul class="pagination pagination-circled">
+      <li class="page-item" (click)="onPageChange(currentPage - 1)">
+        <a class="page-link" href="javascript:void(0)">&#9664;</a>
+      </li>
+      <li class="page-item" *ngFor="let page of getPaginationArray()">
+        <a class="page-link" href="javascript:void(0)" (click)="onPageChange(page)">{{ page }}</a>
+      </li>
+      <li class="page-item" (click)="onPageChange(currentPage + 1)">
+        <a class="page-link" href="javascript:void(0)">&#9654;</a>
+      </li>
+    </ul>
+  </div>
+</div>

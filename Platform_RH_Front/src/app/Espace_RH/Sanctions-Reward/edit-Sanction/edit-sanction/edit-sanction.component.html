@@ -1,0 +1,46 @@
+<app-sidebar></app-sidebar>
+
+<div class="form-container" style="margin-top: 5rem;">
+  <h2>Modifier Sanction</h2>
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <form (submit)="saveSanction()">
+          <div class="mb-3">
+            <label for="matricule" class="form-label">CIN:</label>
+            <input type="text" id="matricule" name="matricule" [(ngModel)]="sanction.matricule" class="form-control" required disabled="">
+          </div>
+          <div class="mb-3">
+            <label for="type" class="form-label">Type de sanction:</label>
+            <input type="text" id="type" name="type" [(ngModel)]="sanction.type" class="form-control" required>
+          </div>
+          <div class="mb-3">
+            <label for="dateDemission" class="form-label">Date de démission:</label>
+            <input type="date" id="dateDemission" name="dateDemission" [(ngModel)]="sanction.dateDemission" class="form-control" required>
+          </div>
+          <div class="mb-3">
+            <label for="autorite" class="form-label">Autorité:</label>
+            <input type="text" id="autorite" name="autorite" [(ngModel)]="sanction.autorite" class="form-control" required>
+          </div>
+          <div class="mb-3">
+            <label for="description" class="form-label">Description:</label>
+            <textarea id="description" name="description" [(ngModel)]="sanction.description" class="form-control" required></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="gravite" class="form-label">Gravité:</label>
+            <input type="text" id="gravite" name="gravite" [(ngModel)]="sanction.gravite" class="form-control" required>
+          </div>
+          <div class="mb-3">
+            <label for="duree" class="form-label">Durée:</label>
+            <input type="date" id="duree" name="duree" [(ngModel)]="sanction.duree" class="form-control" required>
+          </div>
+          <div class="mb-3">
+            <label for="StatutA" class="form-label">Statut:</label>
+            <input type="text" id="StatutA" name="StatutA" [(ngModel)]="sanction.StatutA" class="form-control" required>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Save</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

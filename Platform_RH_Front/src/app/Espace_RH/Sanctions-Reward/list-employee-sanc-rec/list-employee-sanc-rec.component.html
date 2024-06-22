@@ -1,0 +1,92 @@
+<app-sidebar></app-sidebar>
+
+<div class="main main-app p-3 p-lg-4">
+    <div class="d-flex align-items-center justify-content-between mb-4">
+      <div>
+        <ol class="breadcrumb fs-sm mb-1">
+          <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Active Entrepreneurs</li>
+        </ol>
+        <h4 class="main-title mb-0">This is our active Employees</h4>
+
+
+      </div>
+
+    <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+        Sanctions & Recompences <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+      </button>
+      <ul class="dropdown-menu shadow" aria-labelledby="dropdownMenuButton1">
+        <li><a class="dropdown-item" routerLink="/list-sanction">Liste des sanctions</a></li>
+        <li><a class="dropdown-item" routerLink="/rewardlistemployee">Liste des Récompences</a></li>
+      </ul>
+    </div>
+
+    </div>
+    <div class="col-12"  >
+
+          <br>
+
+        <input type="text" [(ngModel)]="searchTerm" placeholder="Search...">
+        <br><br>
+        <table  id="tableGrid2" class="table table-hover">
+            <thead>
+              <tr style="border: 20px; color: black;">
+                <th> <span class="badge bg-success">OK</span>
+                </th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+
+                <th>Phone Number</th>
+
+                <th>Action</th>
+
+                <!-- Add more headers for enterprise details if needed -->
+              </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of users | userFilter: searchTerm | roleFilter: searchTerm:selectedRole">
+
+                <td> {{ user.cin }}</td>
+                <td>{{ user.userFirstName }}</td>
+                <td>{{ user.userLastName }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.phoneNumber }}</td>
+
+                <td>
+                  <div class="dropdown">
+                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                      Ajouter <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+                    </button>
+                    <ul class="dropdown-menu shadow" aria-labelledby="dropdownMenuButton1">
+                      <li><a class="dropdown-item" (click)="addSanction(user.cin)">Ajouter Sanction</a></li>
+                      <li><a class="dropdown-item" (click)="addReward(user.cin)">Ajouter Récompence</a></li>
+                    </ul>
+                  </div>
+
+
+              </td>
+              </tr>
+            </tbody>
+          </table>
+
+      </div>
+
+
+
+
+
+
+
+      <script>
+        $(document).ready(function() {
+          // Initialize DataTable with options for filtering and pagination
+          $('#tableGrid2').DataTable({
+            searching: true, // Enable filtering/searching
+            paging: true // Enable pagination
+          });
+        });
+      </script>
+
+

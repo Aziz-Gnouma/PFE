@@ -1,0 +1,104 @@
+<app-sidebar></app-sidebar>
+
+    <div class="main main-app p-3 p-lg-4">
+        <div class="d-flex align-items-center justify-content-between mb-4">
+          <div>
+            <ol class="breadcrumb fs-sm mb-1">
+              <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+              <li class="breadcrumb-item active" aria-current="page"> Nouveau Demandes</li>
+            </ol>
+            <h4 class="main-title mb-0">Nouveau Demandes</h4>
+            
+
+
+          </div>
+
+          <nav class="nav nav-icon nav-icon-lg">
+            <a href="" class="nav-link" data-bs-toggle="tooltip" title="Share"><i class="ri-share-line"></i></a>
+            <a href="" class="nav-link" data-bs-toggle="tooltip" title="Print"><i class="ri-printer-line"></i></a>
+            <a href="" class="nav-link" data-bs-toggle="tooltip" title="Report"><i class="ri-bar-chart-2-line"></i></a>
+          </nav>
+        </div>
+        <div class="col-12">
+
+            <input type="text" [(ngModel)]="searchTerm" placeholder="Search...">
+            <br><br>
+            <table  id="tableGrid2" class="table table-hover">
+                <thead>
+                  <tr style="border: 20px; color: black;">
+                    <th> <span class="badge bg-success">CIN</span>
+                    </th>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Email</th>
+
+                    <th>Nationalité</th>
+                    <th>Numéro Telephone</th>
+
+                    <th>Nom Enterprise</th>
+                    <th>Enterprise Domaine</th>
+
+                    <th>Action</th>
+
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let user of users | userFilter: searchTerm">
+
+                    <td> {{ user.cin }}</td>
+                    <td>{{ user.userFirstName }}</td>
+                    <td>{{ user.userLastName }}</td>
+                    <td>{{ user.email }}</td>
+
+                    <td>{{ user.nationality }}</td>
+                    <td>{{ user.phoneNumber }}</td>
+                    <td href="#modalNoAnimate"  data-bs-toggle="modal" >{{ user.entreprise.length > 0 ? user.entreprise[0].entrepriseName : '-' }}</td>
+                    <td>{{ user.entreprise[0].domaine_Activite }}</td>
+
+                    <td >
+                      <svg (click)="getDetailsUser(user.cin)" xmlns="http://www.w3.org/2000/svg" width="24"  color="blue" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-eye"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                    </td>
+
+
+                    <div class="modal fade" id="modalNoAnimate" tabindex="-1" aria-hidden="true">
+                        <div class="modal-dialog modal-xl">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="modal4Label">entreprise Details</h5>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                              <div class="row g-3">
+                                <div class="col-md-6">
+                                  <label class="form-label"> entrepriseName</label>
+                                  <input type="text" class="form-control" [value]="user.entreprise[0].entrepriseName" disabled>
+                                </div>
+                                <div class="col-md-6">
+                                  <label class="form-label"> entreprise Adresse</label>
+                                  <input type="text" class="form-control" [value]="user.entreprise[0].adresse_Entreprise" disabled>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+          
+                  </tr>
+                </tbody>
+              </table>
+
+          </div>
+
+
+          <script>
+            $(document).ready(function() {
+              $('#tableGrid2').DataTable({
+                searching: true, 
+                paging: true 
+              });
+            });
+          </script>
+

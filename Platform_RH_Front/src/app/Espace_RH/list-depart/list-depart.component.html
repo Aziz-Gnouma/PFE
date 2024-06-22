@@ -1,0 +1,60 @@
+<app-sidebar></app-sidebar>
+<div class="main main-app p-3 p-lg-4">
+    <div class="d-flex align-items-center justify-content-between mb-4">
+      <div>
+        <ol class="breadcrumb fs-sm mb-1">
+          <li class="breadcrumb-item"><a >Dash</a></li>
+          <li class="breadcrumb-item active" aria-current="page">List Depart</li>
+        </ol>
+
+
+      </div>
+    
+    </div>
+<nav class="nav nav-line mb-4">
+    <a  class="nav-link active " > Tous les Départs </a>
+
+    </nav>
+
+<div class="col-12"  >
+    
+      <br>
+
+    <input type="text"  [(ngModel)]="searchTerm" placeholder="Search avec Cin ...">
+    <br><br>
+    <table  id="tableGrid2" class="table table-hover">
+        <thead>
+          <tr style="border: 20px; color: black;">
+            <th> <span >Daepart Situation</span>
+            </th>
+            <th>Matricule</th>
+            <th>Cin</th>
+            <th>Date Depart</th>
+            <th>Type Depart</th>
+            <th>Action</th>
+
+          </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let ok of departs  ">
+                <td>                        <span class="badge badge-pill bg-primary">  {{ ok.situation }}</span> </td>
+                <td>{{ ok.matricule }}</td>
+                <td>{{ ok.cin }}</td>
+                <td>{{ ok.departDate | date:'yyyy-MM-dd' }}</td>
+                <td>{{ ok.departType }}</td>
+                <td>
+                    <ng-container *ngIf="ok.situation === 'En attente'">
+                        <button class="btn btn-outline-success mr-2" (click)="Accepter(ok.matricule,ok.departId, ok.employeeName, ok.employeeEmail)">Accepter</button>
+                        <button style="margin-left: 5%;" class="btn btn-outline-danger"  (click)="Annuler(ok.departId, ok.employeeName, ok.employeeEmail)">Refuser</button>
+                    </ng-container>
+                 
+                </td>
+                
+                
+            </tr>
+         
+        </tbody>
+      </table>
+
+      
+  </div>

@@ -1,0 +1,159 @@
+<app-sidebar></app-sidebar>
+    
+    
+    <div class="main main-app p-3 p-lg-4">
+        <div class="d-flex align-items-center justify-content-between mb-4">
+          <div>
+            <ol class="breadcrumb fs-sm mb-1"> 
+              <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Inactive Enterprises</li>
+            </ol>
+            <h4 class="main-title mb-0">Welcome to Dashboard</h4>
+            
+
+          </div>
+    
+          <nav class="nav nav-icon nav-icon-lg">
+            <a href="" class="nav-link" data-bs-toggle="tooltip" title="Share"><i class="ri-share-line"></i></a>
+            <a href="" class="nav-link" data-bs-toggle="tooltip" title="Print"><i class="ri-printer-line"></i></a>
+            <a href="" class="nav-link" data-bs-toggle="tooltip" title="Report"><i class="ri-bar-chart-2-line"></i></a>
+          </nav>
+        </div>
+        <div class="col-12">
+
+            <input type="text" [(ngModel)]="searchTerm2" placeholder="Search...">
+            <br><br>
+            <table id="tableGrid2" class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>Nom de l'entreprise</th>
+                  <th>Adresse</th>
+                  <th>Ville</th>
+                  <th>Pays</th>
+                  <th>Téléphone</th>
+                  <th>Email</th>
+                  <th>Numéro fiscal</th>
+                  <th>Domaine d'activité</th>
+                  <th>Nombre d'employés</th>
+                  <th>Site Web</th>
+                  <th>Statut</th>
+              </tr>
+              </thead>
+              <tbody class="flex-fill ht-50 bg-gray-300">
+                  <ng-container *ngFor="let user of users | enterpriseFilter: searchTerm2">
+                      <tr *ngIf="user.entreprise && user.entreprise.length > 0">
+                        <td>{{ user.entreprise[0].entrepriseName }}</td>
+                        <td>{{ user.entreprise[0].adresse_Entreprise }}</td>
+                        <td>{{ user.entreprise[0].ville }}</td>
+                        <td>{{ user.entreprise[0].pays }}</td>
+                        <td>{{ user.entreprise[0].tel_Entreprise }}</td>
+                        <td>{{ user.entreprise[0].email }}</td>
+                        <td>{{ user.entreprise[0].numFiscale }}</td>
+                        <td>{{ user.entreprise[0].domaine_Activite }}</td>
+                        <td>{{ user.entreprise[0].nb_Employees }}</td>
+                        <td>{{ user.entreprise[0].site_Web }}</td>
+                        <td>
+                          <span [ngClass]="{ 'badge bg-danger': user.entreprise[0].etat === -1 }">
+                            {{ user.entreprise[0].etat === -1 ? 'passive' : '-' }}
+                          </span>
+                        </td>
+                        <td>
+                          <svg  (click)="openModal(user)" xmlns="http://www.w3.org/2000/svg" width="24"  color="blue" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-eye"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                        </td>
+                                                </tr>
+                    </ng-container>
+              </tbody>
+            </table>
+             
+      
+          </div>
+       <!-- Modal -->
+<div id="exampleModalToggle" class="modal fade" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-xl">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" style="border: black; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">Enterprise Details <i class="ri-medal-line" data-bs-toggle="tooltip" title="" data-bs-original-title="ri-medal-line" aria-label="ri-medal-line"></i></h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div>
+              <!-- Personal Information form -->
+              <div class="row g-8">
+                <div class="col-sm-6">
+                    <label class="form-label" style="color: black;">Enterprise Name</label>
+                    <h5 class="form-control">{{ selectedUser?.entreprise?.[0]?.entrepriseName }}</h5>
+                </div><!-- col -->
+                <div class="col-sm-6">
+                    <label class="form-label" style="color: black;">Address </label>
+                    <h5 class="form-control">{{ selectedUser?.entreprise?.[0]?.adresse_Entreprise }}</h5>
+                </div><!-- col -->
+                <div class="col-sm-6">
+                    <label class="form-label" style="color: black;">City</label>
+                    <h5 class="form-control">{{ selectedUser?.entreprise?.[0]?.ville }}</h5>
+                </div><!-- col -->
+                <div class="col-sm-6">
+                    <label class="form-label" style="color: black;">Postal Code</label>
+                    <h5 class="form-control">{{ selectedUser?.entreprise?.[0]?.code_Postal }}</h5>
+                </div><!-- col -->
+                <div class="col-sm-6">
+                    <label class="form-label" style="color: black;">Country</label>
+                    <h5 class="form-control">{{ selectedUser?.entreprise?.[0]?.pays }}</h5>
+                </div><!-- col -->
+                <div class="col-sm-6">
+                    <label class="form-label" style="color: black;">Telephone</label>
+                    <h5 class="form-control">{{ selectedUser?.entreprise?.[0]?.tel_Entreprise }}</h5>
+                </div><!-- col -->
+                <div class="col-sm-6">
+                    <label class="form-label" style="color: black;">Email</label>
+                    <h5 class="form-control">{{ selectedUser?.entreprise?.[0]?.email }}</h5>
+                </div><!-- col -->
+                <div class="col-sm-6">
+                    <label class="form-label" style="color: black;">Fiscal Number</label>
+                    <h5 class="form-control">{{ selectedUser?.entreprise?.[0]?.numFiscale }}</h5>
+                </div><!-- col -->
+                <div class="col-sm-6">
+                    <label class="form-label" style="color: black;">Creation Date</label>
+                    <h5 class="form-control">{{ selectedUser?.entreprise?.[0]?.date_Creation_Entreprise }}</h5>
+                </div><!-- col -->
+                <div class="col-sm-6">
+                    <label class="form-label " style="color: black;">Activity Domain</label>
+                    <h5 class="form-control">{{ selectedUser?.entreprise?.[0]?.domaine_Activite }}</h5>
+                </div><!-- col -->
+                <div class="col-sm-6">
+                    <label class="form-label" style="color: black;">Number of Employees</label>
+                    <h5 class="form-control">{{ selectedUser?.entreprise?.[0]?.nb_Employees }}</h5>
+                </div><!-- col -->
+                <div class="col-sm-6">
+                    <label class="form-label" style="color: black;">Website</label>
+                    <h5 class="form-control">{{ selectedUser?.entreprise?.[0]?.site_Web }}</h5>
+                </div><!-- col -->
+                <div class="col-sm-6">
+                    <label class="form-label" style="color: black;">Gerant </label>
+                    <h5 class="form-control">{{ selectedUser?.userFirstName +  '  '+ selectedUser?.userLastName }} </h5>
+                </div><!-- col -->
+                <div class="col-sm-6">
+                  <label class="form-label" style="color: black;"> Cin </label>
+                  <h5 class="form-control">{{ selectedUser?.cin }} </h5>
+              </div><!-- col -->
+            </div><!-- form-row -->
+            
+          </div>
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+     
+          </div>
+      </div>
+  </div>
+</div>
+    
+          <script>
+            $(document).ready(function() {
+              // Initialize DataTable with options for filtering and pagination
+              $('#tableGrid2').DataTable({
+                searching: true, // Enable filtering/searching
+                paging: true // Enable pagination
+              });
+            });
+          </script>
+    

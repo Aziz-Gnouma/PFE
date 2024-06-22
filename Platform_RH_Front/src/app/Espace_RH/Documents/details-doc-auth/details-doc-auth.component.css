@@ -1,0 +1,46 @@
+.paper {
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #ddd;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 80%;
+  margin: 40px auto;
+}
+
+.header {
+  background-color: #f0f0f0;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.header h2 {
+  margin-top: 0;
+}
+
+.content {
+  padding: 20px;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+
+th {
+  background-color: #f0f0f0;
+}
+
+.footer {
+  background-color: #f0f0f0;
+  padding: 10px;
+  border-top: 1px solid #ddd;
+  text-align: center;
+}
+
+.footer p {
+  margin-bottom: 10px;
+}

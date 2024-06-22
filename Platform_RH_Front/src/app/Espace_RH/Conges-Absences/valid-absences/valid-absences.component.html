@@ -1,0 +1,37 @@
+<app-sidebar></app-sidebar>
+<div *ngIf="loading" class="loading-container ">
+  <p class="loading-text">Loading...</p>
+</div>
+<div *ngIf="error" class="error-container">
+  <p class="error-text">{{ error }}</p>
+</div>
+<div *ngIf="!loading && !error && absences && absences.length" class="absences-container mt-100">
+  <h3 class="absences-title">Absences en attente de validation</h3>
+  <ul class="absences-list">
+    <li *ngFor="let absence of absences" class="absence-item">
+      <div *ngIf="absence.isValidated === null">
+        <div class="absence-info">
+          <strong class="absence-label">Prénom de l'utilisateur:</strong> {{ userData.userFirstName }}
+        </div>
+        <div class="absence-info">
+        <strong class="absence-label">Date de début:</strong> {{ absence.startDate }}
+      </div>
+
+      <div class="absence-info">
+        <strong class="absence-label">Type d'absence:</strong> {{ absence.reason }}
+      </div>
+      <div class="absence-info">
+        <strong class="absence-label">Nombre d'heures:</strong> {{ absence.numberOfHours }}
+      </div>
+
+      <div class="absence-actions">
+        <button class="accept-button" (click)="acceptAbsence(absence)">Accept</button>
+        <button class="reject-button" (click)="rejectAbsence(absence)">Reject</button>
+      </div>
+    </div>
+    </li>
+  </ul>
+</div>
+<div *ngIf="!loading &&!error && (!absences || absences.length === 0)" class="no-absences-container">
+  <p class="no-absences-text">Aucune absence en attente de validation.</p>
+</div>

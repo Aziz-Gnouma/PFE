@@ -1,0 +1,129 @@
+<app-sidebar></app-sidebar>
+
+<div class="main main-app p-3 p-lg-4">
+  <div class="d-flex align-items-center justify-content-between mb-4">
+    <div>
+      <ol class="breadcrumb fs-sm mb-1">
+        <li class="breadcrumb-item"><a routerLink="/Gerant">Tableau de bord</a></li>
+        <li class="breadcrumb-item active" aria-current="page">modifier une affaire sociale</li>
+      </ol>
+      <h4 class="main-title mb-0">Ici vous pouvez modifier une affaire sociale</h4>
+    </div>
+    <nav class="nav nav-icon nav-icon-lg">
+    </nav>
+  </div>
+
+  <div class="col-md-9">
+    <div class="card">
+      <div class="card-body">
+        <h2 class="card-title text-center mb-4">Modifier les détails de l'affaire</h2>
+        <form class="mx-auto">
+          <!-- Matricule Conjoint -->
+          <div class="mb-3">
+            <label for="matriculeConjoint" class="form-label">Matricule Conjoint :</label>
+            <input type="text" class="form-control" id="matriculeConjoint" [(ngModel)]="affaire.matriculeConjoint" name="matriculeConjoint" placeholder="Entrez le matricule du conjoint">
+          </div>
+          <!-- Situation Familiale -->
+          <div class="mb-3">
+            <label for="situationFamiliale" class="form-label">Situation Familiale :</label>
+            <input type="text" class="form-control" id="situationFamiliale" [(ngModel)]="affaire.situationFamiliale" name="situationFamiliale" placeholder="Entrez la situation familiale">
+          </div>
+          <!-- Prénom Conjoint -->
+          <div class="mb-3">
+            <label for="prenomConjoint" class="form-label">Prénom Conjoint :</label>
+            <input type="text" class="form-control" id="prenomConjoint" [(ngModel)]="affaire.prenomConjoint" name="prenomConjoint" placeholder="Entrez le prénom du conjoint">
+          </div>
+          <!-- Nombre d'enfants -->
+          <div class="mb-3">
+            <label for="nbEnfants" class="form-label">Nombre d'enfants :</label>
+            <input type="number" class="form-control" id="nbEnfants" [(ngModel)]="affaire.nbEnfants" name="nbEnfants" placeholder="Entrez le nombre d'enfants">
+          </div>
+          <!-- Nombre d'enfants imposables -->
+          <div class="mb-3">
+            <label for="nbEnfantsImposables" class="form-label">Nombre d'enfants imposables :</label>
+            <input type="number" class="form-control" id="nbEnfantsImposables" [(ngModel)]="affaire.nbEnfantsImposables" name="nbEnfantsImposables" placeholder="Entrez le nombre d'enfants imposables">
+          </div>
+          <!-- Chef de Famille -->
+          <div class="form-check mb-3">
+            <input type="checkbox" class="form-check-input" id="chefDeFamille" [(ngModel)]="affaire.chefDeFamille" name="chefDeFamille">
+            <label class="form-check-label" for="chefDeFamille">Chef de Famille</label>
+          </div>
+          <!-- Salaire Unique -->
+          <div class="form-check mb-3">
+            <input type="checkbox" class="form-check-input" id="salaireUnique" [(ngModel)]="affaire.salaireUnique" name="salaireUnique">
+            <label class="form-check-label" for="salaireUnique">Salaire Unique</label>
+          </div>
+          <!-- Alloc Familiale -->
+          <div class="form-check mb-3">
+            <input type="checkbox" class="form-check-input" id="allocFamiliale" [(ngModel)]="affaire.allocFamiliale" name="allocFamiliale">
+            <label class="form-check-label" for="allocFamiliale">Alloc Familiale</label>
+          </div>
+          <!-- Sécurité Sociale 1 -->
+          <div class="mb-3">
+            <label for="securiteSociale1" class="form-label">Sécurité Sociale :</label>
+            <input type="text" class="form-control" id="securiteSociale1" [(ngModel)]="affaire.securiteSociale" name="securiteSociale1" placeholder="Entrez la Sécurité Sociale 1">
+          </div>
+          <!-- Nom Assurance -->
+          <div class="mb-3">
+            <label for="nomAssurance" class="form-label">Nom Assurance</label>
+            <input type="text" class="form-control" id="nomAssurance" [(ngModel)]="affaire.nomAssurance" name="nomAssurance" placeholder="Entrez le nom de l'assurance">
+          </div>
+          <!-- Date d'affiliation -->
+          <div class="mb-3">
+            <label for="affiliationLe" class="form-label">Date d'affiliation :</label>
+            <input type="date" class="form-control" id="affiliationLe" [(ngModel)]="affaire.affiliationLe" name="affiliationLe">
+          </div>
+          <!-- Exonéré -->
+          <div class="form-check mb-3">
+            <input type="checkbox" class="form-check-input" id="exonere" [(ngModel)]="affaire.exonere" name="exonere">
+            <label class="form-check-label" for="exonere">Exonéré</label>
+          </div>
+          <!-- Affiliation Régime -->
+          <div class="form-check mb-3">
+            <input type="checkbox" class="form-check-input" id="affiliationRegime" [(ngModel)]="affaire.affiliationRegime" name="affiliationRegime">
+            <label class="form-check-label" for="affiliationRegime">Affiliation Régime</label>
+          </div>
+          <!-- Affiliation Assurance -->
+          <div class="form-check mb-3">
+            <input type="checkbox" class="form-check-input" id="affiliationAssurance" [(ngModel)]="affaire.affiliationAssurance" name="affiliationAssurance">
+            <label class="form-check-label" for="affiliationAssurance">Affiliation Assurance</label>
+          </div>
+          <!-- Affiliation Mutuelle -->
+          <div class="form-check mb-3">
+            <input type="checkbox" class="form-check-input" id="affiliationMutuelle" [(ngModel)]="affaire.affiliationMutuelle" name="affiliationMutuelle">
+            <label class="form-check-label" for="affiliationMutuelle">Affiliation Mutuelle</label>
+          </div>
+          <!-- Affiliation Assurance Groupe -->
+          <div class="form-check mb-3">
+            <input type="checkbox" class="form-check-input" id="affiliationAssuranceGroupe" [(ngModel)]="affaire.affiliationAssuranceGroupe" name="affiliationAssuranceGroupe">
+            <label class="form-check-label" for="affiliationAssuranceGroupe">Affiliation Assurance Groupe</label>
+          </div>
+          <!-- Affiliation CSS -->
+          <div class="mb-3">
+            <label for="affiliationCss" class="form-label">Affiliation CSS :</label>
+            <input type="number" class="form-control" id="affiliationCss" [(ngModel)]="affaire.affiliationCss" name="affiliationCss" placeholder="Entrez l'affiliation CSS">
+          </div>
+          <!-- Numéro Affiliation Assurance -->
+          <div class="mb-3">
+            <label for="numeroAffiliationAssurance" class="form-label">Numéro Affiliation Assurance :</label>
+            <input type="number" class="form-control" id="numeroAffiliationAssurance" [(ngModel)]="affaire.numeroAffiliationAssurance" name="numeroAffiliationAssurance" placeholder="Entrez le numéro d'affiliation assurance">
+          </div>
+          <!-- Nom Mutuelle -->
+          <div class="mb-3">
+            <label for="nomMutuelle" class="form-label">Nom Mutuelle :</label>
+            <input type="text" class="form-control" id="nomMutuelle" [(ngModel)]="affaire.nomMutuelle" name="nomMutuelle" placeholder="Entrez le nom de la mutuelle">
+          </div>
+          <!-- Numéro Affiliation Mutuelle -->
+          <div class="mb-3">
+            <label for="numeroAffiliationMutuelle" class="form-label">Numéro Affiliation Mutuelle :</label>
+            <input type="number" class="form-control" id="numeroAffiliationMutuelle" [(ngModel)]="affaire.numeroAffiliationMutuelle" name="numeroAffiliationMutuelle" placeholder="Entrez le numéro d'affiliation mutuelle">
+          </div>
+          <!-- Update button -->
+          <div class="d-grid gap-2">
+            <button type="button" class="btn btn-primary btn-lg" (click)="updateAffaire()">Mettre à jour</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

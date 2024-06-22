@@ -1,0 +1,54 @@
+.demande-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.absences-container .absences-title {
+  font-size: 2.5rem;
+  color: #4a86e8;
+  margin-bottom: 1rem;
+}
+.demande-container .demande-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.demande-container .demande-info .demande-label {
+  font-weight: bold;
+  color: #6c757d;
+}
+
+.demande-container .demande-info .demande-value {
+  color: #4a86e8;
+}
+
+.demande-container .demande-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.demande-container .demande-actions .accept-button,
+.demande-container .demande-actions .reject-button {
+  background-color: #4a86e8;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-size: 0.8rem;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 1rem;
+}
+
+.demande-container .demande-actions .accept-button:hover,
+.demande-container .demande-actions .reject-button:hover {
+  background-color: #3b6de3;
+}
+
+.demande-container .demande-separator {
+  border: none;
+  border-top: 1px solid #e9ecef;
+  margin: 1rem 0;
+}

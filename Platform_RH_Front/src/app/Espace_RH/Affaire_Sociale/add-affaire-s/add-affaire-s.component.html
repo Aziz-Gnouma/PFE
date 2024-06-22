@@ -1,0 +1,214 @@
+<app-sidebar></app-sidebar>
+
+<div class="main main-app p-3 p-lg-4">
+  <div class="d-flex align-items-center justify-content-between mb-4">
+    <div>
+      <ol class="breadcrumb fs-sm mb-1">
+        <li class="breadcrumb-item"><a routerLink="/Gerant">Tableau de bord</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Ajouter une affaire sociale</li>
+      </ol>
+      <h4 class="main-title mb-0">Ici vous pouvez ajouter une affaire sociale</h4>
+    </div>
+    <nav class="nav nav-icon nav-icon-lg">
+    </nav>
+  </div>
+
+  <div class="container">
+    <div class="col-12">
+      <div class="card card-example"  *ngIf="step === 1" >
+        <div class="card-body">
+          <form [formGroup]="affaireForm" (ngSubmit)="onAjouter()">
+            <div>
+              <!-- Étape 1: Données Personnelles -->
+              <div class="mb-3">
+                <h4>Données Personnelles</h4>
+                <label for="situationFamiliale" class="form-label">Situation Familiale</label>
+                <select id="situationFamiliale" class="form-control" formControlName="situationFamiliale" required>
+                  <option value="">Selectionner Situation Familiale</option>
+                  <option value="Célibataire">Célibataire</option>
+                  <option value="Marié(e)">Marié(e)</option>
+                  <option value="Divorcé(e)">Divorcé(e)</option>
+                  <option value="Veuf(ve)">Veuf(ve)</option>
+                  <!-- Add more options as needed -->
+                </select>
+              </div>
+              <div class="mb-3">
+                <label for="matriculeConjoint" class="form-label">Matricule Conjoint</label>
+                <input type="text" id="matriculeConjoint" class="form-control" formControlName="matriculeConjoint" placeholder="Entrez le matricule conjoint" required>
+              </div>
+
+              <div class="mb-3">
+                <label for="prenomConjoint" class="form-label">Prénom Conjoint</label>
+                <input type="text" id="prenomConjoint" class="form-control" formControlName="prenomConjoint" placeholder="Entrez le prénom conjoint" required>
+              </div>
+
+              <div class="mb-3">
+                <label for="nbEnfants" class="form-label">Nombre d'Enfants</label>
+                <input type="number" id="nbEnfants" class="form-control" formControlName="nbEnfants" required>
+                <div  class="mt-3">
+                  <button class="btn btn-primary" type="button" (click)="openModal4()">Ajouter un enfant</button>
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <label for="nbEnfantsImposables" class="form-label">Nombre d'Enfants Imposables</label>
+                <input type="number" id="nbEnfantsImposables" class="form-control" formControlName="nbEnfantsImposables" required>
+              </div>
+            </div>
+
+            <div >
+              <!-- Étape 2: Informations Familiales -->
+              <div class="mb-3">
+                <h4>Informations Familiales</h4>
+                <label for="chefDeFamille" class="form-label">Chef de Famille</label>
+                <input type="checkbox" id="chefDeFamille" class="form-check-input" formControlName="chefDeFamille">
+              </div>
+
+
+              <div class="mb-3">
+                <label for="salaireUnique" class="form-label">Salaire Unique</label>
+                <input type="checkbox" id="salaireUnique" class="form-check-input" formControlName="salaireUnique">
+              </div>
+
+              <div class="mb-3">
+                <label for="allocFamiliale" class="form-label">Alloc Familiale</label>
+                <input type="checkbox" id="allocFamiliale" class="form-check-input" formControlName="allocFamiliale">
+              </div>
+            </div>
+
+            <div>
+              <!-- Étape 3: Affiliations/Sécurités Sociales -->
+              <div class="mb-3" >
+                <h4>Affiliations/Sécurités Sociales</h4>
+                <label for="securiteSociale1" class="form-label">Sécurité Sociale </label>
+                <input type="text" id="securiteSociale1" class="form-control" formControlName="securiteSociale1" placeholder="Entrez la sécurité sociale ">
+              </div>
+
+              <div class="mb-3">
+                <label for="nomAssurance" class="form-label">Nom Assurance</label>
+                <select id="nomAssurance" class="form-control" formControlName="nomAssurance">
+                  <option value="">Selectionner nom de l'assurance</option>
+                  <option value="AXA Assurance Tunisie">AXA Assurance Tunisie</option>
+                  <option value="Carte Assurance">Carte Assurance</option>
+                  <option value="STAR Assurance">STAR Assurance</option>
+                  <option value="La Société Tunisienne de l'Assurance et de Réassurance (STAR)">La Société Tunisienne de l'Assurance et de Réassurance (STAR)</option>
+                  <option value="La Compagnie Tunisienne d'Assurance et de Réassurance (CTAR)">La Compagnie Tunisienne d'Assurance et de Réassurance (CTAR)</option>
+                  <option value="La Prévoyance Tunisienne">La Prévoyance Tunisienne</option>
+                  <option value="La Capitale Assurances">La Capitale Assurances</option>
+                  <option value="La MACSF (Mutuelle d'Assurance du Corps de Santé Français)">La MACSF (Mutuelle d'Assurance du Corps de Santé Français)</option>
+                  <option value="La MAMDA (Mutuelle d'Assurance des Agents du Ministère de l'Agriculture)">La MAMDA (Mutuelle d'Assurance des Agents du Ministère de l'Agriculture)</option>
+                  <option value="La MATMUT (Mutuelle d'Assurance des Travailleurs Mutualistes)">La MATMUT (Mutuelle d'Assurance des Travailleurs Mutualistes)</option>
+                </select>
+              </div>
+
+              <div class="mb-3">
+                <label for="affiliationLe" class="form-label">Affiliation Le</label>
+                <input type="date" id="affiliationLe" class="form-control" formControlName="affiliationLe" required>
+              </div>
+
+              <div class="mb-3">
+                <label for="exonere" class="form-label">Exonéré</label>
+                <input type="checkbox" id="exonere" class="form-check-input" formControlName="exonere">
+              </div>
+
+              <div class="mb-3">
+                <label for="affiliationRegime" class="form-label">Affiliation Régime</label>
+                <input type="checkbox" id="affiliationRegime" class="form-check-input" formControlName="affiliationRegime">
+              </div>
+
+              <div class="mb-3">
+                <label for="affiliationAssurance" class="form-label">Affiliation Assurance</label>
+                <input type="checkbox" id="affiliationAssurance" class="form-check-input" formControlName="affiliationAssurance">
+              </div>
+
+              <div class="mb-3">
+                <label for="affiliationMutuelle" class="form-label">Affiliation Mutuelle</label>
+                <input type="checkbox" id="affiliationMutuelle" class="form-check-input" formControlName="affiliationMutuelle">
+              </div>
+              <div class="mb-3">
+                <label for="affiliationAssuranceGroupe" class="form-label">Affiliation Assurance Groupe</label>
+                <input type="checkbox" id="affiliationAssuranceGroupe" class="form-check-input" formControlName="affiliationAssuranceGroupe">
+              </div>
+
+              <div class="mb-3">
+                <label for="affiliationCss" class="form-label">Affiliation CSS</label>
+                <input type="number" id="affiliationCss" class="form-control" formControlName="affiliationCss" required>
+              </div>
+
+              <div class="mb-3">
+                <label for="numeroAffiliationAssurance" class="form-label">Numéro Affiliation Assurance</label>
+                <input type="number" id="numeroAffiliationAssurance" class="form-control" formControlName="numeroAffiliationAssurance" required>
+              </div>
+
+              <div class="mb-3">
+                <label for="nomMutuelle" class="form-label">Nom Mutuelle</label>
+                <input type="text" id="nomMutuelle" class="form-control" formControlName="nomMutuelle" required>
+              </div>
+
+              <div class="mb-3">
+                <label for="numeroAffiliationMutuelle" class="form-label">Numéro Affiliation Mutuelle</label>
+                <input type="number" id="numeroAffiliationMutuelle" class="form-control" formControlName="numeroAffiliationMutuelle" required>
+              </div>
+              <div class="mb-3 d-flex justify-content-between">
+                <button type="submit" class="btn btn-primary float-end">Soumettre</button>
+              </div>
+            </div>
+          </form>
+        </div><!-- card-body -->
+      </div>
+<!-- fin Affaire sociale -->
+
+
+  </div>
+      <div id="exampleModalToggle3" class="modal fade" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="childModalLabel">Ajouter un enfant</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+              <div class="modal-body">
+                <!-- Child addition form -->
+                <form [formGroup]="childForm" (ngSubmit)="addChildAndResetForm()">
+
+                  <div class="mb-3">
+                    <label for="nom" class="form-label">Nom</label>
+                    <input type="text" id="nom" class="form-control" formControlName="nom" required>
+                  </div>
+                  <div class="mb-3">
+                    <label for="dateNaissance" class="form-label">Date de Naissance</label>
+                    <input type="date" id="dateNaissance" class="form-control" formControlName="dateNaissance" required>
+                  </div>
+                  <div class="mb-3">
+                    <label for="genre" class="form-label">Genre</label>
+                    <select id="genre" class="form-select" formControlName="genre" required>
+                      <option value="" disabled selected>Choisissez un genre</option>
+                      <option value="Masculin">Masculin</option>
+                      <option value="Féminin">Féminin</option>
+                    </select>
+                  </div>
+                  <div class="mb-3">
+                    <label for="dateAjout" class="form-label">Date d'Ajout</label>
+                    <input type="date" id="dateAjout" class="form-control" formControlName="dateAjout" required>
+                  </div>
+                  <div class="mb-3">
+                    <label for="niveauEtude" class="form-label">Niveau d'Étude</label>
+                    <select id="niveauEtude" class="form-select" formControlName="niveauEtude">
+                      <option value="" disabled selected>Choisissez un niveau d'étude</option>
+                      <option *ngFor="let niveau of niveauxEtude" [value]="niveau.value">{{ niveau.label }}</option>
+                    </select>
+                  </div>
+                  <!-- <div class="mb-3">
+                    <label for="image" class="form-label">Image (PNG)</label>
+                    <input type="file" id="image" class="form-control" (change)="onFileSelected($event)" accept="image/png" required>
+                  </div> -->
+                  <button type="submit" class="btn btn-primary">Enregistrer</button>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+              </div>
+            </div>
+          </div>
+        </div>

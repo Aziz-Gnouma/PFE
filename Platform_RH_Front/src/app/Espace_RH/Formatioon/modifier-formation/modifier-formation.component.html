@@ -1,0 +1,135 @@
+<app-sidebar></app-sidebar>
+<div class="main p-4 p-lg-5">
+    <ol class="breadcrumb fs-sm mb-2">
+      <li class="breadcrumb-item"><a href="#">List</a></li>
+      <li class="breadcrumb-item"><a href="#">Modifier Formation</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Settings</li>
+    </ol>
+<div class="card card-settings">
+    <div class="card-header">
+      <h6 class="card-title">Plus d'informations</h6>
+      <p class="card-text">Obtenez des détails complémentaires pour enrichir votre profil personnel et mieux vous connaître.</p>
+    </div><!-- card-header -->
+    <div class="card-body p-0">
+      <div class="setting-item">
+        <div class="row g-2 align-items-center">
+          <div class="col-md-5">
+            <h5 class="card-text">Titre</h5>
+          </div>
+          <div class="col-md">
+            <input type="text" class="form-control" placeholder="Entrez le titre" [(ngModel)]="formation.titre" name="titre" required>
+          </div>
+        </div>
+      </div>
+      <div class="setting-item">
+        <div class="row g-2 align-items-center">
+          <div class="col-md-5">
+            <h5 class="card-text">Durée</h5>
+          </div>
+          <div class="col-md">
+            <input type="number" class="form-control" placeholder="Entrez la durée" [(ngModel)]="formation.duree" name="duree" required>
+          </div>
+        </div>
+      </div>
+      <div class="setting-item">
+        <div class="row g-2 align-items-center">
+          <div class="col-md-5">
+            <h5 class="card-text">Langue</h5>
+          </div>
+          <div class="col-md">
+            <select class="form-select" id="langue"[(ngModel)]="formation.langue" required>
+                <option value="">Choisir une langue</option>
+                <option value="Français">Français</option>
+                <option value="Anglais">Anglais</option>
+                <option value="Arabe">Arabe</option>
+                <option value="Autre">Autre</option>
+            </select>  
+        </div>
+        </div>
+      </div>
+      <div class="setting-item">
+        <div class="row g-2 align-items-center">
+          <div class="col-md-5">
+            <h5 class="card-text">Niveau</h5>
+          </div>
+          <div class="col-md">
+            <select class="form-select" id="niveau"  [(ngModel)]="formation.niveau" name="niveau" required>
+                <option value="">Choisir un niveau</option>
+                <option value="Débutant">Débutant</option>
+                <option value="Intermédiaire">Intermédiaire</option>
+                <option value="Avancé">Avancé</option>
+            </select>  
+        </div>
+        </div>
+      </div>
+      <!-- File 
+      <div class="setting-item">
+        <div class="row g-2 align-items-center">
+          <div class="col-md-5">
+            <h5 for="file" class="card-text">File</h5>
+          </div>
+          <div class="col-md">
+          </div>
+        </div>
+      </div>-->
+
+      <div class="setting-item">
+        <div class="row g-2 align-items-center">
+          <div class="col-md-5">
+            <h6 class="card-text">Formateur</h6>
+          </div>
+          <div class="col-md">
+            <input type="text" class="form-control" placeholder="Entrez le formateur" [(ngModel)]="formation.formateur" name="formateur" required>
+          </div>
+        </div>
+      </div>
+      <div class="setting-item">
+        <div class="row g-2 align-items-center">
+          <div class="col-md-5">
+            <h5 class="card-text">Statut</h5>
+          </div>
+          <div class="col-md">
+            <select class="form-control" [(ngModel)]="formation.statut" name="statut">
+                <option value="active">Actif</option>
+                <option value="inactive">Inactif</option>
+              </select>
+                      </div>
+        </div>
+      </div>
+
+      <div class="setting-item">
+        <div class="row g-2 align-items-center">
+          <div class="col-md-5">
+            <h5 class="card-text">Catégories</h5>
+          </div>
+          <div class="col-md">
+            <select class="form-select" id="categories"  [(ngModel)]="formation.categories"  formControlName="categories">
+                <option *ngFor="let category of categoriesList$ | async" [value]="category.id">{{ category.name }}</option>
+            </select>
+        </div>
+        </div>
+      </div>
+      <div class="setting-item">
+        <div class="row g-2 align-items-center">
+          <div class="col-md-5">
+            <h5 class="card-text">Description</h5>
+          </div>
+          <div class="col-md">
+            <textarea type="text" class="form-control" placeholder="Entrez la description" [(ngModel)]="formation.description" name="description" required></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="setting-item">
+        <div class="row g-2 align-items-center">
+          <div class="col-md-5">
+            <h5 class="card-text">Date Ajouter</h5>
+          </div>
+          <div class="col-md">
+            <input type="text" class="form-control" placeholder="" [(ngModel)]="formation.dateAjouter" disabled="">
+          </div>
+        </div>
+      </div>
+    </div>
+    <button type="button" class="btn btn-primary" (click)="updateFormation()" >Mettre à jour le Formation</button>
+  </div><!-- card -->
+  

@@ -1,0 +1,166 @@
+<app-sidebar></app-sidebar>
+    
+    
+    <div class="main main-app p-3 p-lg-4">
+        <div class="d-flex align-items-center justify-content-between mb-4">
+          <div>
+            <ol class="breadcrumb fs-sm mb-1">
+              <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Active Entrepreneurs</li>
+            </ol>
+            <h4 class="main-title mb-0">Notre active Entrepreneurs</h4>
+            
+
+          </div>
+    
+          <nav class="nav nav-icon nav-icon-lg">
+            <a href="" class="nav-link" data-bs-toggle="tooltip" title="Share"><i class="ri-share-line"></i></a>
+            <a href="" class="nav-link" data-bs-toggle="tooltip" title="Print"><i class="ri-printer-line"></i></a>
+            <a href="" class="nav-link" data-bs-toggle="tooltip" title="Report"><i class="ri-bar-chart-2-line"></i></a>
+          </nav>
+        </div>
+        <div class="col-12">
+
+            <input type="text" [(ngModel)]="searchTerm" placeholder="Search...">
+            <br><br>
+            <table  id="tableGrid2" class="table table-hover">
+                <thead>
+                  <tr style="border: 20px; color: black;">
+                    <th> <span class="badge bg-success">CIN</span>
+                    </th>
+                    <th>Prénom</th>
+                    <th>Nom</th>
+                    <th>Email</th>
+                    <th>Date de naissance</th>
+                    <th>Lieu de naissance</th>
+                    <th>Nationalité</th>
+                    <th>Téléphone</th>
+                    <th>Adresse</th>
+                    <th>Genre</th>
+                    <th>Rôle</th>
+                    <th>Nom _Entreprise</th>
+                    <th>Action</th>
+
+                    <!-- Add more headers for enterprise details if needed -->
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let user of users | userFilter: searchTerm">
+                    
+                    <td> {{ user.cin }}</td>
+                    <td>{{ user.userFirstName }}</td>
+                    <td>{{ user.userLastName }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>{{ user.dateOfBirth }}</td>
+                    <td>{{ user.placeOfBirth }}</td>
+                    <td>{{ user.nationality }}</td>
+                    <td>{{ user.phoneNumber }}</td>
+                    <td>{{ user.address }}</td>
+                    <td>{{ user.gender }}</td>
+                    <td>{{ user.role.length > 0 ? user.role[0].roleName : '-' }}</td>
+                    <td>{{ user.entreprise.length > 0 ? user.entreprise[0].entrepriseName : '-' }}</td>
+                  
+                    <td>
+                      <svg (click)="openModal(user)" xmlns="http://www.w3.org/2000/svg" width="24"  color="blue" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-eye"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                    </td>
+                    <td>
+                      <svg (click)="ArchiverGerant(user.cin)" xmlns="http://www.w3.org/2000/svg" width="24" color="red" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shield-off"><path d="M19.69 14a6.9 6.9 0 0 0 .31-2V5l-8-3-3.16 1.18"></path><path d="M4.73 4.73L4 5v7c0 6 8 10 8 10a20.29 20.29 0 0 0 5.62-4.38"></path><line x1="1" y1="1" x2="23" y2="23"></line></svg>                 
+
+                    </td>
+                    <!-- Add more cells for enterprise details if needed -->
+                    <!-- Assuming there's only one role -->
+                    <!-- Add more cells for enterprise details if needed -->
+                  </tr>
+                </tbody>
+              </table>
+      
+          </div>
+          <div id="exampleModalToggle" class="modal fade" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title" style="border: black; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">Gerant Details <i class="ri-medal-line" data-bs-toggle="tooltip" title="" data-bs-original-title="ri-medal-line" aria-label="ri-medal-line"></i></h2>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <div>
+                          <!-- Formulaire d'informations personnelles -->
+                          <div class="row g-8">
+                              <div class="col-sm-6">
+                                  <label class="form-label" style="color: black;"> Nom complet </label>
+                                  <h5 class="form-control">{{ selectedUser?.userFirstName + '  ' + selectedUser?.userLastName }} </h5>
+                              </div><!-- col -->
+                              <div class="col-sm-6">
+                                  <label class="form-label" style="color: black;"> Nationalité </label>
+                                  <h5 class="form-control">{{ selectedUser?.nationality }} </h5>
+                              </div><!-- col -->
+                              <div class="col-sm-6">
+                                  <label class="form-label" style="color: black;"> Email </label>
+                                  <h5 class="form-control">{{ selectedUser?.email }} </h5>
+                              </div><!-- col -->
+                              <div class="col-sm-6">
+                                  <label class="form-label" style="color: black;"> Numéro de téléphone </label>
+                                  <h5 class="form-control">{{ selectedUser?.phoneNumber }} </h5>
+                              </div><!-- col -->
+                              <div class="col-sm-6">
+                                  <label class="form-label" style="color: black;"> Cin </label>
+                                  <h5 class="form-control">{{ selectedUser?.cin }} </h5>
+                              </div><!-- col -->
+                              <div class="col-sm-6">
+                                  <label class="form-label" style="color: black;"> Date de CIN </label>
+                                  <h5 class="form-control">{{ selectedUser?.cinDate }} </h5>
+                              </div><!-- col -->
+                              <div class="col-sm-6">
+                                  <label class="form-label" style="color: black;"> Civilité </label>
+                                  <h5 class="form-control">{{ selectedUser?.civility }} </h5>
+                              </div><!-- col -->
+                              <div class="col-sm-6">
+                                  <label class="form-label" style="color: black;"> Date de naissance </label>
+                                  <h5 class="form-control">{{ selectedUser?.dateOfBirth}}</h5>
+                              </div><!-- col -->
+                              <div class="col-sm-6">
+                                  <label class="form-label" style="color: black;"> Adresse-Entreprise </label>
+                                  <h5 class="form-control">{{ selectedUser?.entreprise?.[0]?.adresse_Entreprise }}</h5>
+                              </div><!-- col -->
+                              <div class="col-sm-6">
+                                  <label class="form-label" style="color: black;"> Ville-Entreprise </label>
+                                  <h5 class="form-control">{{ selectedUser?.entreprise?.[0]?.ville }}</h5>
+                              </div><!-- col -->
+                              <div class="col-sm-6">
+                                  <label class="form-label" style="color: black;"> Nom de l'entreprise </label>
+                                  <h5 class="form-control">{{ selectedUser?.entreprise?.[0]?.entrepriseName }}</h5>
+                              </div><!-- col -->
+                              <div class="col-sm-6">
+                                  <label class="form-label" style="color: black;"> Rôle </label>
+                                  <h5 class="form-control">{{ selectedUser?.role?.[0]?.roleName }}</h5>
+                              </div><!-- col -->
+                              <div class="col-sm-6">
+                                  <label class="form-label" style="color: black;"> Site Web </label>
+                                  <h5 class="form-control">{{ selectedUser?.entreprise?.[0]?.site_Web }}</h5>
+                              </div><!-- col -->
+                              <div class="col-sm-6">
+                                  <label class="form-label" style="color: black;"> Nombre d'employés </label>
+                                  <h5 class="form-control">{{ selectedUser?.entreprise?.[0]?.nb_Employees}}</h5>
+                              </div><!-- col -->
+                          </div><!-- row -->
+                      </div>
+                  </div>
+                  
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Fermer</button>
+               
+                    </div>
+                </div>
+            </div>
+          </div>
+    
+          <script>
+            $(document).ready(function() {
+              // Initialize DataTable with options for filtering and pagination
+              $('#tableGrid2').DataTable({
+                searching: true, // Enable filtering/searching
+                paging: true // Enable pagination
+              });
+            });
+          </script>
+    

@@ -1,0 +1,262 @@
+[33mcommit 0e2ef03db57b1a73be8f525c48c1536ff78591cf[m[33m ([m[1;36mHEAD -> [m[1;32mcarriere[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/carriere[m[33m, [m[1;32mmaster[m[33m)[m
+Merge: e5f66d7 9239401
+Author: hamza ben younes <89034867+Hamzabny@users.noreply.github.com>
+Date:   Sun Mar 31 05:25:33 2024 +0100
+
+    Merge pull request #10 from Aziz-Gnouma/affairefix2
+    
+    add affaire to employee
+
+[33mcommit 9239401e4350b7c19a639bd3f21469ffa19cf1fe[m
+Merge: a584b01 e5f66d7
+Author: hamza ben younes <89034867+Hamzabny@users.noreply.github.com>
+Date:   Sun Mar 31 05:25:25 2024 +0100
+
+    Merge branch 'master' into affairefix2
+
+[33mcommit a584b0110637d00bdf702853b32861f251d9b64b[m
+Author: hamza ben younes <hamzabenyoues199@gmail.com>
+Date:   Sun Mar 31 05:18:13 2024 +0100
+
+    add affaire to employee
+
+[33mcommit e5f66d73a3bdce57e8ce082be7cca76980a4dbf3[m
+Merge: 06b3bc9 9ed048c
+Author: Aziz-Gnouma <119746785+Aziz-Gnouma@users.noreply.github.com>
+Date:   Sun Mar 31 03:08:31 2024 +0100
+
+    Merge pull request #9 from Aziz-Gnouma/carriere
+    
+    Carriere
+
+[33mcommit 9ed048ce206cae5cd625e8d3e977004700f73127[m
+Author: Aziz-Gnouma <aziz.gnouma2002@gmail.com>
+Date:   Sun Mar 31 03:06:47 2024 +0100
+
+    Carriere
+
+[33mcommit 06b3bc9a4532033c2a0b870b736c906f20ab55ef[m
+Author: hamza ben younes <hamzabenyoues199@gmail.com>
+Date:   Mon Mar 25 17:16:29 2024 +0100
+
+    fix
+
+[33mcommit 7186167edfc7584b0b85525744c73eff4f89e2c8[m
+Merge: c41531d 4713dcc
+Author: Aziz-Gnouma <119746785+Aziz-Gnouma@users.noreply.github.com>
+Date:   Mon Mar 25 07:03:23 2024 +0100
+
+    Merge pull request #8 from Aziz-Gnouma/fix_Emplyee
+    
+    fix2
+
+[33mcommit 4713dcceb592ec318219b1be549c871fa788bc67[m[33m ([m[1;31morigin/fix_Emplyee[m[33m, [m[1;32mfix_Emplyee[m[33m)[m
+Merge: c0b23bf c41531d
+Author: Aziz-Gnouma <119746785+Aziz-Gnouma@users.noreply.github.com>
+Date:   Mon Mar 25 06:58:21 2024 +0100
+
+    Merge branch 'master' into fix_Emplyee
+
+[33mcommit c0b23bf2c8e068c5d64fcbe3735e2173ee53c1ec[m
+Author: Aziz-Gnouma <aziz.gnouma2002@gmail.com>
+Date:   Mon Mar 25 05:59:41 2024 +0100
+
+    fix2
+
+[33mcommit c41531d954cc0cfa3103bbad31bd3ab180433387[m
+Merge: 5d2455e 4d2979f
+Author: hamza ben younes <89034867+Hamzabny@users.noreply.github.com>
+Date:   Fri Mar 22 15:09:08 2024 +0100
+
+    Merge pull request #7 from Aziz-Gnouma/Sanctions-Recomp
+    
+    Sanctions recomp
+
+[33mcommit 4d2979ff7f506b0638c5e47d83951890833e5216[m[33m ([m[1;31morigin/Sanctions-Recomp[m[33m)[m
+Author: hamza ben younes <hamzabenyoues199@gmail.com>
+Date:   Fri Mar 22 15:08:29 2024 +0100
+
+    add affaire to new employee
+
+[33mcommit f0c02e1b051442b46bc0650c63a0edd1cd378460[m
+Author: hamza ben younes <hamzabenyoues199@gmail.com>
+Date:   Fri Mar 22 00:20:12 2024 +0100
+
+    update
+
+[33mcommit 5d2455e37cc6af4a89920f89b24aea3d22e913b9[m
+Merge: 92971f3 fdbaf9d
+Author: hamza ben younes <89034867+Hamzabny@users.noreply.github.com>
+Date:   Fri Mar 22 00:16:46 2024 +0100
+
+    Merge pull request #6 from Aziz-Gnouma/Sanctions-Recomp
+    
+    Sanctions recomp
+
+[33mcommit fdbaf9db4c5b96c1afe6abf4cf17c32d5de41967[m
+Merge: b4d6eee 92971f3
+Author: hamza ben younes <89034867+Hamzabny@users.noreply.github.com>
+Date:   Fri Mar 22 00:16:37 2024 +0100
+
+    Merge branch 'master' into Sanctions-Recomp
+
+[33mcommit b4d6eeeb03d721412741cc8022169db3b6d03075[m
+Author: hamza ben younes <hamzabenyoues199@gmail.com>
+Date:   Fri Mar 22 00:14:32 2024 +0100
+
+    details reward
+
+[33mcommit 92971f30add8bacf88f09c375ad59c3f5a233bb9[m
+Merge: 8a8171d 9d643d9
+Author: Aziz-Gnouma <119746785+Aziz-Gnouma@users.noreply.github.com>
+Date:   Thu Mar 21 18:19:12 2024 +0100
+
+    Merge pull request #5 from Aziz-Gnouma/auth/profile/carriere
+    
+    first step
+
+[33mcommit 9d643d9132bf9e17667d3b7272cfdaa9fb46d8fb[m[33m ([m[1;31morigin/auth/profile/carriere[m[33m, [m[1;32mauth/profile/carriere[m[33m)[m
+Merge: 14a44a9 8a8171d
+Author: Aziz-Gnouma <119746785+Aziz-Gnouma@users.noreply.github.com>
+Date:   Thu Mar 21 18:18:55 2024 +0100
+
+    Merge branch 'master' into auth/profile/carriere
+
+[33mcommit 14a44a9d1ffcb885bedeabd974dc54a78efc6e97[m
+Author: Aziz-Gnouma <aziz.gnouma2002@gmail.com>
+Date:   Thu Mar 21 18:15:17 2024 +0100
+
+    first step
+
+[33mcommit 434eb838cab54e2c179b9f2444de63ede98fdd46[m
+Author: hamza ben younes <hamzabenyoues199@gmail.com>
+Date:   Thu Mar 21 16:28:30 2024 +0100
+
+    reward-sanction
+
+[33mcommit 8a8171da8977e78fbf8b6b1b371696dbe66b945d[m
+Author: hamza ben younes <hamzabenyoues199@gmail.com>
+Date:   Mon Mar 11 16:53:57 2024 +0100
+
+    update
+
+[33mcommit c7ead7e494ef8c099227c8e9573b721d4c8030e8[m
+Author: hamza ben younes <hamzabenyoues199@gmail.com>
+Date:   Sun Mar 10 12:51:22 2024 +0100
+
+    update
+
+[33mcommit fd32287de586cfcecf01e74a45170e38e20a9860[m
+Author: hamza ben younes <hamzabenyoues199@gmail.com>
+Date:   Tue Mar 5 18:24:31 2024 +0100
+
+    update affaire
+
+[33mcommit ca05db1597ed9c1d19cdcc1c556edf93a1f2a670[m
+Merge: 36d58fa 472afad
+Author: hamza ben younes <89034867+Hamzabny@users.noreply.github.com>
+Date:   Tue Mar 5 14:30:57 2024 +0100
+
+    Merge pull request #4 from Aziz-Gnouma/auth/profile/carriere
+    
+    fix auth/profile/carriere
+
+[33mcommit 472afad21209701a0d9b1e69a4c7db4171adf82f[m
+Author: Aziz-Gnouma <aziz.gnouma2002@gmail.com>
+Date:   Mon Mar 4 19:53:20 2024 +0100
+
+    fix auth/profile/carriere
+
+[33mcommit 36d58faf0a2121f86e16d61485c657ec73c454d9[m
+Author: Aziz-Gnouma <aziz.gnouma2002@gmail.com>
+Date:   Mon Mar 4 13:29:31 2024 +0100
+
+    okok
+
+[33mcommit 352c6cd3a7772ce94706c45ebf5fca5dee1d09ac[m
+Author: Aziz-Gnouma <aziz.gnouma2002@gmail.com>
+Date:   Mon Mar 4 13:26:58 2024 +0100
+
+    ok
+
+[33mcommit 1fb2b636d680e8c93b6c6158671a67a14d1b8251[m
+Merge: d71ff6c 9c242d0
+Author: Aziz-Gnouma <aziz.gnouma2002@gmail.com>
+Date:   Mon Mar 4 13:22:11 2024 +0100
+
+    profile/Carriere
+
+[33mcommit d71ff6c729a4fd1b37f987f937ed9f189a2773f5[m
+Author: Aziz-Gnouma <aziz.gnouma2002@gmail.com>
+Date:   Mon Mar 4 13:03:49 2024 +0100
+
+    profile/Carriere
+
+[33mcommit 9c242d012952f50cf9ba3835461add378e4d5169[m
+Author: hamza ben younes <hamzabenyoues199@gmail.com>
+Date:   Sun Mar 3 23:15:22 2024 +0100
+
+    toast add affaire
+
+[33mcommit bf002e1720658a523f79e4a897d9c2b94be02042[m
+Author: hamza ben younes <hamzabenyoues199@gmail.com>
+Date:   Sun Mar 3 23:10:10 2024 +0100
+
+    toast add affaire
+
+[33mcommit 95ea2ffad40e97e9e098f5ae91d4051d328e41f2[m
+Author: hamza ben younes <hamzabenyoues199@gmail.com>
+Date:   Mon Feb 26 15:16:16 2024 +0100
+
+    design
+
+[33mcommit 2413d0de9103701314c1d5844b06813e9cb25ef2[m
+Author: hamza ben younes <hamzabenyoues199@gmail.com>
+Date:   Mon Feb 26 04:09:31 2024 +0100
+
+    affaire social
+
+[33mcommit 5558cf982502677be8c5cbb414e78766d3f7329d[m
+Merge: 18413c0 fef498f
+Author: hamza ben younes <89034867+Hamzabny@users.noreply.github.com>
+Date:   Sun Feb 25 15:23:01 2024 +0100
+
+    Merge pull request #3 from Aziz-Gnouma/affaire-sociale
+    
+    affaire sociale
+
+[33mcommit fef498f6218d374b5deb19b7d5dfde3f34193b1a[m[33m ([m[1;31morigin/affaire-sociale[m[33m)[m
+Author: hamza ben younes <hamzabenyoues199@gmail.com>
+Date:   Sun Feb 25 15:02:18 2024 +0100
+
+    affaire sociale
+
+[33mcommit 18413c0a5d978f0650934ace1feac2c621c896aa[m
+Merge: ae82cca 6661c27
+Author: Aziz-Gnouma <aziz.gnouma2002@gmail.com>
+Date:   Sat Feb 24 18:26:17 2024 +0100
+
+    Auth
+
+[33mcommit ae82cca15ebf54697434d5dee971147af76d3f35[m
+Author: Aziz-Gnouma <aziz.gnouma2002@gmail.com>
+Date:   Sat Feb 24 18:18:26 2024 +0100
+
+    Auth (Gettion User + Getion Entreprise)
+
+[33mcommit 6661c2766cb17c6bae42a38f7c10b580c68e1945[m
+Merge: acce7e9 e202a1c
+Author: hamza ben younes <89034867+Hamzabny@users.noreply.github.com>
+Date:   Wed Feb 21 19:03:39 2024 +0100
+
+    Merge pull request #2 from Aziz-Gnouma/dashboard
+    
+    add side bar in other component  and add affaire sociale ( first commit/version )
+
+[33mcommit e202a1c86f3e7a65b3bf3a23f537dbfefecd9084[m[33m ([m[1;31morigin/dashboard[m[33m)[m
+Author: hamza ben younes <hamzabenyoues199@gmail.com>
+Date:   Wed Feb 21 19:02:20 2024 +0100
+
+    add side bar in other component  and add affaire siciale
+
+[33mcommi

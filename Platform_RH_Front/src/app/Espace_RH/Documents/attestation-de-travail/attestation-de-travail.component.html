@@ -1,0 +1,25 @@
+<div class="attestation-container mt-70">
+  <p class="attestation-date">Tunis,Le {{ dateTimeNow }}</p>
+
+  <h2 class="attestation-title">Attestation de Travail</h2>
+
+  <p class="attestation-body">Nous soussignés «<span class="societe"*ngIf="userData">{{ userData.entrepriseName }}</span>» Société Anonyme, au capital de  «<span class="capital"*ngIf="userData">{{ userData.pays }}</span>» Dinars dont le siège est sis à Blue Center, «<span class="adresse"></span>», attestons par la présente que Monsieur :</p>
+
+  <ul class="attestation-list" *ngIf="userData">
+    <li><strong>Nom :</strong> <span class="nom"*ngIf="userData">{{ userData.userLastName }}</span></li>
+    <li><strong>Prénom :</strong> <span class="prenom"*ngIf="userData">{{ userData.userFirstName }}</span></li>
+    <li><strong>Matricule :</strong> <span class="matricule"*ngIf="userData">{{userData.matricule}}</span></li>
+    <li><strong>CIN N° :</strong> <span class="numcin"*ngIf="userData">{{ userData.cin }}</span> délivrée le <span class="datecin"*ngIf="userData">{{ userData.cinDate }}</span></li>
+    <li><strong>Date de naissance :</strong> «<span class="datenaissance"*ngIf="userData">{{ userData.dateOfBirth }}</span>» à «<span class="lieunaissance"*ngIf="userData">{{ userData.nationality }}</span>»</li>
+    <li><strong>Fait partie de notre personnel «<span class="contrat"*ngIf="userData"></span>» depuis le «<span class="datedebut"*ngIf="userData"></span>» en qualité de <span class="fonction"*ngIf="userData"></span></strong></li>
+  </ul>
+
+  <p class="attestation-footer">Cette attestation est délivrée à l'intéressé sur sa demande pour servir et valoir ce que de droit.</p>
+  <div class="attestation-signature">
+    <p class="signature-title">Directeur des Ressources Humaines</p>
+    <!-- Add this img tag to display the QR code -->
+    <img [src]="qrCodeUrl" alt="Code QR" class="qr-code-image" *ngIf="qrCodeUrl">
+  </div>
+
+
+</div>

@@ -1,0 +1,43 @@
+<app-sidebar></app-sidebar>
+<div class="demande-form-container mt-170 ">
+  <div *ngIf="successMessage" class="alert alert-success" role="alert">
+    {{ successMessage }}
+  </div>
+  <div *ngIf="errorMessage" class="alert alert-danger" role="alert">
+    {{ errorMessage }}
+  </div>
+  <h2 class="demande-form-title">Ajouter une demande de congé</h2>
+  <form (ngSubmit)="submitDemande()" class="demande-form">
+    <div class="form-field">
+      <label for="dateDebut" class="form-label">Date Début:</label>
+      <input type="date" id="dateDebut" [(ngModel)]="demande.dateDebut" name="dateDebut" required class="form-input" (change)="calculateNombreJoursDemandes()">
+    </div>
+    <div class="form-field">
+      <label for="dateFin" class="form-label">Date Fin:</label>
+      <input type="date" id="dateFin" [(ngModel)]="demande.dateFin" name="dateFin" required class="form-input" (change)="calculateNombreJoursDemandes()">
+    </div>
+    <div class="form-field">
+      <label for="nombreJours" class="form-label">Nombre de jours demandés:</label>
+      <input type="number" id="nombreJours" [(ngModel)]="demande.nombreJoursDemandes" name="nombreJours" required class="form-input">
+    </div>
+    <div class="form-floating my-3">
+      <select class="form-select" id="reason" [(ngModel)]="demande.reason" name="reason" required>
+        <option value="" disabled selected>Sélectionner une raison</option>
+        <option value="Maladie">Maladie</option>
+        <option value="Congé annuel">Congé annuel</option>
+        <option value="Congé de maternité">Congé de maternité</option>
+        <option value="Congé de paternité">Congé de paternité</option>
+        <option value="Congé de formation">Congé de formation</option>
+        <option value="Congé sans solde">Congé sans solde</option>
+        <option value="Congé pour décès familial">Congé pour décès familial</option>
+        <option value="Congé pour déménagement">Congé pour déménagement</option>
+        <option value="Congé de mariage">Congé de mariage</option>
+      </select>
+      <label for="reason">Raison:</label>
+      <div class="invalid-feedback">
+        Veuillez sélectionner une raison.
+      </div>
+    </div>
+    <button type="submit" class="submit-button">Submit</button>
+  </form>
+</div>

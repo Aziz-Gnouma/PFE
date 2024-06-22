@@ -1,0 +1,80 @@
+<app-sidebar></app-sidebar>
+
+<div class="main main-app p-3 p-lg-4">
+  <div class="d-flex align-items-center justify-content-between mb-4">
+    <div>
+      <ol class="breadcrumb fs-sm mb-1">
+        <li class="breadcrumb-item"><a routerLink="/ListRecompSanction">Liste Employes </a></li>
+        <li class="breadcrumb-item active" aria-current="page">Ajouter une sanction </li>
+      </ol>
+      <h4 class="main-title mb-0">Ici vous pouvez ajouter une sanction </h4>
+    </div>
+    <nav class="nav nav-icon nav-icon-lg">
+    </nav>
+  </div>
+
+  <div class="container">
+    <div class="col-12">
+      <div class="card card-example">
+        <div class="card-body">
+          <form (ngSubmit)="ajouterSanction()" [formGroup]="sanctionForm">
+            <div class="mb-3">
+              <h2>Ajouter une sanction</h2>
+            </div>
+            <div class="mb-3">
+              <label for="type" class="form-label">Type de sanction</label>
+              <select class="form-control" id="type" formControlName="type" required>
+                <option value="">-- Sélectionnez un type de sanction --</option>
+                <option value="Avertissement">Avertissement</option>
+                <option value="Blâme">Blâme</option>
+                <option value="Mise à pied">Mise à pied</option>
+                <!-- Ajoutez autant d'options que nécessaire -->
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="dateDemission" class="form-label">Date de démission</label>
+              <input type="date" class="form-control" id="dateDemission" formControlName="dateDemission" required>
+            </div>
+            <div class="mb-3">
+              <label for="Autorite" class="form-label">Autorité</label>
+              <select class="form-control" id="Autorite" formControlName="Autorite" required>
+                <option value="">-- Sélectionnez une autorité --</option>
+                <option value="Direction">Direction</option>
+                <option value="RH">Ressources Humaines</option>
+                <option value="Manager">Manager</option>
+                <!-- Ajoutez autant d'options que nécessaire -->
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="description" class="form-label">Description</label>
+              <textarea class="form-control" id="description" formControlName="description" required></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="gravite" class="form-label">Gravité</label>
+              <select class="form-control" id="gravite" formControlName="gravite" required>
+               <option value="">-- Sélectionnez une gravité --</option>
+                <option value="Faible">Faible</option>
+                <option value="Moyenne">Moyenne</option>
+                <option value="Élevée">Élevée</option>
+                <!-- Ajoutez autant d'options que nécessaire -->
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="duree" class="form-label">Date d'ajout</label>
+              <input type="date" class="form-control" id="duree" formControlName="duree" required>
+            </div>
+            <div class="mb-3">
+              <label for="StatutA" class="form-label">Statut</label>
+              <select class="form-control" id="StatutA" formControlName="StatutA" required>
+                <option value="">-- Sélectionner le statut --</option>
+                <option value="Active">Active</option>
+                <option value="Inactive">Inactive</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Ajouter</button>
+          </form>
+        </div><!-- card-body -->
+      </div><!-- card -->
+    </div><!-- col -->
+  </div><!-- container -->
+</div><!-- main -->

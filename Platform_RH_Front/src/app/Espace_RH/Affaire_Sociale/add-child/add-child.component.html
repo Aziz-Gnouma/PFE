@@ -1,0 +1,50 @@
+<div #childModal class="modal fade" id="childModal" tabindex="-1" aria-labelledby="childModalLabel" aria-hidden="true">
+  <!-- Modal content -->
+  <div class="modal-dialog">
+    <!-- Modal content -->
+    <div class="modal-content">
+      <!-- Modal header -->
+      <div class="modal-header">
+        <h5 class="modal-title" id="childModalLabel">Ajouter un enfant</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <!-- Modal body -->
+      <div class="modal-body">
+        <!-- Child addition form -->
+        <form [formGroup]="childForm" (ngSubmit)="submitChildForm()">
+
+          <div class="mb-3">
+            <label for="nom" class="form-label">Nom</label>
+            <input type="text" id="nom" class="form-control" formControlName="nom" required>
+          </div>
+          <div class="mb-3">
+            <label for="dateNaissance" class="form-label">Date de Naissance</label>
+            <input type="date" id="dateNaissance" class="form-control" formControlName="dateNaissance" required>
+          </div>
+          <div class="mb-3">
+            <label for="genre" class="form-label">Genre</label>
+            <select id="genre" class="form-select" formControlName="genre" required>
+              <option value="" disabled selected>Choisissez un genre</option>
+              <option value="Masculin">Masculin</option>
+              <option value="Féminin">Féminin</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="niveauEtude" class="form-label">Niveau d'Étude</label>
+            <input type="text" id="niveauEtude" class="form-control" formControlName="niveauEtude" required>
+          </div>
+          <div class="mb-3">
+            <label for="image" class="form-label">Image (PNG)</label>
+            <input type="file" id="image" class="form-control" (change)="onFileSelected($event)" accept="image/png" required>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Enregistrer</button>
+
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+      </div>
+    </div>
+  </div>
+</div>

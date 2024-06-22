@@ -1,0 +1,43 @@
+.sidebar-body {
+  overflow-y: auto;
+  scrollbar-width: thin;
+  transition: scrollbar-width 0.2s ease-in-out;
+  -ms-overflow-style: none; /* Hide scrollbar in IE and Edge */
+  scrollbar-color: transparent transparent; /* Hide scrollbar in Firefox */
+}
+.sidebar-body::-webkit-scrollbar {
+  width: 5px;
+  transition: width 0.2s ease-in-out;
+}
+
+.sidebar-body:hover::-webkit-scrollbar {
+  width: 10px;
+}
+
+.sidebar-body::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.sidebar-body::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 2px;
+}
+
+.sidebar-body::-webkit-scrollbar-thumb:hover {
+  background-color: #aaa;
+}
+.nav-group ul {
+  display: none;
+}
+
+.nav-group a:target + ul {
+  display: block;
+}
+/* .sidebar {
+  transition: transform 0.3s ease;
+  transform: translateX(-100%);
+}
+
+.sidebar.show {
+  transform: translateX(0);
+} */

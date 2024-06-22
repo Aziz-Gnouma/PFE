@@ -1,0 +1,762 @@
+<app-sidebar></app-sidebar>
+
+<div class="main main-app p-3 p-lg-4">
+    <div class="d-flex align-items-center justify-content-between mb-4">
+      <div>
+        <ol class="breadcrumb fs-sm mb-1">
+          <li class="breadcrumb-item"><a routerLink="/Gerant">Dashboard</a></li>
+          <li class="breadcrumb-item active" aria-current="page">ajouter un Employé</li>
+        </ol>
+        <h4 class="main-title mb-0">Ici, vous pouvez ajouter un employé</h4>
+      </div>
+
+      <nav class="nav nav-icon nav-icon-lg">
+      </nav>
+    </div>
+
+    <nav class="nav nav-line mb-4">
+      <a (click)="backStep()" class="nav-link" [ngClass]="{'active': step === 1}">Information Personelle</a>
+      <a (click)="nextStep()" class="nav-link" [ngClass]="{'active': step === 2}">Informations Administratives</a>
+      <a (click)="test()" class="nav-link" [ngClass]="{'active': step === 3}">Informations Financières</a>
+      <a (click)="oui()" class="nav-link" [ngClass]="{'active': step === 4}">Information Carriere</a>
+      <a (click)="Final()" class="nav-link" [ngClass]="{'active': step === 5}">Informations Sociales</a>
+
+
+    </nav>
+
+
+
+
+    <div class="container">
+    <div  class="col-12">
+        <div class="card card-example" *ngIf="step === 1">
+            <div class="card-body">
+                <form *ngIf="userForm" [formGroup]="userForm" (ngSubmit)="submitForm()">
+                  <div class="row g-3">
+
+                    <div class="col-md-6">
+                      <label for="userFirstName" class="form-label">Prénom</label>
+                      <input type="text" class="form-control" id="userFirstName" formControlName="userFirstName">
+                      <div *ngIf="userForm.get('userFirstName')?.invalid && (userForm.get('userFirstName')?.dirty || userForm.get('userFirstName')?.touched)" class="text-danger">
+                        Le prénom est requis
+                      </div>
+
+                    </div>
+
+                    <div class="col-md-6">
+                      <label for="userLastName" class="form-label">Nom de famille</label>
+                      <input type="text" class="form-control" id="userLastName" formControlName="userLastName">
+                      <div *ngIf="userForm.get('userLastName')?.invalid && (userForm.get('userLastName')?.dirty || userForm.get('userLastName')?.touched)" class="text-danger">
+                        Le nom de famille est requis
+                      </div>
+                    </div>
+
+                    <div class="col-md-4">
+                      <label for="cin" class="form-label">CIN</label>
+                      <input type="text" class="form-control" id="cin" formControlName="cin">
+                      <div *ngIf="userForm.get('cin')?.invalid && (userForm.get('cin')?.dirty || userForm.get('cin')?.touched)" class="text-danger">
+                        Le CIN est requis
+                      </div>
+                    </div>
+
+
+      <div class="col-md-4">
+        <label for="cinDate" class="form-label">Date de cin</label>
+        <input type="date" class="form-control" id="cinDate" formControlName="cinDate">
+        <div *ngIf="userForm.get('cinDate')?.invalid && (userForm.get('cinDate')?.dirty || userForm.get('cinDate')?.touched)" class="text-danger">
+          La date de cin est requise
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <label for="gender" class="form-label">Genre </label>
+        <input type="text" class="form-control" id="gender" formControlName="gender">
+        <div *ngIf="userForm.get('gender')?.invalid && (userForm.get('gender')?.dirty || userForm.get('gender')?.touched)" class="text-danger">
+          Gender is required
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <label for="nationality" class="form-label">Nationalité</label>
+        <input type="text" class="form-control" id="nationality" formControlName="nationality">
+        <div *ngIf="userForm.get('nationality')?.invalid && (userForm.get('nationality')?.dirty || userForm.get('nationality')?.touched)" class="text-danger">
+          Nationality is required
+        </div>
+      </div>
+        <div class="col-md-4">
+            <label for="placeOfBirth" class="form-label">Lieu de naissance</label>
+            <input type="text" class="form-control" id="placeOfBirth" formControlName="placeOfBirth">
+            <div *ngIf="userForm.get('placeOfBirth')?.invalid && (userForm.get('placeOfBirth')?.dirty || userForm.get('placeOfBirth')?.touched)" class="text-danger">
+              Le lieu de naissance est requis
+            </div>
+          </div>
+
+
+          <div class="col-md-4">
+            <label for="dateOfBirth" class="form-label">Date de naissance</label>
+            <input type="date" class="form-control" id="dateOfBirth" formControlName="dateOfBirth">
+            <div *ngIf="userForm.get('dateOfBirth')?.invalid && (userForm.get('dateOfBirth')?.dirty || userForm.get('dateOfBirth')?.touched)" class="text-danger">
+              La date de naissance est requise
+            </div>
+          </div>
+
+          <div class="col-md-5">
+            <label for="address" class="form-label">Address</label>
+            <input type="text" class="form-control" id="address" formControlName="address" placeholder="1234 Main St">
+            <div *ngIf="userForm.get('address')?.invalid && (userForm.get('address')?.dirty || userForm.get('address')?.touched)" class="text-danger">
+              Address est requise
+            </div>
+          </div>
+          <div class="col-md-3">
+            <label for="city" class="form-label">Ville</label>
+            <input type="text" class="form-control" id="locality" formControlName="locality">
+            <div *ngIf="userForm.get('locality')?.invalid && (userForm.get('locality')?.dirty || userForm.get('locality')?.touched)" class="text-danger">
+              Ville est requise
+            </div>
+          </div>
+          <div class="col-md-2">
+            <label for="codePostal" class="form-label">Code Postal</label>
+            <input type="text" class="form-control" id="codePostal" formControlName="codePostal">
+            <div *ngIf="userForm.get('codePostal')?.invalid && (userForm.get('codePostal')?.dirty || userForm.get('codePostal')?.touched)" class="text-danger">
+              Le code postal est requise
+            </div>
+          </div>
+ <div class="col-md-2">
+  <label for="pays" class="form-label">Pays</label>
+  <input type="text" class="form-control" id="pays" formControlName="pays">
+  <div *ngIf="userForm.get('pays')?.invalid && (userForm.get('pays')?.dirty || userForm.get('pays')?.touched)" class="text-danger">
+    Le pays est requis
+  </div>
+</div>
+      <div class="col-md-6">
+        <label for="civility" class="form-label">Civilité</label>
+        <select class="form-select" id="civility" formControlName="civility">
+          <option selected disabled>choisir...</option>
+          <option value="Single">Célibataire</option>
+          <option value="Married">Marié</option>
+        </select>
+        <div *ngIf="userForm.get('civility')?.invalid && (userForm.get('civility')?.dirty || userForm.get('civility')?.touched)" class="text-danger">
+          Civilité est requise
+        </div>
+      </div>
+      <div class="col-md-6">
+        <label for="city" class="form-label">Numéro de téléphone</label>
+        <input type="text" class="form-control" id="phoneNumber" formControlName="phoneNumber">
+        <div *ngIf="userForm.get('phoneNumber')?.invalid && (userForm.get('phoneNumber')?.dirty || userForm.get('phoneNumber')?.touched)" class="text-danger">
+          Le numéro de téléphone contient 8 chiffres
+        </div>
+      </div>
+
+              <div class="col-md-6">
+                <label for="niveauEtude" class="form-label">Niveau d'Étude</label>
+                <input type="text" class="form-control" id="niveauEtude" formControlName="niveauEtude">
+                <div *ngIf="userForm.get('niveauEtude')?.invalid && (userForm.get('niveauEtude')?.dirty || userForm.get('niveauEtude')?.touched)" class="text-danger">
+                  Le niveau d'étude est requis
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <label for="dateDernierDiplome" class="form-label">Date Dernier Diplôme</label>
+                <input type="date" class="form-control" id="dateDernierDiplome" formControlName="dateDernierDiplome">
+                <div *ngIf="userForm.get('dateDernierDiplome')?.invalid && (userForm.get('dateDernierDiplome')?.dirty || userForm.get('dateDernierDiplome')?.touched)" class="text-danger">
+                  La date du dernier diplôme est requise
+                </div>
+              </div>
+
+
+      <div class="col-md-6">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" class="form-control" id="email" formControlName="email">
+        <div *ngIf="userForm.get('email')?.invalid && (userForm.get('email')?.dirty || userForm.get('email')?.touched)" class="text-danger">
+          Email est requise
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <label for="userPassword" class="form-label">Mot de passe</label>
+        <input type="password" class="form-control" id="userPassword" formControlName="userPassword">
+        <div *ngIf="userForm.get('userPassword')?.invalid && (userForm.get('userPassword')?.dirty || userForm.get('userPassword')?.touched)" class="text-danger">
+          Mot de passe est requise
+        </div>
+      </div>
+
+
+
+
+
+                  </div><br>
+                  <div  class="d-grid gap-2 col-6 mx-auto">
+                  <button type="submit" class="btn btn-info mt-12">Submit</button>
+                </div>
+                </form>
+              </div>
+          </div>
+
+
+          <div class="card card-settings" *ngIf="step === 2">
+            <form  *ngIf="Adminstrativeform" [formGroup]="Adminstrativeform" (ngSubmit)="AdminstrativeForm()">
+                <div class="card-header">
+                  <h6 class="card-title">Informations Administratives</h6>
+                  <p class="card-text">Détails sur les informations administratives de l'employé.</p>
+                </div>
+                <div class="card-body p-0">
+                  <div class="setting-item">
+                    <div class="row g-2 align-items-center">
+                      <div class="col-md-5">
+                        <h6 class="card-text">Type de Contrat</h6>
+                      </div>
+                      <select class="form-select" id="typeContrat" formControlName="typeContrat">
+                        <option selected disabled>Choose...</option>
+                        <option value="Alternance">Alternance</option>
+                        <option value="CVP">CVP</option>
+                        <option value="CDD">CDD</option>
+                        <option value="CDI">CDI</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="setting-item">
+                    <div class="row g-2 align-items-center">
+                      <div class="col-md-5">
+                        <h6 class="card-text">Type d'Employeur</h6>
+                      </div>
+                      <div class="col-md">
+                        <input type="text" class="form-control" formControlName="typeEmployeur" placeholder="Entrez le type d'employeur">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="setting-item">
+                    <div class="row g-2 align-items-center">
+                      <div class="col-md-5">
+                        <h6 class="card-text">Date d'Entrée</h6>
+                      </div>
+                      <div class="col-md">
+                        <input type="date" class="form-control" formControlName="dateEntree" placeholder="Entrez la date d'entrée">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="setting-item">
+                    <div class="row g-2 align-items-center">
+                      <div class="col-md-5">
+                        <h6 class="card-text">Date de Recrutement</h6>
+                      </div>
+                      <div class="col-md">
+                        <input type="date" class="form-control" formControlName="dateRecrutement" placeholder="Entrez la date de recrutement">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="setting-item">
+                    <div class="row g-2 align-items-center">
+                      <div class="col-md-5">
+                        <h6 class="card-text">Date de Fin d'Essai</h6>
+                      </div>
+                      <div class="col-md">
+                        <input type="date" class="form-control" formControlName="dateFinEssai" placeholder="Entrez la date de fin d'essai">
+                      </div>
+                      <br>
+                                                   <button type="submit" class="btn btn-info mt-12">Submit</button>
+                    </div>
+                  </div>
+                  <!--<div class="setting-item">
+                    <div class="row g-2 align-items-center">
+                      <div class="col-md-5">
+                        <h6 class="card-text">Date de Titularisation</h6>
+                      </div>
+                      <div class="col-md">
+                        <input type="date" class="form-control" formControlName="dateTitularisation" placeholder="Entrez la date de titularisation">
+                      </div>
+                    </div>
+                  </div> -->
+                </div>
+=            </form>
+
+
+
+          </div>
+          <div class="card card-settings" *ngIf="step === 3" >
+            <form  *ngIf="financieresForm" [formGroup]="financieresForm" (ngSubmit)="FinancieresForm()">
+                <div class="card-header">
+                  <h6 class="card-title">Informations Financieres</h6>
+                  <p class="card-text">Détails sur les informations Financieres de l'employé.</p>
+                </div>
+                <div class="card-body p-0">
+
+                  <div class="setting-item">
+                    <div class="row g-2 align-items-center">
+                      <div class="col-md-5">
+                        <h5 class="card-text">Grille de Salaire</h5>
+                      </div>
+                      <div class="col-md">
+                        <input type="number" class="form-control" formControlName="grilleSalaire" placeholder="Entrez la grille de salaire">
+                        <div *ngIf="financieresForm.get('grilleSalaire')?.invalid && (financieresForm.get('grilleSalaire')?.dirty || financieresForm.get('grilleSalaire')?.touched)" class="text-danger">
+                          Le Grille de Salaire est requis
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="setting-item">
+                    <div class="row g-2 align-items-center">
+                      <div class="col-md-5">
+                        <h5 class="card-text">Salaire de Base</h5>
+                      </div>
+                      <div class="col-md">
+                        <input type="number" class="form-control" formControlName="salaireBase" placeholder="Entrez le salaire de base">
+                        <div *ngIf="financieresForm.get('salaireBase')?.invalid && (financieresForm.get('salaireBase')?.dirty || financieresForm.get('salaireBase')?.touched)" class="text-danger">
+                          Le salaire de base est requis
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="setting-item">
+                    <div class="row g-2 align-items-center">
+                      <div class="col-md-5">
+                        <h5 class="card-text">Mode de Paiement</h5>
+                      </div>
+                      <div class="col-md">
+                        <select class="form-control" formControlName="modePaiement">
+                          <option value="Virement">Virement</option>
+                          <option value="Chèque">Chèque</option>
+                          <option value="Espèces">Espèces</option>
+                          <option value="Autre">Autre</option>
+                        </select>                      </div>
+                    </div>
+                  </div>
+                  <div class="setting-item">
+                    <div class="row g-2 align-items-center">
+                      <div class="col-md-5">
+                        <h5 class="card-text">Numéro de Compte</h5>
+                      </div>
+                      <div class="col-md">
+                        <input type="text" class="form-control" formControlName="numeroCompte" placeholder="Entrez le numéro de compte">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="setting-item">
+                    <div class="row g-2 align-items-center">
+                      <div class="col-md-5">
+                        <h5 class="card-text">Montant d'Assurance</h5>
+                      </div>
+                      <div class="col-md">
+                        <input type="number" class="form-control" formControlName="montantAssurance" placeholder="Entrez le montant d'assurance">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="setting-item">
+                    <div class="row g-2 align-items-center">
+                      <div class="col-md-5">
+                        <h5 class="card-text">Montant de Mutuelle</h5>
+                      </div>
+                      <div class="col-md">
+                        <input type="number" class="form-control" formControlName="montantMutuelle" placeholder="Entrez le montant de mutuelle">
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="setting-item">
+                    <div class="row g-2 align-items-center">
+                      <div class="col-md-5">
+                        <h5 class="card-text" for="bankName">Bank</h5>
+                      </div>
+                      <div class="col-md">
+                        <select formControlName="bankName" id="bankName" (change)="onBankChange($event)">
+                          <option *ngFor="let bank of banks" [value]="bank.name">{{ bank.name }}</option>
+                          <option value="addNewBank">Ajouter bank</option>
+                        </select>
+                        <div *ngIf="financieresForm.get('bankName')?.value === 'addNewBank'">
+                          <input type="text" class="form-control" placeholder="Enter new bank name" #newBankInput>
+                          <button class="container"class="btn btn-primary" (click)="updateBankName(newBankInput.value)">Save</button>
+                        </div>
+                      </div>
+
+
+                    </div>
+                  </div>
+                  <div class="setting-item">
+                    <div class="row g-2 align-items-center">
+                      <div class="col-md-5">
+                        <h5 class="card-text" for="agencyName">Agence</h5>
+                      </div>
+                      <div class="col-md">
+                        <select formControlName="agencyName">
+                          <option *ngFor="let agency of selectedBankAgencies" [value]="agency.name">{{ agency.name }}</option>
+                          <option value="addNewAgence">Ajouter Agence</option>
+                      </select>
+
+                        <div *ngIf="financieresForm.get('agencyName')?.value === 'addNewAgence'">
+                          <input type="text" class="form-control" placeholder="Enter new bank name" #newAgenceInput>
+                          <button class="container" class="btn btn-primary" (click)="updateAgenceName(newAgenceInput.value)">Save</button>
+                        </div>
+
+                                      </div>  <br>
+                                                   <button type="submit" class="btn btn-info mt-12">Submit</button>
+
+                    </div>
+
+                  </div>
+
+
+                </div>
+                <!-- <button type="submit" class="btn btn-info mt-12">Submit</button> -->
+
+
+
+
+            </form>
+
+
+
+          </div>
+          <div class="card card-settings" *ngIf="step === 4">
+            <form *ngIf="carriereFormGroup" [formGroup]="carriereFormGroup" (ngSubmit)="CarriereForm()">
+              <div class="card card-settings">
+                <div class="card-header">
+                  <h6 class="card-title">Carrière</h6>
+                  <p class="card-text">Détails sur la carrière de l'employé.</p>
+                </div>
+                <div class="card-body p-0">
+                  <div class="setting-item">
+                    <!-- Avancement Section -->
+                    <div class="row g-2 align-items-center" formGroupName="avancement">
+                      <div class="col-md-5">
+                        <h5 class="modal-title" style="border: black; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">
+                          Avancement
+                          <i class="ri-medal-line" data-bs-toggle="tooltip" title="" data-bs-original-title="ri-medal-line" aria-label="ri-medal-line"></i>
+                        </h5>
+                      </div>
+                      <div class="col-md">
+
+                        <div class="mb-3">
+                          <label for="categorie" class="form-label">Catégorie</label>
+                          <input type="text" id="categorie" class="form-control" formControlName="categorie">
+                          <div *ngIf="carriereFormGroup.get('avancement.categorie')?.invalid && (carriereFormGroup.get('avancement.categorie')?.dirty || carriereFormGroup.get('avancement.categorie')?.touched)" class="text-danger">
+                            La catégorie est requise
+                          </div>
+                        </div>
+
+                        <div class="mb-3">
+                          <label for="grade" class="form-label">Grade</label>
+                          <input type="text" id="grade" class="form-control" formControlName="grade">
+                          <div *ngIf="carriereFormGroup.get('avancement.grade')?.invalid && (carriereFormGroup.get('avancement.grade')?.dirty || carriereFormGroup.get('avancement.grade')?.touched)" class="text-danger">
+                            Le grade est requis
+                          </div>
+                        </div>
+
+                        <div class="mb-3">
+                          <label for="classe" class="form-label">Classe</label>
+                          <input type="text" id="classe" class="form-control" formControlName="classe">
+                          <div *ngIf="carriereFormGroup.get('avancement.classe')?.invalid && (carriereFormGroup.get('avancement.classe')?.dirty || carriereFormGroup.get('avancement.classe')?.touched)" class="text-danger">
+                            La classe est requise
+                          </div>
+                        </div>
+
+                        <div class="mb-3">
+                          <label for="echelon" class="form-label">Échelon</label>
+                          <input type="text" id="echelon" class="form-control" formControlName="echelon">
+                          <div *ngIf="carriereFormGroup.get('avancement.echelon')?.invalid && (carriereFormGroup.get('avancement.echelon')?.dirty || carriereFormGroup.get('avancement.echelon')?.touched)" class="text-danger">
+                            L'échelon est requis
+                          </div>
+                        </div>
+
+                        <div class="mb-3">
+                          <label for="dateSituation" class="form-label">Date de Situation</label>
+                          <input type="date" id="dateSituation" class="form-control" formControlName="dateSituation">
+                          <div *ngIf="carriereFormGroup.get('avancement.dateSituation')?.invalid && (carriereFormGroup.get('avancement.dateSituation')?.dirty || carriereFormGroup.get('avancement.dateSituation')?.touched)" class="text-danger">
+                            La date de situation est requise
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="setting-item">
+                    <!-- Structure Section -->
+                    <div class="row g-2 align-items-center" formGroupName="structure">
+                      <div class="col-md-5">
+                        <h5 class="modal-title" style="border: black; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">
+                          Structure
+                          <i class="ri-medal-line" data-bs-toggle="tooltip" title="" data-bs-original-title="ri-medal-line" aria-label="ri-medal-line"></i>
+                        </h5>
+                      </div>
+                      <div class="col-md">
+
+                        <div class="mb-3">
+                          <label for="fonction" class="form-label">Fonction</label>
+                          <input type="text" id="fonction" class="form-control" formControlName="fonction">
+                          <div *ngIf="carriereFormGroup.get('structure.fonction')?.invalid && (carriereFormGroup.get('structure.fonction')?.dirty || carriereFormGroup.get('structure.fonction')?.touched)" class="text-danger">
+                            La fonction est requise
+                          </div>
+                        </div>
+
+                        <div class="mb-3">
+                          <label for="dateFonction" class="form-label">Date de Fonction</label>
+                          <input type="date" id="dateFonction" class="form-control" formControlName="dateFonction">
+                          <div *ngIf="carriereFormGroup.get('structure.dateFonction')?.invalid && (carriereFormGroup.get('structure.dateFonction')?.dirty || carriereFormGroup.get('structure.dateFonction')?.touched)" class="text-danger">
+                            La date de fonction est requise
+                          </div>
+                        </div>
+
+                        <div class="mb-3">
+                          <label for="structureAttache" class="form-label">Structure Attachée</label>
+                          <input type="text" id="structureAttache" class="form-control" formControlName="structureAttache">
+                          <div *ngIf="carriereFormGroup.get('structure.structureAttache')?.invalid && (carriereFormGroup.get('structure.structureAttache')?.dirty || carriereFormGroup.get('structure.structureAttache')?.touched)" class="text-danger">
+                            La structure attachée est requise
+                          </div>
+                        </div>
+
+                        <div class="mb-3">
+                          <label for="dateAffectation" class="form-label">Date d'Affectation</label>
+                          <input type="date" id="dateAffectation" class="form-control" formControlName="dateAffectation">
+                          <div *ngIf="carriereFormGroup.get('structure.dateAffectation')?.invalid && (carriereFormGroup.get('structure.dateAffectation')?.dirty || carriereFormGroup.get('structure.dateAffectation')?.touched)" class="text-danger">
+                            La date d'affectation est requise
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="setting-item" formGroupName="titularisation">
+                    <!-- Titularisation Section -->
+                    <div class="row g-2 align-items-center">
+                      <div class="col-md-5">
+                        <h5 class="modal-title" style="border: black; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">
+                          Titularisation
+                          <i class="ri-medal-line" data-bs-toggle="tooltip" title= "" data-bs-original-title="ri-medal-line" aria-label="ri-medal-line"></i>
+                        </h5>
+                      </div>
+                      <div class="col-md">
+
+                        <div class="mb-3">
+                          <label for="ok" class="form-label">Date de Titularisation</label>
+                          <input type="date" id="ok" class="form-control" formControlName="ok" >
+                          <div *ngIf="carriereFormGroup.get('titularisation.ok')?.invalid && (carriereFormGroup.get('titularisation.ok')?.dirty || carriereFormGroup.get('titularisation.ok')?.touched)" class="text-danger">
+                            La date de Titularisation est requise
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <button type="submit" class="btn btn-info mt-12">Submit</button>
+              </div>
+            </form>
+
+
+          </div>
+
+
+
+
+            <!-- Affaire sociale -->
+          </div>
+          <div class="card card-example"  *ngIf="step === 5" >
+            <div class="card-body">
+              <form [formGroup]="affaireForm" (ngSubmit)="onAjouter()">
+                <div>
+                  <!-- Étape 1: Données Personnelles -->
+                  <div class="mb-3">
+                    <h4>Données Personnelles</h4>
+                    <label for="situationFamiliale" class="form-label">Situation Familiale</label>
+                    <select id="situationFamiliale" class="form-control" formControlName="situationFamiliale" required>
+                      <option value="">Selectionner Situation Familiale</option>
+                      <option value="Célibataire">Célibataire</option>
+                      <option value="Marié(e)">Marié(e)</option>
+                      <option value="Divorcé(e)">Divorcé(e)</option>
+                      <option value="Veuf(ve)">Veuf(ve)</option>
+                      <!-- Add more options as needed -->
+                    </select>
+                  </div>
+                  <div class="mb-3">
+                    <label for="matriculeConjoint" class="form-label">Matricule Conjoint</label>
+                    <input type="text" id="matriculeConjoint" class="form-control" formControlName="matriculeConjoint" placeholder="Entrez le matricule conjoint" required>
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="prenomConjoint" class="form-label">Prénom Conjoint</label>
+                    <input type="text" id="prenomConjoint" class="form-control" formControlName="prenomConjoint" placeholder="Entrez le prénom conjoint" required>
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="nbEnfants" class="form-label">Nombre d'Enfants</label>
+                    <input type="number" id="nbEnfants" class="form-control" formControlName="nbEnfants" required>
+                    <div  class="mt-3">
+                      <button class="btn btn-primary" type="button" (click)="openModal4()">Ajouter un enfant</button>
+                    </div>
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="nbEnfantsImposables" class="form-label">Nombre d'Enfants Imposables</label>
+                    <input type="number" id="nbEnfantsImposables" class="form-control" formControlName="nbEnfantsImposables" required>
+                  </div>
+                </div>
+
+                <div >
+                  <!-- Étape 2: Informations Familiales -->
+                  <div class="mb-3">
+                    <p>Informations Familiales</p>
+                    <label for="chefDeFamille" class="form-label">Chef de Famille</label>
+                    <input type="checkbox" id="chefDeFamille" class="form-check-input" formControlName="chefDeFamille">
+                  </div>
+
+
+                  <div class="mb-3">
+                    <label for="salaireUnique" class="form-label">Salaire Unique</label>
+                    <input type="checkbox" id="salaireUnique" class="form-check-input" formControlName="salaireUnique">
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="allocFamiliale" class="form-label">Alloc Familiale</label>
+                    <input type="checkbox" id="allocFamiliale" class="form-check-input" formControlName="allocFamiliale">
+                  </div>
+                </div>
+
+                <div>
+                  <!-- Étape 3: Affiliations/Sécurités Sociales -->
+                  <div class="mb-3" >
+                    <h4>Affiliations/Sécurités Sociales</h4>
+                    <label for="securiteSociale" class="form-label">Sécurité Sociale </label>
+                    <input type="text" id="securiteSociale" class="form-control" formControlName="securiteSociale" placeholder="Entrez la sécurité sociale ">
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="nomAssurance" class="form-label">Nom Assurance</label>
+                    <select id="nomAssurance" class="form-control" formControlName="nomAssurance">
+                      <option value="">Selectionner nom de l'assurance</option>
+                      <option value="AXA Assurance Tunisie">AXA Assurance Tunisie</option>
+                      <option value="Carte Assurance">Carte Assurance</option>
+                      <option value="STAR Assurance">STAR Assurance</option>
+                      <option value="La Société Tunisienne de l'Assurance et de Réassurance (STAR)">La Société Tunisienne de l'Assurance et de Réassurance (STAR)</option>
+                      <option value="La Compagnie Tunisienne d'Assurance et de Réassurance (CTAR)">La Compagnie Tunisienne d'Assurance et de Réassurance (CTAR)</option>
+                      <option value="La Prévoyance Tunisienne">La Prévoyance Tunisienne</option>
+                      <option value="La Capitale Assurances">La Capitale Assurances</option>
+                      <option value="La MACSF (Mutuelle d'Assurance du Corps de Santé Français)">La MACSF (Mutuelle d'Assurance du Corps de Santé Français)</option>
+                      <option value="La MAMDA (Mutuelle d'Assurance des Agents du Ministère de l'Agriculture)">La MAMDA (Mutuelle d'Assurance des Agents du Ministère de l'Agriculture)</option>
+                      <option value="La MATMUT (Mutuelle d'Assurance des Travailleurs Mutualistes)">La MATMUT (Mutuelle d'Assurance des Travailleurs Mutualistes)</option>
+                    </select>
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="affiliationLe" class="form-label">Affiliation Le</label>
+                    <input type="date" id="affiliationLe" class="form-control" formControlName="affiliationLe" required>
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="exonere" class="form-label">Exonéré</label>
+                    <input type="checkbox" id="exonere" class="form-check-input" formControlName="exonere">
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="affiliationRegime" class="form-label">Affiliation Régime</label>
+                    <input type="checkbox" id="affiliationRegime" class="form-check-input" formControlName="affiliationRegime">
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="affiliationAssurance" class="form-label">Affiliation Assurance</label>
+                    <input type="checkbox" id="affiliationAssurance" class="form-check-input" formControlName="affiliationAssurance">
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="affiliationMutuelle" class="form-label">Affiliation Mutuelle</label>
+                    <input type="checkbox" id="affiliationMutuelle" class="form-check-input" formControlName="affiliationMutuelle">
+                  </div>
+                  <div class="mb-3">
+                    <label for="affiliationAssuranceGroupe" class="form-label">Affiliation Assurance Groupe</label>
+                    <input type="checkbox" id="affiliationAssuranceGroupe" class="form-check-input" formControlName="affiliationAssuranceGroupe">
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="affiliationCss" class="form-label">Affiliation CSS</label>
+                    <input type="number" id="affiliationCss" class="form-control" formControlName="affiliationCss" required>
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="numeroAffiliationAssurance" class="form-label">Numéro Affiliation Assurance</label>
+                    <input type="number" id="numeroAffiliationAssurance" class="form-control" formControlName="numeroAffiliationAssurance" required>
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="nomMutuelle" class="form-label">Nom Mutuelle</label>
+                    <input type="text" id="nomMutuelle" class="form-control" formControlName="nomMutuelle" required>
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="numeroAffiliationMutuelle" class="form-label">Numéro Affiliation Mutuelle</label>
+                    <input type="number" id="numeroAffiliationMutuelle" class="form-control" formControlName="numeroAffiliationMutuelle" required>
+                  </div>
+                  <div class="mb-3 d-flex justify-content-between">
+                    <button type="submit" class="btn btn-primary float-end">Soumettre</button>
+                  </div>
+                </div>
+              </form>
+            </div><!-- card-body -->
+          </div>
+  <!-- fin Affaire sociale -->
+
+
+      </div>
+
+      <div id="exampleModalToggle3" class="modal fade" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="childModalLabel">Ajouter un enfant</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+              <div class="modal-body">
+                <!-- Child addition form -->
+                <form [formGroup]="childForm" (ngSubmit)="addChildAndResetForm()">
+
+                  <div class="mb-3">
+                    <label for="nom" class="form-label">Nom</label>
+                    <input type="text" id="nom" class="form-control" formControlName="nom" required>
+                  </div>
+                  <div class="mb-3">
+                    <label for="dateNaissance" class="form-label">Date de Naissance</label>
+                    <input type="date" id="dateNaissance" class="form-control" formControlName="dateNaissance" required>
+                  </div>
+                  <div class="mb-3">
+                    <label for="genre" class="form-label">Genre</label>
+                    <select id="genre" class="form-select" formControlName="genre" required>
+                      <option value="" disabled selected>Choisissez un genre</option>
+                      <option value="Masculin">Masculin</option>
+                      <option value="Féminin">Féminin</option>
+                    </select>
+                  </div>
+                  <div class="mb-3">
+                    <label for="dateAjout" class="form-label">Date d'Ajout</label>
+                    <input type="date" id="dateAjout" class="form-control" formControlName="dateAjout" required>
+                  </div>
+                  <div class="mb-3">
+                    <label for="niveauEtude" class="form-label">Niveau d'Étude</label>
+                    <select id="niveauEtude" class="form-select" formControlName="niveauEtude">
+                      <option value="" disabled selected>Choisissez un niveau d'étude</option>
+                      <option *ngFor="let niveau of niveauxEtude" [value]="niveau.value">{{ niveau.label }}</option>
+                    </select>
+                  </div>
+                  <!-- <div class="mb-3">
+                    <label for="image" class="form-label">Image (PNG)</label>
+                    <input type="file" id="image" class="form-control" (change)="onFileSelected($event)" accept="image/png" required>
+                  </div> -->
+
+                  <button type="submit" class="btn btn-primary">Enregistrer</button>
+
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <script>
+        $(document).ready(function() {
+          // Initialize DataTable with options for filtering and pagination
+          $('#tableGrid2').DataTable({
+            searching: true, // Enable filtering/searching
+            paging: true // Enable pagination
+          });
+        });
+      </script>
+
+

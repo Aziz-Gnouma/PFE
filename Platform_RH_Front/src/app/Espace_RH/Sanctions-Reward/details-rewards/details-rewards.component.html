@@ -1,0 +1,13 @@
+<div class="content">
+  <div *ngIf="selectedReward" class="d-flex justify-content-center align-items-center" style="height: 50vh; overflow-y: auto;">
+    <div style="width: 50%;">
+      <h4 style="color:rgb(120, 21, 107); text-align:center;"><i class="fas fa-info-circle"></i> Détails d'une récompense</h4>
+      <br>
+      <p><b><i class="fas fa-file-pdf"></i> Type de récompense:</b> {{ selectedReward.typeReward }}</p>
+      <p><b><i class="fas fa-file-alt"></i> Date:</b> {{ selectedReward.date | date: 'dd/MM/yyyy' }}</p>
+      <p><b><i class="fas fa-file-alt"></i> Description:</b> {{ selectedReward.description }}</p>
+      <p><b><i class="fas fa-user"></i> Valeur:</b> {{ selectedReward.value }}</p>
+      <p><b><i class="fas fa-file-invoice-dollar"></i> Statut:</b> {{ selectedReward.status }}</p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,176 @@
+<app-sidebar></app-sidebar>
+ 
+<div class="main main-app p-3 p-lg-4">
+    <div class="d-flex align-items-center justify-content-between mb-4">
+      <div>
+        <ol class="breadcrumb fs-sm mb-1">
+          <li class="breadcrumb-item"><a routerLink="/Gerant">Dashboard</a></li>
+          <li class="breadcrumb-item active" aria-current="page">ajouter member de RH</li>
+        </ol>
+        <h4 class="main-title mb-0">Ici, vous pouvez ajouter un membre de RH</h4>
+        
+
+      </div>
+
+      <nav class="nav nav-icon nav-icon-lg">
+      </nav>
+    </div>
+    
+    <div class="container">
+    <div  class="col-12">
+
+        <div class="card card-example">
+            <div class="card-body">
+                <form *ngIf="userForm" [formGroup]="userForm" (ngSubmit)="submitForm()">
+                  <div class="row g-3">
+              
+                    <div class="col-md-6">
+                      <label for="userFirstName" class="form-label">Prénom</label>
+                      <input type="text" class="form-control" id="userFirstName" formControlName="userFirstName">
+                      <div *ngIf="userForm.get('userFirstName')?.invalid && (userForm.get('userFirstName')?.dirty || userForm.get('userFirstName')?.touched)" class="text-danger">
+                        Prénom est required
+                      </div>
+                    </div>
+              
+                    <div class="col-md-6">
+                      <label for="userLastName" class="form-label">Nom</label>
+                      <input type="text" class="form-control" id="userLastName" formControlName="userLastName">
+                      <div *ngIf="userForm.get('userLastName')?.invalid && (userForm.get('userLastName')?.dirty || userForm.get('userLastName')?.touched)" class="text-danger">
+                        Le nom de famille est requis
+                      </div>
+                    </div>
+              
+                    <!-- CIN -->
+                    <div class="col-md-4">
+                      <label for="cin" class="form-label">CIN</label>
+                      <input type="text" class="form-control" id="cin" formControlName="cin">
+                      <div *ngIf="userForm.get('cin')?.invalid && (userForm.get('cin')?.dirty || userForm.get('cin')?.touched)" class="text-danger">
+                        CIN is required
+                      </div>
+                    </div>
+                    
+                     <!-- CIN Date -->
+      <div class="col-md-4">
+        <label for="cinDate" class="form-label">CIN Date</label>
+        <input type="date" class="form-control" id="cinDate" formControlName="cinDate">
+        <div *ngIf="userForm.get('cinDate')?.invalid && (userForm.get('cinDate')?.dirty || userForm.get('cinDate')?.touched)" class="text-danger">
+          CIN Date is required
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <label for="gender" class="form-label">Genre</label>
+        <select class="form-control" id="gender" formControlName="gender">
+          <option value="Masculin">Masculin</option>
+          <option value="Féminin">Féminin</option>
+        </select>
+        <div *ngIf="userForm.get('gender')?.invalid && (userForm.get('gender')?.dirty || userForm.get('gender')?.touched)" class="text-danger">
+          Genre est requise
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <label for="nationality" class="form-label">Nationalité</label>
+        <input type="text" class="form-control" id="nationality" formControlName="nationality">
+        <div *ngIf="userForm.get('nationality')?.invalid && (userForm.get('nationality')?.dirty || userForm.get('nationality')?.touched)" class="text-danger">
+          Nationalitéest requise
+        </div>
+      </div>
+        <div class="col-md-4">
+            <label for="placeOfBirth" class="form-label">lieu de naissance</label>
+            <input type="text" class="form-control" id="placeOfBirth" formControlName="placeOfBirth">
+            <div *ngIf="userForm.get('placeOfBirth')?.invalid && (userForm.get('placeOfBirth')?.dirty || userForm.get('placeOfBirth')?.touched)" class="text-danger">
+              Le lieu de naissance est requise
+            </div>
+          </div>
+          <div class="col-md-4">
+            <label for="dateOfBirth" class="form-label">date de naissance</label>
+            <input type="date" class="form-control" id="dateOfBirth" formControlName="dateOfBirth">
+            <div *ngIf="userForm.get('dateOfBirth')?.invalid && (userForm.get('dateOfBirth')?.dirty || userForm.get('dateOfBirth')?.touched)" class="text-danger">
+              La date de naissance est requise
+
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label for="address" class="form-label">Address</label>
+            <input type="text" class="form-control" id="address" formControlName="address" placeholder="1234 Main St">
+            <div *ngIf="userForm.get('address')?.invalid && (userForm.get('address')?.dirty || userForm.get('address')?.touched)" class="text-danger">
+              Address is requise
+            </div>
+          </div>
+    
+          <div class="col-md-4">
+            <label for="city" class="form-label">Ville</label>
+            <input type="text" class="form-control" id="locality" formControlName="locality">
+            <div *ngIf="userForm.get('locality')?.invalid && (userForm.get('locality')?.dirty || userForm.get('locality')?.touched)" class="text-danger">
+              Ville est requis
+            </div>
+          </div>
+
+      <div class="col-md-2">
+        <label for="civility" class="form-label">Civilité</label>
+        <select class="form-select" id="civility" formControlName="civility">
+          <option selected disabled>choisir...</option>
+          <option value="Single">Célibataire</option>
+          <option value="Married">Marié</option>
+        </select>
+        <div *ngIf="userForm.get('civility')?.invalid && (userForm.get('civility')?.dirty || userForm.get('civility')?.touched)" class="text-danger">
+          Civilité est requise
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" class="form-control" id="email" formControlName="email">
+        <div *ngIf="userForm.get('email')?.invalid && (userForm.get('email')?.dirty || userForm.get('email')?.touched)" class="text-danger">
+          Email est requise
+        </div>
+      </div>
+
+
+      <div class="col-md-6">
+        <label for="userPassword" class="form-label">Password</label>
+        <input type="password" class="form-control" id="userPassword" formControlName="userPassword">
+        <div *ngIf="userForm.get('userPassword')?.invalid && (userForm.get('userPassword')?.dirty || userForm.get('userPassword')?.touched)" class="text-danger">
+          Mot de passe est requise
+        </div>
+      </div>
+      <div class="col-md-4">
+        <label for="city" class="form-label">numéro de téléphone</label>
+        <input type="text" class="form-control" id="phoneNumber" formControlName="phoneNumber">
+        <div *ngIf="userForm.get('phoneNumber')?.invalid && (userForm.get('phoneNumber')?.dirty || userForm.get('phoneNumber')?.touched)" class="text-danger">
+          Le numéro de téléphone contient 8 chiffres
+        </div>
+      </div>
+      <div class="col-md-6">
+        <label for="roleName" class="form-label">Role </label>
+        <select class="form-select" id="roleName" formControlName="roleName">
+          <option selected disabled>choisir...</option>
+          <option value="GRH">Gestionnaire RH</option>
+          <option value="SGRH">Sous Gestionnaire RH</option>
+        </select>
+        <div *ngIf="userForm.get('roleName')?.invalid && (userForm.get('roleName')?.dirty || userForm.get('roleName')?.touched)" class="text-danger">
+          Role est requise
+        </div>
+      </div>
+                   
+                  </div>
+                  <button type="submit" class="btn btn-primary mt-3">Submit</button>
+                </form>
+              </div>
+              
+            
+          </div>
+      </div>
+    </div>
+
+      <script>
+        $(document).ready(function() {
+          // Initialize DataTable with options for filtering and pagination
+          $('#tableGrid2').DataTable({
+            searching: true, // Enable filtering/searching
+            paging: true // Enable pagination
+          });
+        });
+      </script>
+

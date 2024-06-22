@@ -1,0 +1,37 @@
+<app-sidebar></app-sidebar>
+<div *ngIf="reward" class="form-container" style="margin-top: 5rem;">
+  <h2>Modifier Reward</h2>
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <form>
+          <div class="mb-3">
+            <label for="matricule" class="form-label">Matricule:</label>
+            <input id="matricule" type="number" [(ngModel)]="reward.matricule" name="matricule" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label for="typeReward" class="form-label">Type:</label>
+            <input id="typeReward" type="text" [(ngModel)]="reward.typeReward" name="typeReward" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label for="date" class="form-label">Date:</label>
+            <input id="date" type="date" [(ngModel)]="reward.date" name="date" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label for="description" class="form-label">Description:</label>
+            <textarea id="description" [(ngModel)]="reward.description" name="description" class="form-control"></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="value" class="form-label">Value:</label>
+            <input id="value" type="number" [(ngModel)]="reward.value" name="value" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label for="status" class="form-label">Status:</label>
+            <input id="status" type="text" [(ngModel)]="reward.status" name="status" class="form-control">
+          </div>
+          <button (click)="saveReward()" class="btn btn-primary btn-block">Save</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

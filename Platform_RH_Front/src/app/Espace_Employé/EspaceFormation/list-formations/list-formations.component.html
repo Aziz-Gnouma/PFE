@@ -1,0 +1,53 @@
+<app-sidebar></app-sidebar>
+<div class="main p-4 p-lg-5">
+    <div class="row g-5">
+      <div class="col-xl">
+        <ol class="breadcrumb fs-sm mb-2">
+          <li class="breadcrumb-item"><a >Dashboard</a></li>
+          <li class="breadcrumb-item"><a >Formations</a></li>
+        </ol>
+        <h2 class="main-title">Formations disponibles</h2>
+
+        <nav class="nav nav-line mb-4">
+          <a class="nav-link active">Top Formations</a>
+        </nav>
+
+        <div class="row g-3" >
+          <div class="col-sm-6" *ngFor="let ok of FormationsList">
+            <div class="card card-event">
+                <div *ngIf="isDateRecent(ok.dateAjouter)" class="marker-ribbon top-right" style="color: red;"><i class="ri-medal-2-line" data-bs-toggle="tooltip" title="" data-bs-original-title="ri-medal-2-line" aria-label="ri-medal-2-line"></i> Nouveau</div>
+
+              <a><img src="/assets/formation.jpg" class="card-img-top" alt=""></a>
+              <div class="card-body">
+                <h4 class="text-primary fs-sm" style="border: black;  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">{{ ok.titre }}</h4>
+                <p class="mb-0" style="color: black;">{{ extractDate(ok.dateAjouter) }}</p>
+                <p class="text-secondary fs-sm">Langue : {{ ok.langue }} </p>
+
+                <div class="mutual-badge">
+                  <ul>
+                    <li><a  class="avatar"><img src="https://via.placeholder.com/500/4c5366/fff" alt=""></a></li>
+                    <li><a class="avatar"><img src="https://via.placeholder.com/300/4c5366/fff" alt=""></a></li>
+                  </ul>
+                  <label>{{ ok.participants }} connections intéressées</label>
+                </div><!-- mutual-badge -->
+              </div><!-- card-body -->
+              <div class="card-footer">
+                <a   (click)="TelechargerFormations(ok.id)"  class="btn btn-primary"><i *ngIf="!downloading" class="ri-star-line"></i> Telecharger Formation </a>
+                <svg *ngIf="downloading" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-loader"><line x1="12" y1="2" x2="12" y2="6"></line><line x1="12" y1="18" x2="12" y2="22"></line><line x1="4.93" y1="4.93" x2="7.76" y2="7.76"></line><line x1="16.24" y1="16.24" x2="19.07" y2="19.07"></line><line x1="2" y1="12" x2="6" y2="12"></line><line x1="18" y1="12" x2="22" y2="12"></line><line x1="4.93" y1="19.07" x2="7.76" y2="16.24"></line><line x1="16.24" y1="7.76" x2="19.07" y2="4.93"></line></svg>
+
+                <a (click)="detailsformation(ok.id)" class="btn btn-white"><i class="ri-share-box-line"></i> Visiter</a>
+              </div><!-- card-footer -->
+            </div><!-- card -->
+          </div>
+
+        </div>
+
+      </div><!-- col -->
+     
+    </div><!-- row -->
+
+    <div class="main-footer">
+      <span>&copy; 2023. Dashbyte. All Rights Reserved.</span>
+      <span>Created by: <a href="http://themepixels.me" target="_blank">Themepixels</a></span>
+    </div><!-- main-footer -->
+  </div><!-- main -->

@@ -1,0 +1,26 @@
+<div class="paper">
+  <div class="header" *ngFor="let document of documents">
+    <h2>{{ document.documentType }}</h2>
+  </div>
+  <div class="content">
+    <table cellpadding="5" cellspacing="0" border="1" width="100%">
+      <tr>
+        <td width="30%"><h1>CIN:</h1></td>
+        <td width="70%"><span *ngIf="userData">{{ userData.cin }}</span></td>
+      </tr>
+      <tr>
+        <td><h1>First Name:</h1></td>
+        <td><span *ngIf="userData">{{ userData.userFirstName }}</span></td>
+      </tr>
+      <tr>
+        <td><h1>Last Name:</h1></td>
+        <td><span *ngIf="userData">{{ userData.userLastName }}</span></td>
+      </tr>
+    </table>
+  </div>
+  <div class="footer">
+    <p>This is an authentic document.</p>
+    <p>Signature: ______________________</p>
+    <p>Date: ______________________</p>
+  </div>
+</div>

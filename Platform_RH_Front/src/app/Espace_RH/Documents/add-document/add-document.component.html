@@ -1,0 +1,31 @@
+<app-sidebar></app-sidebar>
+<div class="container">
+  <div  class="col-12">
+
+      <div class="card card-example  mt-100 ml-200">
+          <div class="card-body">
+<form class="row g-3" (ngSubmit)="onSubmit()">
+<div class="col-md-6">
+  <label for="inputEmail4" class="form-label"> Type de Document:</label>
+  <input type="text" name="documentType" [(ngModel)]="documentType" required>
+</div>
+<div class="col-md-6">
+  <label for="inputPassword4" class="form-label"> Nombre de Document:</label>
+  <input type="text" name="documentNumber" [(ngModel)]="documentNumber" required>
+</div>
+<div class="col-12">
+  <label for="inputAddress" class="form-label">Pays émetteur</label>
+  <input type="text" class="form-control" name="issuingCountry" placeholder="1234 Main St" [(ngModel)]="issuingCountry" required>
+</div>
+<div class="col-12">
+  <label for="inputAddress2" class="form-label">autorité de délivrance</label>
+  <input type="text" class="form-control" name="issuingAuthority" placeholder="Apartment, studio, or floor" [(ngModel)]="issuingAuthority" required>
+</div>
+<div class="col-12">
+  <button type="submit" class="btn btn-primary">Soumettre</button>
+</div>
+</form>
+          </div>
+      </div>
+    </div>
+</div>

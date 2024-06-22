@@ -1,0 +1,67 @@
+<app-sidebar></app-sidebar>
+
+<div class="main main-app p-3 p-lg-4">
+  <div class="d-flex align-items-center justify-content-between mb-4">
+    <div>
+      <ol class="breadcrumb fs-sm mb-1">
+        <li class="breadcrumb-item"><a routerLink="/ListRecompSanction">Liste Employes </a></li>
+        <li class="breadcrumb-item active" aria-current="page">Ajouter une récompense </li>
+      </ol>
+      <h4 class="main-title mb-0">Ici vous pouvez ajouter une récompense </h4>
+    </div>
+    <nav class="nav nav-icon nav-icon-lg">
+    </nav>
+  </div>
+
+  <div class="container">
+    <div class="col-12">
+      <div class="card card-example">
+        <div class="card-body">
+          <form [formGroup]="rewardForm" (ngSubmit)="onSubmit()">
+            <div class="mb-3">
+              <h2>Ajouter une récompense</h2>
+            </div>
+            <div class="mb-3">
+              <label for="typeReward" class="form-label">Type de récompense</label>
+              <select class="form-control" id="typeReward" formControlName="typeReward" required>
+                  <option value=""> -Sélectionner le type de récompense-- </option>
+                  <option value="Points de fidélité">Points de fidélité</option>
+                  <option value="Remises en argent">Remises en argent</option>
+                  <option value="Cartes-cadeaux">Cartes-cadeaux</option>
+                  <option value="Produits gratuits ou réductions">Produits gratuits ou réductions</option>
+                  <option value="Accès à des fonctionnalités premium">Accès à des fonctionnalités premium</option>
+                  <option value="Badges ou distinctions">Badges ou distinctions</option>
+                  <option value="Avantages exclusifs">Avantages exclusifs</option>
+                  <option value="Coupons ou codes promotionnels">Coupons ou codes promotionnels</option>
+                  <option value="Services gratuits ou réductions">Services gratuits ou réductions</option>
+                  <option value="Donations à des organisations caritatives">Donations à des organisations caritatives</option>
+              </select>
+          </div>
+
+            <div class="mb-3">
+              <label for="date" class="form-label">Date D'ajout</label>
+              <input type="date" class="form-control" id="date" formControlName="date" required>
+            </div>
+            <div class="mb-3">
+              <label for="description" class="form-label">Description</label>
+              <textarea class="form-control" id="description" formControlName="description" required></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="value" class="form-label">Valeur</label>
+              <input type="number" class="form-control" id="value" formControlName="value" required>
+            </div>
+            <div class="mb-3">
+              <label for="status" class="form-label">Statut</label>
+              <select class="form-select" id="status" formControlName="status" required>
+                <option value="">-- Sélectionner le statut --</option>
+                <option value="Active">Active</option>
+                <option value="Inactive">Inactive</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Ajouter</button>
+          </form>
+        </div><!-- card-body -->
+      </div><!-- card -->
+    </div><!-- col -->
+  </div><!-- container -->
+</div><!-- main -->

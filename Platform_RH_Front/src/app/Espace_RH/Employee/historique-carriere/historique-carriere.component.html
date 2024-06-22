@@ -1,0 +1,142 @@
+
+
+<app-sidebar></app-sidebar>
+<div class="main main-app p-3 p-lg-4">
+    <div class="d-flex align-items-center justify-content-between mb-4">
+      <div>
+        <ol class="breadcrumb fs-sm mb-1">
+          <li class="breadcrumb-item"><a routerLink="/DetailsEmplyee/{{id}}">Carriere</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Historique Carriere</li>
+        </ol>
+
+
+      </div>
+    
+    </div>
+
+    <nav class="nav nav-line mb-4">
+        <a (click)="AStep()" class="nav-link " [ngClass]="{'active': step === 1}"> Structures Historique </a>
+        <a (click)="BStep()" class="nav-link " [ngClass]="{'active': step === 2}"> Fonction Historique </a>
+        <a (click)="CStep()" class="nav-link" [ngClass]="{'active': step === 3}">Titularisation Historique </a>
+        </nav>
+
+    <div class="col-12"  *ngIf="step === 1" >
+        
+          <br>
+
+        <input type="text"  [(ngModel)]="searchTerm" placeholder="Search avec Grade ou categorie ou Date Ajouter ...">
+        <br><br>
+        <table  id="tableGrid2" class="table table-hover">
+            <thead>
+              <tr style="border: 20px; color: black;">
+                <th> <span >Date Avancement</span>
+                </th>
+                <th>Cin</th>
+                <th>Catégorie</th>
+                <th>Grade</th>
+                <th>Classe</th>
+                <th>Échelon</th>
+                <th>Date Situation</th>
+                <th>Situation</th>
+
+
+
+              </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let Structure of AvencementData | Avancementilter: searchTerm">
+                    <td> <span class="badge badge-pill bg-info"> {{ Structure.dateAjouter }}</span></td>
+                    <td>{{ Structure.matricule.substring(Structure.matricule.lastIndexOf('_') + 1) }}</td>
+
+                    <td>{{ Structure.categorie }}</td>
+                    <td>{{ Structure.grade }}</td>
+                    <td>{{ Structure.classe }}</td>
+                    <td>{{ Structure.echelon }}</td>
+                    
+                    <td>{{ Structure.dateSituation  }}</td>
+                    <td> <span class="badge badge-pill bg-success"> {{ Structure.situation }}</span>
+                    </td>
+
+                </tr>
+             
+            </tbody>
+          </table>
+          <mat-paginator [pageSizeOptions]="[5, 10, 20]" [pageSize]="itemsPerPage" (page)="currentPage = $event.pageIndex + 1"></mat-paginator>
+
+          
+      </div>
+
+      <div class="col-12"  *ngIf="step === 2" >
+        
+        <br>
+
+      <input type="text" [(ngModel)]="searchTerm" placeholder="Search avec Fonction ou Date d'Affectation ..." >
+      <br><br>
+      <table  id="tableGrid2" class="table table-hover">
+          <thead>
+            <tr style="border: 20px; color: black;">
+              <th> <span >Date Ajouter</span>
+              </th>
+              <th>Cin</th>
+              <th>Fonction</th>
+              <th>Date de Fonction</th>
+              <th>Structure Attachée</th>
+              <th>Date d'Affectation</th>
+              <th>Situation</th>
+
+
+            </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let Structure of StructureData | StructureFilter : searchTerm  ">
+                <td> <span class="badge badge-pill bg-info"> {{ Structure.dateAjouter }}</span></td>
+                <td>{{ Structure.matricule.substring(Structure.matricule.lastIndexOf('_') + 1) }}</td>
+                  <td>{{ Structure.fonction }}</td>
+                  <td>{{ Structure.dateFonction  }}</td>
+                  <td>{{ Structure.structureAttache }}</td>
+                  <td>{{ Structure.dateAffectation  }}</td>
+                  <td> <span class="badge badge-pill bg-success"> {{ Structure.situation }}</span>
+
+              </tr>
+           
+          </tbody>
+        </table>
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]" [pageSize]="itemsPerPage" (page)="currentPage = $event.pageIndex + 1"></mat-paginator>
+
+        
+    </div>
+    <div class="col-12"  *ngIf="step === 3" >
+        
+        <br>
+
+      <input type="text"  [(ngModel)]="searchTerm" placeholder="Search avec Date Titularisation ou Date Ajouter..." >
+      <br><br>
+      <table  id="tableGrid2" class="table table-hover">
+          <thead>
+            <tr style="border: 20px; color: black;">
+              <th> <span >Date Ajouter Titularisation</span>
+              </th>
+              <th>Date Titularisation</th>
+              <th>Cin</th>
+              <th>Situation</th>
+              
+
+
+            </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let Structure of tituData | TitularisationFilter: searchTerm">
+                <td> <span class="badge badge-pill bg-info"> {{ Structure.dateAjouter }}</span></td>
+                <td>{{ Structure.ok  }}</td>
+                <td>{{ Structure.matricule.substring(Structure.matricule.lastIndexOf('_') + 1) }}</td>
+
+                <td> <span class="badge badge-pill bg-success"> {{ Structure.situation }}</span>
+
+              </tr>
+           
+          </tbody>
+        </table>
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]" [pageSize]="itemsPerPage" (page)="currentPage = $event.pageIndex + 1"></mat-paginator>
+
+        
+    </div>

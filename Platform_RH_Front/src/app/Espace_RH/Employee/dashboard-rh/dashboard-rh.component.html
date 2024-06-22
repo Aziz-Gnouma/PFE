@@ -1,0 +1,128 @@
+<app-sidebar></app-sidebar>
+<div class="main main-app p-3 p-lg-4">
+    <div class="d-flex align-items-center justify-content-between mb-4">
+      <div>
+        <ol class="breadcrumb fs-sm mb-1">
+          <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Analyse de plateforme</li>
+        </ol>
+        <h4 class="main-title mb-0">Bienvenue sur le tableau de bord</h4>
+      </div>
+
+      <nav class="nav nav-icon nav-icon-lg">
+        <a class="nav-link" data-bs-toggle="tooltip" title="Share"><i class="ri-share-line"></i></a>
+        <a  class="nav-link" data-bs-toggle="tooltip" title="Report"><i class="ri-bar-chart-2-line"></i></a>
+      </nav>
+    </div>
+
+    <div class="row g-3">
+      <div class="col-6 col-xl-3">
+        <div class="card card-one">
+          <div class="card-body">
+            <label class="card-title fs-sm fw-medium mb-1">Tous les employés</label>
+            <h3 class="card-value mb-1"><i class="ri-account-circle-fill"></i> {{newUsersCount}}</h3>
+            <small><span class="d-inline-flex text-success">1.3% <i class="ri-arrow-up-line"></i></span>que le mois dernier</small>
+          </div><!-- card-body -->
+        </div><!-- card-one -->
+      </div><!-- col -->
+      <div class="col-6 col-xl-3">
+        <div class="card card-one">
+          <div class="card-body">
+            <label class="card-title fs-sm fw-medium mb-1">Toutes les formations</label>
+            <h3 class="card-value mb-1"><i class="ri-newspaper-line"></i> {{Formationsnumber}}</h3>
+            <small><span class="d-inline-flex text-success">2.1% <i class="ri-arrow-up-line"></i></span> que le mois dernier</small>
+          </div><!-- card-body -->
+        </div><!-- card-one -->
+      </div><!-- col -->
+      <div class="col-6 col-xl-3">
+        <div class="card card-one">
+          <div class="card-body">
+            <label class="card-title fs-sm fw-medium mb-1">Toutes les sanctions</label>
+            <h3 class="card-value mb-1"><i class="ri-inbox-line"></i> {{totalSanctionsNumber}}</h3>
+            <small><span class="d-inline-flex text-danger">0.3% <i class="ri-arrow-down-line"></i></span> que le mois dernier</small>
+          </div><!-- card-body -->
+        </div><!-- card-one -->
+      </div><!-- col -->
+      <div class="col-6 col-xl-3">
+        <div class="card card-one">
+          <div class="card-body">
+            <label class="card-title fs-sm fw-medium mb-1">Toutes les recompenses</label>
+            <h3 class="card-value mb-1"><i class="ri-bar-chart-box-line"></i> {{totalRewardsNumber}}</h3>
+            <small><span class="d-inline-flex text-success">1.2% <i class="ri-arrow-up-line"></i></span> que le mois dernier</small>
+          </div><!-- card-body -->
+        </div><!-- card-one -->
+      </div><!-- col -->
+      <div class="col-xl-7">
+        <div class="card card-one">
+          <div class="card-header">
+            <h6 class="card-title">Stabilité de l'entreprise</h6>
+            <nav class="nav nav-icon nav-icon-sm ms-auto">
+              <a href="" class="nav-link"><i class="ri-refresh-line"></i></a>
+              <a href="" class="nav-link"><i class="ri-more-2-fill"></i></a>
+            </nav>
+          </div><!-- card-header -->
+          <div class="card-body">
+            <ul class="legend mb-3">
+              <li>Growth Actual</li>
+              <li>Actual</li>
+              <li>Plan</li>
+            </ul>
+
+            <div id="smoothPyramidChart" class="flot-chart ht-300 mb-4"></div>
+            <div class="p-2">
+              <div class="row g-3">
+                <div class="col-sm-6">
+                  <h3 class="card-value mb-2"><span>$</span>834,631.18</h3>
+                  <label class="card-title fw-semibold text-dark mb-2">Monthly Revenue Growth</label>
+                  <p class="mb-0 fs-xs text-secondary">Measure how fast you’re growing monthly recurring revenue.</p>
+                </div><!-- col -->
+                <div class="col-sm-6">
+                  <h3 class="card-value mb-2"><span>$</span>19,204.15</h3>
+                  <label class="card-title fw-semibold text-dark mb-2">Monthly Revenue/Customer</label>
+                  <p class="mb-0 fs-xs text-secondary">The revenue generated per account on a monthly or yearly basis.</p>
+                </div><!-- col -->
+              </div><!-- row -->
+            </div>
+          </div><!-- card-body -->
+        </div><!-- card -->
+      </div><!-- col -->
+      <div class="col-md-6 col-xl-5">
+        <div class="card card-one">
+          <div class="card-header">
+            <h6 class="card-title">Account Retention</h6>
+            <nav class="nav nav-icon nav-icon-sm ms-auto">
+              <a href="" class="nav-link"><i class="ri-refresh-line"></i></a>
+              <a href="" class="nav-link"><i class="ri-more-2-fill"></i></a>
+            </nav>
+          </div><!-- card-header -->
+          <div class="card-body">
+            <div id="flotThresholds" class="flot-chart ht-180 mb-3"></div>
+            <p class="mb-3 fs-xs">Number of customers who have active subscription with you.</p>
+
+            <div class="card p-3 d-flex flex-row mb-2">
+              <div class="card-icon bg-primary"><i class="ri-bar-chart-grouped-line"></i></div>
+              <div class="ms-3">
+                <h4 class="card-value mb-1">53,100</h4>
+                <label class="card-title fw-medium text-dark mb-1">Expansions</label>
+                <p class="fs-xs text-secondary mb-0 lh-4">Customers who have upgraded the level of your products or service.</p>
+              </div>
+            </div>
+            <div class="card p-3 d-flex flex-row">
+              <div class="card-icon bg-ui-02"><i class="ri-bar-chart-grouped-line"></i></div>
+              <div class="ms-3">
+                <h4 class="card-value mb-1">2,884</h4>
+                <label class="card-title fw-medium text-dark mb-1">Cancellations</label>
+                <p class="fs-xs text-secondary mb-0 lh-4">Customers who have ended their subscription with you.</p>
+              </div>
+            </div>
+          </div><!-- card-body -->
+        </div><!-- card -->
+      </div><!-- col -->
+
+    </div><!-- row -->
+
+    <div class="main-footer mt-5">
+      <span>&copy; 2023. Dashbyte. All Rights Reserved.</span>
+      <span>Created by: <a href="http://themepixels.me" target="_blank">Themepixels</a></span>
+    </div><!-- main-footer -->
+  </div><!-- main -->

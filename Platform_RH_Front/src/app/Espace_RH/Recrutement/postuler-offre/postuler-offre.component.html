@@ -1,0 +1,36 @@
+<div class="container" *ngIf="offre">
+  <div class="card">
+    <h2 class="title">Postuler pour l'offre : {{ offre.titre }}</h2>
+    <div class="offre-details">
+      <p><strong>Entreprise:</strong> {{ offre.nomEntreprise }}</p>
+      <p><strong>Lieu:</strong> {{ offre.lieu }}</p>
+      <p><strong>Salaire:</strong> {{ offre.salaire }} €</p>
+      <p><strong>Type de poste:</strong> {{ offre.typeDePoste }}</p>
+      <p><strong>Temps de travail:</strong> {{ offre.tempsDeTravail }}</p>
+      <p><strong>Description:</strong> {{ offre.descriptionPoste }}</p>
+    </div>
+    <div *ngIf="alertMessage" class="alert" [ngClass]="{'alert-success': alertMessage === 'CV submitted successfully!', 'alert-danger': alertMessage !== 'CV submitted successfully!'}">
+      {{ alertMessage }}
+    </div>
+
+    <form (ngSubmit)="onSubmit()" #postulerForm="ngForm" class="form">
+      <div class="form-group flex-container">
+        <div class="flex-item">
+          <label for="nom">Nom</label>
+          <input id="nom" name="nom" [(ngModel)]="name" required class="form-control" placeholder="Entrez votre nom">
+        </div>
+        <div class="flex-item">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" [(ngModel)]="email" required class="form-control" placeholder="Entrez votre email">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="cv">CV</label>
+        <input id="cv" name="cv" type="file" (change)="onFileChange($event)" required class="form-control" multiple>
+      </div>
+      <button type="submit" class="btn-submit">Soumettre la candidature</button>
+    </form>
+
+    <!-- <button (click)="onRankAllCVs()" class="btn-rank">Rank All CVs</button> -->
+  </div>
+</div>

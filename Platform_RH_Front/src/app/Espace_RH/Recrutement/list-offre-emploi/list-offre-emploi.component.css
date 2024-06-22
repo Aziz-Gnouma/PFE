@@ -1,0 +1,197 @@
+.card {
+  --main-color: #000;
+  --bg-color: #c9c2c2;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  width: 300px;
+  padding: 25px;
+  background: var(--bg-color);
+  border-radius: 20px;
+
+}
+.card-container {
+  display: flex;
+  gap: 10%;
+  flex-wrap: wrap; /* Pour permettre le retour à la ligne si nécessaire */
+}
+.card__wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card___wrapper-acounts {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.card___wrapper-acounts > div:nth-child(2) {
+  position: absolute;
+  left: 25px;
+  z-index: -1;
+}
+
+.card___wrapper-acounts > div:nth-child(3) {
+  position: absolute;
+  left: 50px;
+  z-index: -2;
+}
+
+.card__score {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
+  font-size: 16px;
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  background: var(--main-color);
+}
+
+.card__acounts {
+  width: 42px;
+  height: 42px;
+}
+
+.card__acounts svg {
+  width: 100%;
+  height: 100%;
+}
+
+.card__menu {
+  width: 40px;
+  height: 40px;
+  background: #dadada;
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.card__title {
+  margin-top: 50px;
+  font-weight: 900;
+  font-size: 25px;
+  color: var(--main-color);
+}
+
+.card__subtitle {
+  margin-top: 15px;
+  font-weight: 400;
+  font-size: 15px;
+  color: var(--main-color);
+}
+
+.card__indicator {
+  margin-top: 50px;
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--main-color);
+}
+
+.card__progress progress {
+  width: 100%;
+  height: 4px;
+  border-radius: 100px;
+}
+
+.card__progress progress::-webkit-progress-bar {
+  background-color: #00000030;
+  border-radius: 100px;
+}
+
+.card__progress progress::-webkit-progress-value {
+  background-color: var(--main-color);
+  border-radius: 100px;
+}
+
+button {
+  font-family: inherit;
+  font-size: 20px;
+  background: royalblue;
+  color: white;
+  padding: 0.7em 1em;
+  padding-left: 0.9em;
+  display: flex;
+  align-items: center;
+  border: none;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+button span {
+  display: block;
+  margin-left: 0.3em;
+  transition: all 0.3s ease-in-out;
+}
+
+button svg {
+  display: block;
+  transform-origin: center center;
+  transition: transform 0.3s ease-in-out;
+}
+
+button:hover .svg-wrapper {
+  animation: fly-1 0.6s ease-in-out infinite alternate;
+}
+
+button:hover svg {
+  transform: translateX(1.2em) rotate(45deg) scale(1.1);
+}
+
+button:hover span {
+  transform: translateX(5em);
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+@keyframes fly-1 {
+  from {
+    transform: translateY(0.1em);
+  }
+
+  to {
+    transform: translateY(-0.1em);
+  }
+}
+.search-bar {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.search-bar input {
+  width: 80%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.search-bar input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  outline: none;
+}
+
+.cv-header {
+  color: black;
+  padding: 20px;
+  text-align: center;
+  border-radius: 8px;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}

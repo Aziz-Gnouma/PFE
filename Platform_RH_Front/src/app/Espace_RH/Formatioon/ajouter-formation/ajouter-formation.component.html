@@ -1,0 +1,118 @@
+<app-sidebar></app-sidebar>
+ 
+<div class="main main-app p-3 p-lg-4">
+    <div class="d-flex align-items-center justify-content-between mb-4">
+      <div>
+        <ol class="breadcrumb fs-sm mb-1">
+          <li class="breadcrumb-item"><a routerLink="/Gerant">Dashboard</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Formation</li>
+        </ol>
+        <h4 class="main-title mb-0">Ici, vous pouvez ajouter une formation </h4>
+        
+
+      </div>
+
+      <nav class="nav nav-icon nav-icon-lg">
+      </nav>
+    </div>
+    
+    <div class="container">
+    <div  class="col-12">
+
+        <div class="card card-example">
+            <div class="card-body">
+                <form *ngIf="FormationForm" [formGroup]="FormationForm" (ngSubmit)="submitForm()">
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label for="titre" class="form-label">Nom Formation</label>
+                            <input type="text" class="form-control" id="titre" formControlName="titre">
+                            <div *ngIf="FormationForm.get('titre')?.invalid && (FormationForm.get('titre')?.dirty || FormationForm.get('titre')?.touched)" class="text-danger">
+                                Nom Formation est requis
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="duree" class="form-label">Durée (en minutes)</label>
+                            <input type="number" class="form-control" id="duree" formControlName="duree" min="1">
+                            <div *ngIf="FormationForm.get('duree')?.invalid && (FormationForm.get('duree')?.dirty || FormationForm.get('duree')?.touched)" class="text-danger">
+                                Durée est requise
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <label for="langue" class="form-label">Langue</label>
+                            <select class="form-select" id="langue" formControlName="langue">
+                                <option value="">Choisir une langue</option>
+                                <option value="Français">Français</option>
+                                <option value="Anglais">Anglais</option>
+                                <option value="Arabe">Arabe</option>
+                                <option value="Autre">Autre</option>
+                            </select>
+                            <div *ngIf="FormationForm.get('langue')?.invalid && (FormationForm.get('langue')?.dirty || FormationForm.get('langue')?.touched)" class="text-danger">
+                                Langue est requise
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="niveau" class="form-label">Niveau</label>
+                            <select class="form-select" id="niveau" formControlName="niveau" aria-label="Default select example">
+                                <option value="">Choisir un niveau</option>
+                                <option value="Débutant">Débutant</option>
+                                <option value="Intermédiaire">Intermédiaire</option>
+                                <option value="Avancé">Avancé</option>
+                            </select>
+                            <div *ngIf="FormationForm.get('niveau')?.invalid && (FormationForm.get('niveau')?.dirty || FormationForm.get('niveau')?.touched)" class="text-danger">
+                                Niveau est requis
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <label for="file">Formation :</label>
+                            <input type="file" id="file" formControlName="file" (change)="onFileChange($event)">
+                            <div *ngIf="FormationForm.get('file')?.invalid && (FormationForm.get('file')?.dirty || FormationForm.get('file')?.touched)" class="text-danger">
+                                file est requis
+                            </div>
+                          </div>
+                        
+                        <div class="col-md-6">
+                            <label for="formateur" class="form-label">Formateur</label>
+                            <input type="text" class="form-control" id="formateur" formControlName="formateur">
+                            <div *ngIf="FormationForm.get('formateur')?.invalid && (FormationForm.get('formateur')?.dirty || FormationForm.get('formateur')?.touched)" class="text-danger">
+                                Formateur est requis
+                            </div>
+                        </div>
+                        
+                        
+                        <div class="col-md-6">
+                            <label for="categories" class="form-label">Catégorie</label>
+                            <select class="form-select" id="categories" formControlName="categories">
+                                <option *ngFor="let category of categoriesList$ | async" [value]="category.id">{{ category.name }}</option>
+                            </select>
+                            <div *ngIf="FormationForm.get('categories')?.invalid && (FormationForm.get('categories')?.dirty || FormationForm.get('categories')?.touched)" class="text-danger">
+                                Catégorie est requise
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <label for="description" class="form-label">Description</label>
+                            <textarea type="text" class="form-control" id="description" formControlName="description"></textarea>
+                            <div *ngIf="FormationForm.get('description')?.invalid && (FormationForm.get('description')?.dirty || FormationForm.get('description')?.touched)" class="text-danger">
+                                Description est requise
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary mt-3">Ajouter</button>
+
+                    </div>
+
+                </form>
+            </div>
+        </div>
+        
+      </div>
+    </div>
+  
+      <script>
+        $(document).ready(function() {
+          // Initialize DataTable with options for filtering and pagination
+          $('#tableGrid2').DataTable({
+            searching: true, // Enable filtering/searching
+            paging: true // Enable pagination
+          });
+        });
+      </script>

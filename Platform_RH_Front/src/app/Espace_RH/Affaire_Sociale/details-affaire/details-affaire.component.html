@@ -1,0 +1,24 @@
+<div class="content">
+  <div *ngIf="selectedAffaire" class="d-flex justify-content-center align-items-center" style="height: 50vh; overflow-y: auto;">
+    <div style="width: 50%;">
+      <h4 style="color:rgb(120, 21, 107); text-align:center;"><i class="fas fa-info-circle"></i> Détails d'un affaire</h4>
+      <br>
+      <p style="margin-top: 30px;"><b><i class="fas fa-file-pdf"></i> matricule Conjoint </b>: {{ selectedAffaire.matriculeConjoint }}</p>
+      <p style="margin-top: 10px;"><b><i class="fas fa-file-alt"></i> situation Familiale </b>: {{ selectedAffaire.situationFamiliale }}</p>
+      <p style="margin-top: 10px;"><b><i class="fas fa-file-alt"></i> prenom Conjoint </b>: {{ selectedAffaire.prenomConjoint }}</p>
+      <p style="margin-top: 10px;"><b><i class="fas fa-user"></i>  nb Enfants</b>: {{ selectedAffaire.nbEnfants }}</p>
+      <p style="margin-top: 10px;"><b><i class="fas fa-user"></i> nb Enfants Imposables </b>:  {{selectedAffaire.nbEnfantsImposables }} </p>
+      <p style="margin-top: 10px;"><b><i class="fas fa-user"></i> chef De Famille </b>: {{ selectedAffaire.chefDeFamille}}</p>
+      <p style="margin-top: 10px;"><b><i class="fas fa-file-invoice-dollar"></i> salaire Unique </b>: {{ selectedAffaire.salaireUnique}}</p>
+      <p style="margin-top: 10px;"><b><i class="fas fa-users"></i> alloc Familiale </b>: {{ selectedAffaire.allocFamiliale}}</p>
+      <p style="margin-top: 10px;"><b><i class="fas fa-money-bill"></i> salaireUnique </b>: {{ selectedAffaire.salaireUnique}}</p>
+      <p style="margin-top: 10px;"><b><i class="fas fa-user-shield"></i> securite Sociale 1 </b>: {{ selectedAffaire.securiteSociale1}}</p>
+      <p style="margin-top: 10px;"><b><i class="fas fa-id-card"></i> securite Sociale 2 </b>: {{ selectedAffaire.securiteSociale2}}</p>
+      <p style="margin-top: 10px;"><b><i class="fas fa-clock"></i> affiliation Le </b>: {{ selectedAffaire.affiliationLe}}</p>
+      <p style="margin-top: 10px;"><b><i class="fas fa-user"></i> exonere </b>: {{ selectedAffaire.exonere}}</p>
+      <p style="margin-top: 10px;"><b><i class="fas fa-user"></i> affiliation Regime </b>: {{ selectedAffaire.affiliationRegime}}</p>
+      <p style="margin-top: 10px;"><b><i class="fas fa-shield"></i>  affiliation Assurance </b>: {{ selectedAffaire.affiliationAssurance}}</p>
+      <p style="margin-top: 10px;"><b><i class="fas fa-user"></i> affiliation Mutuelle </b>: {{ selectedAffaire.affiliationMutuelle}}</p>
+    </div>
+  </div>
+</div>

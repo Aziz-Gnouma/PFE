@@ -1,0 +1,58 @@
+<div class="main main-app p-3 p-lg-4">
+  <div class="d-flex align-items-center justify-content-between mb-4">
+    <div>
+      <ol class="breadcrumb fs-sm mb-1">
+        <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Active Entrepreneurs</li>
+      </ol>
+      <h4 class="main-title mb-0">This is our active Employees</h4>
+    </div>
+    <nav class="nav nav-icon nav-icon-lg">
+      <button routerLink="/AjouterRH" class="btn fs-sm btn-primary">Recruter RH</button>
+    </nav>
+  </div>
+  <div class="col-12">
+      <!-- <input type="text" [(ngModel)]="searchTerm" placeholder="Search..."> -->
+      <br><br>
+      <table id="tableGrid2" class="table table-hover">
+          <thead>
+            <tr style="border: 20px; color: black;">
+              <th> <span class="badge bg-success">OK</span>
+              </th>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Email</th>
+              <th>Nationality</th>
+              <th>Phone Number</th>
+              <th>Address</th>
+              <th>Locality</th>
+              <th>Role</th>
+              <th>Carriere</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let user of users | userFilter: searchTerm | roleFilter: searchTerm:selectedRole">
+                <td>{{ user.cin }}</td>
+                <td>{{ user.userFirstName }}</td>
+                <td>{{ user.userLastName }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.nationality }}</td>
+                <td>{{ user.phoneNumber }}</td>
+                <td>{{ user.address }}</td>
+                <td>{{ user.locality }}</td>
+                <td>{{ user.role.length > 0 ? user.role[0].roleName : '-' }}</td>
+                <td>
+                  <button class="btn btn-outline-warning" *ngIf="hasaffaire" (click)="addAffaire(user.cin)">
+                    <i style="color: black;" class="ri-user-add-line" data-bs-toggle="tooltip" title="" data-bs-original-title="ri-user-add-line" aria-label="ri-user-add-line"></i>
+                    Add Carrier
+                  </button>
+                </td>
+                <td>
+                  <button class="btn btn-primary" (click)="addAffaire(user.cin)">Add Affaire</button>
+                </td>
+              </tr>
+          </tbody>
+        </table>
+    </div>
+</div>

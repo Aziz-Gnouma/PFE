@@ -1,0 +1,161 @@
+<app-sidebar></app-sidebar>
+ 
+<div class="main main-app p-3 p-lg-4">
+    <div class="d-flex align-items-center justify-content-between mb-4">
+      <div>
+        <ol class="breadcrumb fs-sm mb-1">
+          <li class="breadcrumb-item"><a >Dashboard</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Employés inactifs</li>
+        </ol>
+        <h4 class="main-title mb-0">Voici nos employés inactifs</h4>
+        
+
+      </div>
+
+      <nav class="nav nav-icon nav-icon-lg">
+    <!-- <button routerLink="/AjouterRH" class="btn fs-sm btn-primary" >Recruter RH</button>  -->  
+      </nav>
+    </div>
+    <div class="col-12">
+        
+
+        <input type="text" [(ngModel)]="searchTerm" placeholder="Search...">
+        <br><br>
+        <table  id="tableGrid2" class="table table-hover">
+            <thead>
+              <tr style="border: 20px; color: black;">
+                <th> <span class="badge bg-success">OK</span>
+                </th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+
+                <th>Nationality</th>
+                <th>Phone Number</th>
+                <th>Address</th>
+                <th>Role</th>
+                <th>Action</th>
+
+                <!-- Add more headers for enterprise details if needed -->
+              </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of users | userFilter: searchTerm ">
+                
+                <td> {{ user.cin }}</td>
+                <td>{{ user.userFirstName }}</td>
+                <td>{{ user.userLastName }}</td>
+                <td>{{ user.private_email }}</td>
+                <td>{{ user.nationality }}</td>
+                <td>{{ user.phoneNumber }}</td>
+                <td>{{ user.address }}</td>
+                <td>{{ user.role.length > 0 ? user.role[0].roleName : '-' }}</td>
+              
+                <td >
+                  <svg (click)="openModal(user)" xmlns="http://www.w3.org/2000/svg" width="24"  color="blue" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-eye"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                </td>
+                <div *ngIf="AppServiceService.roleMatch(['GRH'])">
+                <td *ngIf="user.role.length > 0 && user.role[0].roleName == 'Archiver' " >
+                  <svg (click)="desarchiveGRHUser(user.matricule)" xmlns="http://www.w3.org/2000/svg" width="24" color="red" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shield-off"><path d="M19.69 14a6.9 6.9 0 0 0 .31-2V5l-8-3-3.16 1.18"></path><path d="M4.73 4.73L4 5v7c0 6 8 10 8 10a20.29 20.29 0 0 0 5.62-4.38"></path><line x1="1" y1="1" x2="23" y2="23"></line></svg>                 
+
+                </td>
+              </div>
+                <!-- Add more cells for enterprise details if needed -->
+                <!-- Assuming there's only one role -->
+                <!-- Add more cells for enterprise details if needed -->
+              </tr>
+            </tbody>
+          </table>
+  
+      </div>
+      <div id="exampleModalToggle" class="modal fade" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title" style="border: black; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">Employee Details <i class="ri-medal-line" data-bs-toggle="tooltip" title="" data-bs-original-title="ri-medal-line" aria-label="ri-medal-line"></i></h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <div>
+                    <!-- Personal Information form -->
+                    <div class="row g-8">
+                      <div class="col-sm-6">
+                        <label class="form-label" style="color: black;"> Complet Name </label>
+                        <h5 class="form-control">{{ selectedUser?.userFirstName +  '  '+ selectedUser?.userLastName }}  </h5>
+                    </div><!-- col -->
+                    <div class="col-sm-6">
+                      <label class="form-label" style="color: black;"> Nationality</label>
+                      <h5 class="form-control">{{ selectedUser?.nationality }} </h5>
+                  </div><!-- col -->
+                    <div class="col-sm-6">
+                      <label class="form-label" style="color: black;"> Email</label>
+                      <h5 class="form-control">{{ selectedUser?.private_email }} </h5>
+                  </div><!-- col -->
+                    <div class="col-sm-6">
+                      <label class="form-label" style="color: black;"> Phone Number </label>
+                      <h5 class="form-control">{{ selectedUser?.phoneNumber }} </h5>
+                  </div><!-- col -->
+                 
+                      <div class="col-sm-6">
+                        <label class="form-label" style="color: black;"> Cin </label>
+                        <h5 class="form-control">{{ selectedUser?.cin }} </h5>
+                    </div><!-- col -->
+                      <div class="col-sm-6">
+                        <label class="form-label" style="color: black;"> Date Cin </label>
+                        <h5 class="form-control">{{ selectedUser?.cinDate }} </h5>
+                    </div><!-- col -->
+                    <div class="col-sm-6">
+                        <label class="form-label" style="color: black;"> Gender </label>
+                        <h5 class="form-control">{{ selectedUser?.gender }} </h5>
+                    </div><!-- col -->
+                      <div class="col-sm-6">
+                        <label class="form-label" style="color: black;"> Civility </label>
+                        <h5 class="form-control">{{ selectedUser?.civility }} </h5>
+                    </div><!-- col -->
+                    
+                      <div class="col-sm-6">
+                          <label class="form-label" style="color: black;">Date of Birthday</label>
+                          <h5 class="form-control">{{ selectedUser?.dateOfBirth}}</h5>
+                      </div><!-- col -->
+                      <div class="col-sm-6">
+                        <label class="form-label" style="color: black;">Place of Birthday</label>
+                        <h5 class="form-control">{{ selectedUser?.placeOfBirth}}</h5>
+                    </div><!-- col -->
+                      <div class="col-sm-6">
+                          <label class="form-label" style="color: black;">Address </label>
+                          <h5 class="form-control">{{ selectedUser?.address }}</h5>
+                      </div><!-- col -->
+                      <div class="col-sm-6">
+                          <label class="form-label" style="color: black;">Locality</label>
+                          <h5 class="form-control">{{ selectedUser?.pays }}</h5>
+                      </div><!-- col -->
+                      
+                  <div class="col-sm-6">
+                    <label class="form-label" style="color: black;">Role</label>
+                    <h5 class="form-control">{{ selectedUser?.role?.[0]?.roleName  }}</h5>
+                </div><!-- col -->
+                    
+                     
+        
+                  </div><!-- form-row -->
+                  
+                </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+           
+                </div>
+            </div>
+        </div>
+      </div>
+
+      <script>
+        $(document).ready(function() {
+          // Initialize DataTable with options for filtering and pagination
+          $('#tableGrid2').DataTable({
+            searching: true, // Enable filtering/searching
+            paging: true // Enable pagination
+          });
+        });
+      </script>
+

@@ -1,0 +1,76 @@
+<app-sidebar></app-sidebar>
+    
+    
+    <div class="main main-app p-3 p-lg-4">
+        <div class="d-flex align-items-center justify-content-between mb-4">
+          <div>
+            <ol class="breadcrumb fs-sm mb-1">
+              <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+              <li class="breadcrumb-item active" aria-current="page"> Reclamations</li>
+            </ol>
+            <h4 class="main-title mb-0">Notre Reclamations</h4>
+            
+
+          </div>
+    
+          <nav class="nav nav-icon nav-icon-lg">
+            <a href="" class="nav-link" data-bs-toggle="tooltip" title="Share"><i class="ri-share-line"></i></a>
+            <a href="" class="nav-link" data-bs-toggle="tooltip" title="Print"><i class="ri-printer-line"></i></a>
+            <a href="" class="nav-link" data-bs-toggle="tooltip" title="Report"><i class="ri-bar-chart-2-line"></i></a>
+          </nav>
+        </div>
+        <div class="col-12">
+
+            <input type="text" [(ngModel)]="searchTerm" placeholder="Search...">
+            <br><br>
+            <table  id="tableGrid2" class="table table-hover">
+                <thead>
+                  <tr style="border: 20px; color: black;">
+                    <th> <span class="badge bg-success">reclamationId</span>
+                    </th>
+                    <th>matricule</th>
+                    <th>Prenom</th>
+                    <th>Nom</th>
+                    <th>Email</th>
+                    <th>Téléphone</th>
+                    <th>Utilisateur-Entreprise</th>
+                    <th>Reclamation</th>
+                    <th>date</th>
+                    <th>Action</th>
+
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let Reclamtion of Reclamtions">
+                    <td> {{ Reclamtion.reclamationId }}</td>
+                    <td> {{ Reclamtion.matricule }}</td>
+                    <td>{{ Reclamtion.firstName }}</td>
+                    <td>{{ Reclamtion.lastName }}</td>
+                    <td>{{ Reclamtion.email }}</td>
+                    <td>{{ Reclamtion.tel }}</td>
+                    <td>{{ Reclamtion.entreprise }}</td>
+                    <td>{{ Reclamtion.description }}</td>
+                    <td>{{ Reclamtion.date }}</td>
+                    <td *ngIf="Reclamtion.reclamationStatut == 'CONFIRMED'">{{ Reclamtion.reclamationStatut }}</td>
+
+                    <td *ngIf="Reclamtion.reclamationStatut !== 'CONFIRMED'">
+                        <button class="btn btn-outline-success mr-2" (click)="Accepter(Reclamtion.reclamationId)">Traiter</button>
+                        <button style="margin-left: 5%;" class="btn btn-outline-danger" (click)="Annuler(Reclamtion.reclamationId)">Refuser</button>
+                      </td>
+                      
+                 
+                  </tr>
+                </tbody>
+              </table>
+      
+          </div>
+         
+          <script>
+            $(document).ready(function() {
+              $('#tableGrid2').DataTable({
+                searching: true, 
+                paging: true 
+              });
+            });
+          </script>
+    

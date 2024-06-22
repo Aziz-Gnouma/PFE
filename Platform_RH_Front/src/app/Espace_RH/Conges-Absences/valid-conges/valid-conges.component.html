@@ -1,0 +1,30 @@
+<app-sidebar></app-sidebar>
+
+<div *ngFor="let demande of pendingDemandes" class="demande-container mt-100">
+  <div *ngIf="demande.status === null">
+  <h2 class="absences-title">congés En attente de validation</h2>
+  <div class="absence-info">
+    <strong class="absence-label">Prénom de l'utilisateur:</strong> {{ userData.userFirstName }}
+  </div>
+  <div class="demande-info">
+    <p class="demande-label">Date de début:</p>
+    <p class="demande-value">{{ demande.dateDebut | date:'short' }}</p>
+  </div>
+  <div class="demande-info">
+    <p class="demande-label">Date Fin:</p>
+    <p class="demande-value">{{ demande.dateFin | date:'short' }}</p>
+  </div>
+  <div class="demande-info">
+    <p class="demande-label">Cumulative:</p>
+    <p class="demande-value">{{ demande.cumulative }}</p>
+  </div>
+  <div class="demande-info">
+    <p class="demande-label">Nombre de jours demandés:</p>
+    <p class="demande-value">{{ demande.nombreJoursDemandes }}</p>
+  </div>
+  <div class="demande-actions">
+    <button class="accept-button" (click)="acceptDemande(demande)">Accept</button>
+    <button class="reject-button" (click)="rejectDemande(demande)">Reject</button>
+  </div>
+  <hr class="demande-separator">
+</div>

@@ -1,0 +1,174 @@
+<form class="form_container row g-3" [formGroup]="offreForm" (ngSubmit)="onSubmit()">
+  <div class="title_container">
+    <p class="title">Ajouter une offre d'emploi</p>
+    <span class="subtitle">Bienvenue sur notre plateforme ! Prêt à agrandir votre équipe ? L’ajout d’une nouvelle offre d’emploi n’est qu’à quelques pas. Trouvons le candidat idéal pour votre poste !</span>
+  </div>
+  <br>
+  <div class="col-md-6">
+    <label for="titre" class="form-label">Titre</label>
+    <input id="titre" formControlName="titre" type="text" class="form-control" placeholder="Entrez votre titre">
+  </div>
+  <div class="col-md-6">
+    <label for="nomEntreprise" class="form-label">Nom d'entreprise</label>
+    <input id="nomEntreprise" formControlName="nomEntreprise" type="text" class="form-control" placeholder="Entrez votre nom d'entreprise">
+  </div>
+  <div class="col-md-6">
+    <label for="lieu" class="form-label">Lieu</label>
+    <select id="lieu" formControlName="lieu" class="form-select">
+      <option value="Tunisie">Tunisie</option>
+      <option value="Afrique du Sud">Afrique du Sud</option>
+      <option value="Afghanistan">Afghanistan</option>
+      <option value="Albanie">Albanie</option>
+      <option value="Algérie">Algérie</option>
+      <option value="Allemagne">Allemagne</option>
+      <option value="Andorre">Andorre</option>
+      <option value="Angola">Angola</option>
+      <option value="Antigua-et-Barbuda">Antigua-et-Barbuda</option>
+      <option value="Arabie saoudite">Arabie saoudite</option>
+      <option value="Argentine">Argentine</option>
+      <option value="Arménie">Arménie</option>
+      <option value="Australie">Australie</option>
+      <option value="Autriche">Autriche</option>
+      <option value="Azerbaïdjan">Azerbaïdjan</option>
+      <option value="Bahamas">Bahamas</option>
+      <option value="Bahreïn">Bahreïn</option>
+      <option value="Bangladesh">Bangladesh</option>
+      <option value="Barbade">Barbade</option>
+      <option value="Belgique">Belgique</option>
+      <option value="Belize">Belize</option>
+      <option value="Bénin">Bénin</option>
+      <option value="Bhoutan">Bhoutan</option>
+      <option value="Biélorussie">Biélorussie</option>
+      <option value="Birmanie">Birmanie</option>
+      <option value="Bolivie">Bolivie</option>
+      <option value="Bosnie-Herzégovine">Bosnie-Herzégovine</option>
+      <option value="Botswana">Botswana</option>
+      <option value="Brésil">Brésil</option>
+      <option value="Brunei">Brunei</option>
+      <option value="Bulgarie">Bulgarie</option>
+      <option value="Burkina Faso">Burkina Faso</option>
+      <option value="Burundi">Burundi</option>
+      <option value="Cambodge">Cambodge</option>
+      <option value="Cameroun">Cameroun</option>
+      <option value="Canada">Canada</option>
+      <option value="Cap-Vert">Cap-Vert</option>
+      <option value="Chili">Chili</option>
+      <option value="Chine">Chine</option>
+      <option value="Chypre">Chypre</option>
+      <option value="Colombie">Colombie</option>
+      <option value="Comores">Comores</option>
+      <option value="Corée du Nord">Corée du Nord</option>
+      <option value="Corée du Sud">Corée du Sud</option>
+      <option value="Costa Rica">Costa Rica</option>
+      <option value="Côte d'Ivoire">Côte d'Ivoire</option>
+      <option value="Croatie">Croatie</option>
+      <option value="Cuba">Cuba</option>
+      <option value="Danemark">Danemark</option>
+      <option value="Djibouti">Djibouti</option>
+      <option value="Dominique">Dominique</option>
+      <option value="Émirats arabes unis">Émirats arabes unis</option>
+      <option value="Équateur">Équateur</option>
+      <option value="Érythrée">Érythrée</option>
+      <option value="Espagne">Espagne</option>
+      <option value="Estonie">Estonie</option>
+      <option value="États-Unis">États-Unis</option>
+      <option value="Éthiopie">Éthiopie</option>
+      <option value="Fidji">Fidji</option>
+      <option value="Finlande">Finlande</option>
+      <option value="France">France</option>
+      <option value="Gabon">Gabon</option>
+      <option value="Gambie">Gambie</option>
+      <option value="Géorgie">Géorgie</option>
+      <option value="Ghana">Ghana</option>
+      <option value="Grèce">Grèce</option>
+      <option value="Grenade">Grenade</option>
+      <option value="Guatemala">Guatemala</option>
+      <option value="Guinée">Guinée</option>
+      <option value="Guinée-Bissau">Guinée-Bissau</option>
+      <option value="Guinée équatoriale">Guinée équatoriale</option>
+      <option value="Guyana">Guyana</option>
+      <option value="Haïti">Haïti</option>
+      <option value="Honduras">Honduras</option>
+      <option value="Hongrie">Hongrie</option>
+      <option value="Îles Cook">Îles Cook</option>
+      <option value="Îles Marshall">Îles Marshall</option>
+      <option value="Îles Salomon">Îles Salomon</option>
+      <option value="Inde">Inde</option>
+      <option value="Indonésie">Indonésie</option>
+      <option value="Irak">Irak</option>
+      <option value="Iran">Iran</option>
+      <option value="Irlande">Irlande</option>
+      <option value="Islande">Islande</option>
+      <option value="Italie">Italie</option>
+      <option value="Jamaïque">Jamaïque</option>
+      <option value="Japon">Japon</option>
+      <option value="Jordanie">Jordanie</option>
+      <option value="Kazakhstan">Kazakhstan</option>
+      <option value="Kenya">Kenya</option>
+      <option value="Kirghizistan">Kirghizistan</option>
+      <option value="Kiribati">Kiribati</option>
+      <option value="Koweït">Koweït</option>
+      <option value="Laos">Laos</option>
+      <option value="Lesotho">Lesotho</option>
+      <option value="Lettonie">Lettonie</option>
+      <option value="Liban">Liban</option>
+      <option value="Liberia">Liberia</option>
+      <option value="Libye">Libye</option>
+      <option value="Liechtenstein">Liechtenstein</option>
+      <option value="Lituanie">Lituanie</option>
+      <option value="Luxembourg">Luxembourg</option>
+      <option value="Macédoine">Macédoine</option>
+      <option value="Madagascar">Madagascar</option>
+      <option value="Malaisie">Malaisie</option>
+      <option value="Malawi">Malawi</option>
+      <option value="Maldives">Maldives</option>
+      <option value="Mali">Mali</option>
+      <option value="Malte">Malte</option>
+      <option value="Maroc">Maroc</option>
+      <option value="Maurice">Maurice</option>
+      <option value="Mauritanie">Mauritanie</option>
+      <option value="Mexique">Mexique</option>
+      <option value="Micronésie">Micronésie</option>
+    </select>
+  </div>
+  <div class="col-md-6">
+    <label for="salaire" class="form-label">Salaire</label>
+    <input id="salaire" formControlName="salaire" type="number" class="form-control" placeholder="Entrez votre salaire">
+  </div>
+  <div class="col-md-6">
+    <label class="input_label"for="tempsDeTravail">temps de travail</label>
+
+    <select id="tempsDeTravail" formControlName="tempsDeTravail">
+      <option value="Heures supplémentaires">Heures supplémentaires</option>
+      <option value="Travail en journée">Travail en journée</option>
+      <option value="Travail de nuit">Travail de nuit</option>
+      <option value="Travail en équipe">Travail en équipe</option>
+      <!-- Ajouter d'autres options si nécessaire -->
+    </select>
+  </div>
+  <div class="col-md-6">
+    <label class="input_label"for="typeDePoste">type de poste</label>
+
+    <select id="typeDePoste" formControlName="typeDePoste">
+      <option value="Temps partiel">Temps partiel</option>
+      <option value="CDI">CDI</option>
+      <option value="CDD">CDD</option>
+      <option value="Intérim">Intérim</option>
+      <option value="Freelance">Freelance</option>
+      <!-- Ajouter d'autres options si nécessaire -->
+    </select>
+  </div>
+  <div class="col-md-6">
+    <label class="input_label"for="detailsEmploi">Détails de l'emploi</label>
+
+    <input id="detailsEmploi" formControlName="detailsEmploi" type="text" placeholder="Entrez votre détails d'emploi">
+  </div>
+  <div class="col-md-6">
+    <label class="input_label"for="descriptionPoste">Description du poste</label>
+
+    <textarea id="descriptionPoste" formControlName="descriptionPoste" placeholder="Entrez votre description..."></textarea>
+  </div>
+  <div class="col-12 text-center">
+    <button type="submit" class="btn btn-primary mt-3">Ajouter l'offre</button>
+  </div>
+</form>

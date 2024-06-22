@@ -1,0 +1,86 @@
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.loading-container .loading-text {
+  font-size: 2rem;
+  color: #4a86e8;
+  animation: rotate 2s linear infinite;
+}
+
+.error-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.error-container .error-text {
+  font-size: 2rem;
+  color: #dc3545;
+}
+
+.absences-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.absences-container .absences-title {
+  font-size: 2.5rem;
+  color: #4a86e8;
+  margin-bottom: 1rem;
+}
+
+.absences-container .absences-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.absences-container .absence-item {
+  border-bottom: 1px solid #e9ecef;
+  padding: 1rem 0;
+}
+
+.absences-container .absence-item:last-child {
+  border-bottom: none;
+}
+
+.absences-container .absence-info {
+  margin-bottom: 0.5rem;
+}
+
+.absences-container .absence-info .absence-label {
+  display: inline-block;
+  width: 120px;
+  font-weight: bold;
+  color: #6c757d;
+}
+
+.absences-container .absence-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.absences-container .absence-actions .accept-button,
+.absences-container .absence-actions .reject-button {
+  background-color: #4a86e8;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-size: 0.8rem;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 1rem;
+}
+
+.absences-container .absence-actions .accept-button:hover,
+.absences-container .absence-actions .reject-button:hover {
+  background-color: #3b6de3;
+}
